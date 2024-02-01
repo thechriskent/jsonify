@@ -50,6 +50,12 @@ export function activate(context: vscode.ExtensionContext) {
 				switch (elmType) {
 					case 'rect':
 						d = svgRectToPathD(node.attributes.x, node.attributes.y, node.attributes.width, node.attributes.height, node.attributes.rx, node.attributes.ry);
+						//excess style cleanup
+						delete path[0].style.width;
+						delete path[0].style.height;
+						if (Object.keys(path[0].style).length === 0) {
+							delete path[0].style;
+						}
 						break;
 					case 'circle':
 						d = svgCircleToPathD(node.attributes.cx, node.attributes.cy, node.attributes.r);
@@ -157,20 +163,25 @@ export function activate(context: vscode.ExtensionContext) {
 		return vscode.window.showTextDocument(doc);
 	};
 
+	const toFormatFull = async (content: string): Promise<void> => {
+		const json = await textToXML(content);
+		newEditorWithContent(json)
+			.catch((error) => {
+				vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
+			});
+	}
 
-	let disposable = vscode.commands.registerCommand('jsonify.toFormatFull_Explorer', async () => {
+
+	let disposable = vscode.commands.registerCommand('jsonify.toFormatFull_Explorer', async (uri: vscode.Uri) => {
 		// Executed from the Explorer
-		vscode.window.showInformationMessage('Magic coming soon from here!');
+		const document = await vscode.workspace.openTextDocument(uri);
+		toFormatFull(document.getText());
+
 	});
 
 	const disposable2 = vscode.commands.registerTextEditorCommand('jsonify.toFormatFull_Editor', async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
 		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html') {
-			const content = textEditor.document.getText();
-			const json = await textToXML(content);
-			newEditorWithContent(json)
-				.catch((error) => {
-					vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
-				});
+			toFormatFull(textEditor.document.getText());
 		} else {
 			vscode.window.showErrorMessage('This command only works with SVG and HTML files');
 		}

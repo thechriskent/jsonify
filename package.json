@@ -15,7 +15,8 @@
     "commands": [
       {
         "command": "jsonify.toFormatFull_Editor",
-        "title": "Convert to SP List Format"
+        "title": "Convert to SP List Format",
+        "when": "editorLangId == svg"
       },
       {
         "command": "jsonify.toFormatFull_Explorer",

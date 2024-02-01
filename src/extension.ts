@@ -34,10 +34,6 @@ export function activate(context: vscode.ExtensionContext) {
 						childElements.push(...elements);
 					}
 				});
-			// const elements = processElementNode(elmType, children[elmType][0]);
-			// if (elements && elements.length) {
-			// 	childElements.push(...elements);
-			// }
 		});
 		return childElements;
 	}
@@ -163,33 +159,95 @@ export function activate(context: vscode.ExtensionContext) {
 		return vscode.window.showTextDocument(doc);
 	};
 
-	const toFormatFull = async (content: string): Promise<void> => {
+	/**
+	 * Converts the given content to a JSON object and then formats it
+	 * @param content the content to be formatted
+	 * @param textEditor the text editor to be updated with the formatted content (if not supplied, a new editor will be created with the formatted content)
+	 * @returns The updated Text Editor object
+	 */
+	const toFormatFull = async (content: string, textEditor?: vscode.TextEditor): Promise<vscode.TextEditor | undefined> => {
 		const json = await textToXML(content);
-		newEditorWithContent(json)
-			.catch((error) => {
+		if (typeof textEditor === 'undefined') {
+			try {
+				console.log('NEW EDITOR');
+				return await newEditorWithContent(json);	
+			} catch(error) {
 				vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
+				throw error;
+			};
+		} else {
+			console.log('EDITOR REUSE');
+			await textEditor.edit((editBuilder) => {
+				const firstLine = textEditor.document.lineAt(0);
+				const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
+				const fullRange = new vscode.Range(firstLine.range.start, lastLine.range.end);
+				editBuilder.replace(fullRange, json);
 			});
+			return textEditor;
+		}
 	}
 
 
+	// FILE EXPLORER CONTEXT MENU
 	let disposable = vscode.commands.registerCommand('jsonify.toFormatFull_Explorer', async (uri: vscode.Uri) => {
 		// Executed from the Explorer
 		const document = await vscode.workspace.openTextDocument(uri);
-		toFormatFull(document.getText());
-
+		await toFormatFull(document.getText());
 	});
 
+	// EDITOR CONTEXT MENU
 	const disposable2 = vscode.commands.registerTextEditorCommand('jsonify.toFormatFull_Editor', async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
 		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html') {
-			toFormatFull(textEditor.document.getText());
+			await toFormatFull(textEditor.document.getText());
 		} else {
 			vscode.window.showErrorMessage('This command only works with SVG and HTML files');
 		}
 	});
 
+	// LIVE EDITOR CONTEXT MENU
+	// let watcher: vscode.Disposable | undefined;
+	// let watchedEditor: vscode.TextEditor | undefined;
+	// const disposable3 = vscode.commands.registerTextEditorCommand('jsonify.toFormatFull_EditorLive', async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
+	// 	if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html') {
+
+	// 		if (watcher) {
+	// 			//Clean up the old watcher
+	// 			watcher.dispose();
+	// 		}
+
+	// 		watchedEditor = await toFormatFull(textEditor.document.getText(), watchedEditor);
+			
+	// 		watcher = vscode.workspace.onDidChangeTextDocument( async (e) => {
+	// 			if (e.document === textEditor.document) {
+	// 				console.log('wowee');
+	// 				watchedEditor = await toFormatFull(textEditor.document.getText(), watchedEditor);
+	// 			}
+	// 		});
+	// 		context.subscriptions.push(watcher);
+			
+	// 		//toFormatFull(textEditor.document.getText());
+	// 	} else {
+	// 		vscode.window.showErrorMessage('This command only works with SVG and HTML files');
+	// 	}
+	// });
+
+	//Register the commands for proper disposal
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disposable2);
+	//context.subscriptions.push(disposable3);
 }
 
 // This method is called when your extension is deactivated
 export function deactivate() { }
+
+// {
+// 	"command": "jsonify.toFormatFull_EditorLive",
+// 	"title": "Synchronize to List Format",
+// 	"when": "editorLangId == svg"
+// }
+
+// {
+// 	"when": "resourceLangId == svg",
+// 	"command": "jsonify.toFormatFull_EditorLive",
+// 	"group": "1_modification"
+//}

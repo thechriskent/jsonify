@@ -21,25 +21,39 @@ export function activate(context: vscode.ExtensionContext) {
 	 * @returns The updated Text Editor object
 	 */
 	const toFormatFull = async (content: string, textEditor?: vscode.TextEditor): Promise<vscode.TextEditor | undefined> => {
-		const json = await XMLToSPFormat(content);
-		if (typeof textEditor === 'undefined') {
-			// Create a new editor with the formatted JSON
-			try {
-				return await newEditorWithContent(json);
-			} catch (error) {
-				vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
-				throw error;
-			};
-		} else {
-			// Resuse the given editor			
-			const editor = await vscode.window.showTextDocument(textEditor.document, vscode.ViewColumn.Beside);
-			await editor.edit((editBuilder) => {
-				const firstLine = editor.document.lineAt(0);
-				const lastLine = editor.document.lineAt(editor.document.lineCount - 1);
-				const fullRange = new vscode.Range(firstLine.range.start, lastLine.range.end);
-				editBuilder.replace(fullRange, json);
-			});
-			return editor;
+		let json: string ='';
+		try {
+			json = await XMLToSPFormat(content);
+		} catch (error) {
+			if(typeof textEditor === 'undefined'){
+				vscode.window.showErrorMessage('Unable to covert to SP format 😢: ' + error);
+			}// else swallow the error and keep the current editor content
+		}
+		try {
+			if(json.length > 0) {
+				if (typeof textEditor === 'undefined') {
+					// Create a new editor with the formatted JSON
+					try {
+						return await newEditorWithContent(json);
+					} catch (error) {
+						vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
+						throw error;
+					};
+				} else {
+					// Resuse the given editor			
+					const editor = await vscode.window.showTextDocument(textEditor.document, vscode.ViewColumn.Beside, true);
+					await editor.edit((editBuilder) => {
+						const firstLine = editor.document.lineAt(0);
+						const lastLine = editor.document.lineAt(editor.document.lineCount - 1);
+						const fullRange = new vscode.Range(firstLine.range.start, lastLine.range.end);
+						editBuilder.replace(fullRange, json);
+					});
+					return editor;
+				}
+			}
+		}
+		catch (error) {
+			vscode.window.showErrorMessage('Unable to create/access editor: ' + error);
 		}
 	}
 
@@ -54,30 +68,68 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// TEXT EDITOR CONTEXT MENU
 	// Resues editor windows with the formatted content when possible (1 per file)
-	const editorMap: { [key: string]: vscode.TextEditor } = {};
-	const comReg_toFormat_Editor = vscode.commands.registerTextEditorCommand('jsonify.toFormat_Editor', async (textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
-		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html') {
-			const editorId = textEditor.document.uri.toString();
-			let shouldCreateNew = true;
-			if (editorId in editorMap) {
-				//Reusing a previous editor
-				const editor = editorMap[editorId];
-				if (typeof editor !== 'undefined' && !editor.document.isClosed) {
-					shouldCreateNew = false;
-					const maybeNewEditor = await toFormatFull(textEditor.document.getText(), editor);
-					if (typeof maybeNewEditor !== 'undefined') {
-						// save the potentially updated reference
-						editorMap[editorId] = maybeNewEditor;
-					}
+	const editorMap: { [key: string]: {editor: vscode.TextEditor, live: boolean }} = {};
+	const closeListener = vscode.workspace.onDidCloseTextDocument((doc) => {
+		const closedEditorId = doc.uri.toString();
+		console.log('Closed editor: ' + closedEditorId);
+		if(closedEditorId in editorMap){
+			//This was a source editor, so remove it from the list
+			delete editorMap[closedEditorId];
+		} else {
+			//Cleanup closed target editors
+			const sourceEditorIds: string[] = [];
+			Object.keys(editorMap).forEach((key) => {
+				const targetEditorid = editorMap[key].editor.document.uri.toString();
+				if(closedEditorId === targetEditorid){
+					sourceEditorIds.push(key);
 				}
+			});
+			sourceEditorIds.forEach((key) => {
+				delete editorMap[key];
+			});
+		
+		}
+	});
+
+	const changeListener: vscode.Disposable = vscode.workspace.onDidChangeTextDocument((event) => {
+		const sourceEditorId = event.document.uri.toString();
+		if(sourceEditorId in editorMap){
+			if(editorMap[sourceEditorId].live){
+				mapFormatEditorWindow(sourceEditorId, event.document.getText());
 			}
-			if (shouldCreateNew) {
-				//New target editor
-				const newEditor = await toFormatFull(textEditor.document.getText());
+		}
+	});
+
+	const mapFormatEditorWindow = async (sourceEditorId: string, content: string): Promise<void> => {
+		let shouldCreateNew = true;
+		if (sourceEditorId in editorMap) {
+			//Reusing a previous editor
+			const targetEditorEntry = editorMap[sourceEditorId];
+			const targetEditor = targetEditorEntry.editor;
+			if (typeof targetEditor !== 'undefined' && !targetEditor.document.isClosed) {
+				shouldCreateNew = false;
+				const newEditor = await toFormatFull(content, targetEditor);
 				if (typeof newEditor !== 'undefined') {
-					editorMap[editorId] = newEditor;
+					// save the potentially updated reference
+					editorMap[sourceEditorId] = {editor: newEditor, live: targetEditorEntry.live};
 				}
 			}
+		}
+		if (shouldCreateNew) {
+			//New target editor
+			const newEditor = await toFormatFull(content);
+			if (typeof newEditor !== 'undefined') {
+				editorMap[sourceEditorId] = {
+					editor: newEditor,
+					live: vscode.workspace.getConfiguration('jsonify').get('liveUpdates', true),
+				};
+			}
+		}
+	}
+
+	const comReg_toFormat_Editor = vscode.commands.registerTextEditorCommand('jsonify.toFormat_Editor', async (textEditor: vscode.TextEditor) => {
+		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html') {
+			mapFormatEditorWindow(textEditor.document.uri.toString(), textEditor.document.getText());
 		} else {
 			vscode.window.showErrorMessage('This command only works with SVG and HTML files');
 		}
@@ -86,6 +138,8 @@ export function activate(context: vscode.ExtensionContext) {
 	//Register the commands for proper disposal
 	context.subscriptions.push(comReg_toFormat_Explorer);
 	context.subscriptions.push(comReg_toFormat_Editor);
+	context.subscriptions.push(closeListener);
+	context.subscriptions.push(changeListener);
 }
 
-export function deactivate() { }
+export function deactivate() {}

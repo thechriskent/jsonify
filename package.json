@@ -2,7 +2,7 @@
   "name": "jsonify",
   "displayName": "jsonify",
   "description": "Converts SVG files to SharePoint List Formatting JSON",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -61,6 +61,16 @@
           "group": "1_modification"
         }
       ]
+    },
+    "configuration": {
+      "title": "jsonify",
+      "properties": {
+        "jsonify.liveUpdates": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, changes to the source file will automatically show up in the output JSON window."
+        }
+      }
     }
   },
   "scripts": {

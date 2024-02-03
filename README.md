@@ -53,7 +53,7 @@ Initial release of SVG functionality
 #### Features Birthed
 
 - New formats now open __beside__ the target file rather than directly next to it which makes it easier to see the before and after
-- Choosing `Convert to SP Format` will reuse a previous window (if it exists) rather than continually make new ones (choosing the command from the exporer menu will always create a new window)
+- Choosing `Convert to SP Format` will reuse a previous window (if it exists) rather than continually make new ones (choosing the command from the explorer menu will always create a new window)
 - Added activation events for commands to support older versions of VS Code
 - When `jsonify.liveUpdates` is enabled (default), changes to the original file will be automatically reflected in the generated format (until closed or saved)
 

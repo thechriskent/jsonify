@@ -6,8 +6,16 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "preview": true,
   "categories": [
-    "Other"
+    "Formatters"
+  ],
+  "keywords": [
+    "json",
+    "svg",
+    "sharepoint",
+    "list",
+    "formatting"
   ],
   "repository": {
     "type": "git",
@@ -16,32 +24,40 @@
   "author": {
     "name": "Chris Kent"
   },
-  "activationEvents": [],
+  "icon": "assets/jsonify.png",
+  "pricing": "Free",
+  "publisher": "thechriskent",
+  "activationEvents": [
+    "onCommand:jsonify.toFormat_Editor",
+    "onCommand:jsonify.toFormat_Explorer"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "jsonify.toFormatFull_Editor",
+        "command": "jsonify.toFormat_Editor",
         "title": "Convert to SP List Format",
+        "category": "jsonify",
         "when": "editorLangId == svg"
       },
       {
-        "command": "jsonify.toFormatFull_Explorer",
-        "title": "Convert to SP List Format"
+        "command": "jsonify.toFormat_Explorer",
+        "title": "Convert to SP List Format",
+        "category": "jsonify"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "when": "resourceLangId == svg",
-          "command": "jsonify.toFormatFull_Editor",
+          "command": "jsonify.toFormat_Editor",
           "group": "1_modification"
         }
       ],
       "explorer/context": [
         {
           "when": "resourceLangId == svg",
-          "command": "jsonify.toFormatFull_Explorer",
+          "command": "jsonify.toFormat_Explorer",
           "group": "1_modification"
         }
       ]

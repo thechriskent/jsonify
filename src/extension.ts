@@ -128,7 +128,8 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	const comReg_toFormat_Editor = vscode.commands.registerTextEditorCommand('jsonify.toFormat_Editor', async (textEditor: vscode.TextEditor) => {
-		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html') {
+		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html'
+			|| textEditor.document.fileName.match(/\.(svg|htm|html)$/i)){
 			mapFormatEditorWindow(textEditor.document.uri.toString(), textEditor.document.getText());
 		} else {
 			vscode.window.showErrorMessage('This command only works with SVG and HTML files');

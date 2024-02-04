@@ -27,18 +27,14 @@
   "icon": "assets/jsonify.png",
   "pricing": "Free",
   "publisher": "thechriskent",
-  "activationEvents": [
-    "onCommand:jsonify.toFormat_Editor",
-    "onCommand:jsonify.toFormat_Explorer"
-  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "jsonify.toFormat_Editor",
         "title": "Convert to SP List Format",
-        "category": "jsonify",
-        "when": "editorLangId == svg"
+        "category": "jsonify"
       },
       {
         "command": "jsonify.toFormat_Explorer",
@@ -49,9 +45,9 @@
     "menus": {
       "editor/context": [
         {
-          "when": "resourceLangId == svg",
           "command": "jsonify.toFormat_Editor",
-          "group": "1_modification"
+          "group": "1_modification",
+          "when": "resourceLangId == svg || resourceFilename =~ /.*\\.(svg)$/"
         }
       ],
       "explorer/context": [
@@ -59,6 +55,16 @@
           "when": "resourceLangId == svg",
           "command": "jsonify.toFormat_Explorer",
           "group": "1_modification"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "jsonify.toFormat_Editor",
+          "when": "resourceLangId == svg || resourceFilename =~ /.*\\.(svg)$/"
+        },
+        {
+          "command": "jsonify.toFormat_Explorer",
+          "when": "false"
         }
       ]
     },

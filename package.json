@@ -26,6 +26,7 @@
   },
   "icon": "assets/jsonify.png",
   "pricing": "Free",
+  "license": "MIT",
   "publisher": "thechriskent",
   "activationEvents": [],
   "main": "./dist/extension.js",

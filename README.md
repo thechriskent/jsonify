@@ -5,15 +5,13 @@ jsonify lets you instantly convert SVG files to [**Microsoft SharePoint List For
 ## Features
 
 - Maps all supported attributes and styles
-- Automatically converts common shapes (rect, circle, ellipse, line, polyline, and polygon) to paths
-- Collapses element groups
-- Generated formats are kept in sync with your original file _(until you save or close them)_[^1]
+- Automatically converts common shapes _(`rect`, `circle`, `ellipse`, `line`, `polyline`, and `polygon`)_ to paths
+- Collapses element groups (`g`)
+- Generated formats are kept in sync with your original file _(until you save or close them)_
 
 Just open an SVG file, right click and choose `Convert to SP List Format` to have a new window open with a column format that will display your SVG.
 
 ![jsonify in action](./assets/jsonify.gif)
-
-[^1]: `jsonify.liveUpdates` must be set to `true`
 
 
 ## Requirements
@@ -41,10 +39,10 @@ Toggle the setting on or off as desired.
 
 This is in very early preview, so please report any issues that come up. But here's a few off the top of my head:
 
-- Style elements are ignored (inline styles are mapped)
-- Classes aren't filtered (all are passed through regardless of effect)
+- Style elements are ignored _(inline styles are mapped)_
+- Classes aren't filtered _(all are passed through regardless of effect)_
 - Some CSS styles aren't fully filtered
 
 ## Release Notes
 
-All details can be found in the jsonify [CHANGELOG](./CHANGELOG.md)
+All details can be found in the jsonify [CHANGELOG](https://marketplace.visualstudio.com/items/theChrisKent.jsonify/changelog)

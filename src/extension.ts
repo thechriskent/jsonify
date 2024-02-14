@@ -21,6 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 	 * @returns The updated Text Editor object
 	 */
 	const toFormatFull = async (content: string, textEditor?: vscode.TextEditor): Promise<vscode.TextEditor | undefined> => {
+		let errorShown = false;
 		let json: string ='';
 		try {
 			const result = await XMLToSPFormat(content);
@@ -28,6 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 		} catch (error) {
 			if(typeof textEditor === 'undefined'){
 				vscode.window.showErrorMessage('Unable to covert to SP format 😢: ' + error);
+				errorShown = true;
 			}// else swallow the error and keep the current editor content
 		}
 		try {
@@ -38,6 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
 						return await newEditorWithContent(json);
 					} catch (error) {
 						vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
+						errorShown = true;
 						throw error;
 					};
 				} else {
@@ -52,7 +55,9 @@ export function activate(context: vscode.ExtensionContext) {
 					return editor;
 				}
 			} else {
-				vscode.window.showErrorMessage('Unable to format the content 😢');
+				if(!errorShown){
+					vscode.window.showErrorMessage('Unable to format the content 😢');
+				}
 			}
 		}
 		catch (error) {

@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### ➕ Added
 
 - Added activation events for commands to support older versions of VS Code
-- Configuration setting: `jsonify.liveUpdates` defaults to `true` (see [README](README.md)) for details
+- Configuration setting: `jsonify.liveUpdates` defaults to `true` (see [README](https://marketplace.visualstudio.com/items?itemName=theChrisKent.jsonify)) for details
 
 ### 🔨 Fixed
 

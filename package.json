@@ -87,7 +87,8 @@
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "copy-test-data": "shx cp -r src/test/data out/test/data",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint && npm run copy-test-data",
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },
@@ -101,6 +102,7 @@
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
+    "shx": "^0.3.4",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.0",

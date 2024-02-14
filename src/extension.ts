@@ -58,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
 		catch (error) {
 			vscode.window.showErrorMessage('Unable to create/access editor: ' + error);
 		}
-	}
+	};
 
 	// FILE EXPLORER CONTEXT MENU
 	// Always creates a new editor with the formatted content
@@ -128,7 +128,7 @@ export function activate(context: vscode.ExtensionContext) {
 				};
 			}
 		}
-	}
+	};
 
 	const comReg_toFormat_Editor = vscode.commands.registerTextEditorCommand('jsonify.toFormat_Editor', async (textEditor: vscode.TextEditor) => {
 		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html'

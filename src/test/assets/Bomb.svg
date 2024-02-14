@@ -1,0 +1,10 @@
+<svg viewBox="0 0 100 100">
+    <rect x="35" y="0" width="30" height="20" fill="#323130"/>
+    <circle cx="50" cy="50" r="40" fill="#201f1e" />
+    <ellipse cx="50" cy="12" rx="15" ry="5" fill="#323130" />
+    <circle cx="40" cy="40" r="15" fill="#3b3a39" fill-opacity=".5" />
+    <polygon points="0,75 10,100 20,75 10,50" fill="#5D3B21" stroke="#291A0E"/>
+    <polyline points="80,75 90,100 100,75 90,50 80,75" fill="#5D3B21" stroke="#291A0E"/>
+    <line x1="37.5" y1="85" x2="62.5" y2="85" stroke="#A96B3C"/>
+    <text x="50" y="60" font-size="20" text-anchor="middle" dominant-baseline="middle" style="fill:#DAA520;">Wowee</text>
+</svg>

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "svg",
+  "attributes": {
+    "viewBox": "0 0 100 100"
+  },
+  "children": [
+    {
+      "elmType": "path",
+      "style": {
+        "fill": "#323130"
+      },
+      "attributes": {
+        "d": "M 35 0 h 30 a 0 0 0 0 1 0 0 v 20 a 0 0 0 0 1 -0 0 h -30 a 0 0 0 0 1 -0 -0 v -20 a 0 0 0 0 1 0 -0"
+      }
+    },
+    {
+      "elmType": "path",
+      "style": {
+        "fill": "#201f1e"
+      },
+      "attributes": {
+        "d": "M10,50a40,40 0 1,0 80,0a40,40 0 1,0 -80,0"
+      }
+    },
+    {
+      "elmType": "path",
+      "style": {
+        "fill": "#3b3a39",
+        "fill-opacity": ".5"
+      },
+      "attributes": {
+        "d": "M25,40a15,15 0 1,0 30,0a15,15 0 1,0 -30,0"
+      }
+    },
+    {
+      "elmType": "path",
+      "style": {
+        "fill": "#323130"
+      },
+      "attributes": {
+        "d": "M 35 12 a 15 5 0 1 0 30 0 a 15 5 0 1 0 -30 0"
+      }
+    },
+    {
+      "elmType": "path",
+      "style": {
+        "fill": "#5D3B21",
+        "stroke": "#291A0E"
+      },
+      "attributes": {
+        "d": "M 0 75 L 10 100 L 20 75 L 10 50 Z"
+      }
+    },
+    {
+      "elmType": "path",
+      "style": {
+        "fill": "#5D3B21",
+        "stroke": "#291A0E"
+      },
+      "attributes": {
+        "d": "M 80 75 L 90 100 L 100 75 L 90 50 L 80 75"
+      }
+    },
+    {
+      "elmType": "path",
+      "style": {
+        "stroke": "#A96B3C"
+      },
+      "attributes": {
+        "d": "M 37.5 85 L 62.5 85"
+      }
+    }
+  ]
+}

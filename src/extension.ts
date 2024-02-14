@@ -23,7 +23,8 @@ export function activate(context: vscode.ExtensionContext) {
 	const toFormatFull = async (content: string, textEditor?: vscode.TextEditor): Promise<vscode.TextEditor | undefined> => {
 		let json: string ='';
 		try {
-			json = await XMLToSPFormat(content);
+			const result = await XMLToSPFormat(content);
+			json = result.format;
 		} catch (error) {
 			if(typeof textEditor === 'undefined'){
 				vscode.window.showErrorMessage('Unable to covert to SP format 😢: ' + error);

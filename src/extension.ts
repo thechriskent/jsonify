@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}// else swallow the error and keep the current editor content
 		}
 		try {
-			if(json.length > 0) {
+			if(typeof json !== "undefined" && json.length > 0) {
 				if (typeof textEditor === 'undefined') {
 					// Create a new editor with the formatted JSON
 					try {
@@ -50,6 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
 					});
 					return editor;
 				}
+			} else {
+				vscode.window.showErrorMessage('Unable to format the content 😢');
 			}
 		}
 		catch (error) {

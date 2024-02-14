@@ -20,7 +20,7 @@ suite('jsonify Tests - Wowee!', () => {
   // Tests for the XMLToSPFormat function
   test('XMLToSPFormat - Invalid XML (throws exception)', async () => {
     const invalidXML = '<invalid></xml>';
-    await assert.rejects(XMLToSPFormat(invalidXML), /^Error: Unexpected close tag\nLine: 0\nColumn: 15\nChar: >$/);
+    await assert.rejects(XMLToSPFormat(invalidXML), /^Error: Unexpected close tag\nLine: 0\nColumn: 24\nChar: >$/);
   });
 
   // Tests file conversions to formats
@@ -31,7 +31,8 @@ suite('jsonify Tests - Wowee!', () => {
   const formatMaps: IFormatTest[] = [
     { source:'FangBody.svg', note: 'Simple SVG' },
     { source:'Bomb.svg', note: 'SVG Shapes'},
-    { source:'htmlFullBasic.html', note: 'Basic Elements' },
+    { source:'htmlFullBasic.html', note: 'Basic Elements in HTML' },
+    { source:'htmlSnippetBasic.html', note: 'Basic Elements loose' },
   ];
 
   formatMaps.forEach((formatMap: IFormatTest) => {

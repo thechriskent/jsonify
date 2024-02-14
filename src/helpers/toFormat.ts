@@ -10,16 +10,31 @@ const validAttributes = ['href', 'src', 'class', 'id', 'target', 'role', 'd', 'i
 const validStyles = ['background-color', 'fill', 'background-image', 'border', 'border-bottom', 'border-bottom-color', 'border-bottom-style', 'border-bottom-width', 'border-color', 'border-left', 'border-left-color', 'border-left-style', 'border-left-width', 'border-right', 'border-right-color', 'border-right-style', 'border-right-width', 'border-style', 'border-top', 'border-top-color', 'border-top-style', 'border-top-width', 'border-width', 'outline', 'outline-color', 'outline-style', 'outline-width', 'border-bottom-left-radius', 'border-bottom-right-radius', 'border-radius', 'border-top-left-radius', 'border-top-right-radius', 'box-decoration-break', 'box-shadow', 'box-sizing', 'overflow-x', 'overflow-y', 'overflow-style', 'rotation', 'rotation-point', 'opacity', 'cursor', 'height', 'max-height', 'max-width', 'min-height', 'min-width', 'width', 'flex-grow', 'flex-shrink', 'flex-flow', 'flex-direction', 'flex-wrap', 'flex-basis', 'flex', 'justify-content', 'align-items', 'align-self', 'box-align', 'box-direction', 'box-flex', 'box-flex-group', 'box-lines', 'box-ordinal-group', 'box-orient', 'box-pack', 'font', 'font-family', 'font-size', 'font-style', 'font-variant', 'font-weight', 'font-size-adjust', 'font-stretch', 'grid-columns', 'grid-rows', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'padding', 'padding-bottom', 'padding-left', 'padding-right', 'padding-top', 'bottom', 'clear', 'clip', 'display', 'float', 'left', 'overflow', 'position', 'right', 'top', 'visibility', 'z-index', 'border-collapse', 'border-spacing', 'caption-side', 'empty-cells', 'table-layout', 'color', 'direction', 'letter-spacing', 'line-height', 'text-align', 'text-decoration', 'text-indent', 'text-transform', 'unicode-bidi', 'vertical-align', 'white-space', 'word-spacing', 'hanging-punctuation', 'punctuation-trim', 'text-align-last', 'text-justify', 'text-outline', 'text-shadow', 'text-wrap', 'word-break', 'word-wrap', 'text-overflow', '--inline-editor-border-width', '--inline-editor-border-style', '--inline-editor-border-radius', '--inline-editor-border-color', 'stroke', 'fill-opacity', '-webkit-line-clamp', 'object-fit', 'transform'];
 const collapsibleElmTypes = ['g','html'];
 
+// The actual naming of these values is determined by the parser configuration key values
+declare interface IMappedNode {
+    attributes?: any;
+    children?: any;
+    text?: string;
+}
+
 const XMLToSPFormat = async (xmlText: string): Promise<{format:string;warnings:string[]}> => {
     const parser = new xml2js.Parser({
-        normalizeTags: true,
-        explicitChildren: true,
-        attrkey: 'attributes',
-        childkey: 'children',
-        charkey: 'text',
-        explicitCharkey: true,
+        normalizeTags: true,        // Normalize all tag names to lowercase.
+        explicitChildren: true,     // Put child elements to separate property
+        explicitCharkey: true,      // Ensures there's always a char key even if no text content
+        attrkey: 'attributes',      // Key in the result for the attributes (needs to match IMappedNode)
+        childkey: 'children',       // Key in the result for the children (needs to match IMappedNode)
+        charkey: 'text',            // Key in the result text content (needs to match IMappedNode)
     });
-    const xmlObject = await parser.parseStringPromise(xmlText);
+    let xmlObject;
+    if(xmlText.startsWith('<!DOCTYPE ')) {
+        //You got a DOCTYPE, so we're assuming it's a full XML doc with a root element
+        const rawObject = await parser.parseStringPromise(xmlText);
+        xmlObject = rawObject[Object.keys(rawObject)[0]]; //Point to that first element
+    } else {
+        //Assume it could be any XML including a snippet without root elements, so we wrap it then unwrap it
+        xmlObject = (await parser.parseStringPromise(`<jsonify>${xmlText}</jsonify>`)).jsonify;
+    }
     const columnFormat = columnFormatFromXML(xmlObject);
     const warnings: string[] = []; //TODO: Bubble up warnings for things like unsupported elements like <text>
     return {
@@ -41,7 +56,7 @@ const processChildren = (children: any): IFormatElement[] => {
     return childElements;
 };
 
-const transformElement = (elmType: string, node: { attributes?: any, children?: any }): IFormatElement[] | undefined => {
+const transformElement = (elmType: string, node: IMappedNode): IFormatElement[] | undefined => {
 
     //SVG Shapes to Path
     if (svgShapesToPath.includes(elmType)) {
@@ -93,7 +108,7 @@ const transformElement = (elmType: string, node: { attributes?: any, children?: 
     }
 };
 
-const processElementNode = (elmType: string, node: { attributes?: any, children?: any, text?: string }): IFormatElement[] | undefined => {
+const processElementNode = (elmType: string, node: IMappedNode): IFormatElement[] | undefined => {
     if (!validElmTypes.includes(elmType)) {
         if (transformableElmTypes.includes(elmType)) {
             return transformElement(elmType, node);
@@ -152,13 +167,31 @@ const processElementNode = (elmType: string, node: { attributes?: any, children?
     return [element];
 };
 
-const columnFormatFromXML = (xmlObject: any): IColumnFormat | undefined => {
-    const elmType = Object.keys(xmlObject)[0] || 'unknown';
-    const extractedElement = processElementNode(elmType, xmlObject[elmType]);
-    if (extractedElement && extractedElement.length >= 1) {
+const columnFormatFromXML = (xmlObject: IMappedNode): IColumnFormat | undefined => {
+    const childCount = xmlObject.children ? Object.keys(xmlObject.children).length : 0;
+    if (childCount > 1) {
+        //More than one child, so we'll need to put them in a wrapper element
+        const extractedElements = processChildren(xmlObject.children);
         const columnFormat: IColumnFormat = {
             "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
-            ...extractedElement[0]
+            "elmType": "div",
+            "children": extractedElements,
+        };
+        return columnFormat;
+    } else if (childCount === 1) {
+        const extractedElements = processChildren(xmlObject.children);
+        if (extractedElements && extractedElements.length >= 1) {
+            const columnFormat: IColumnFormat = {
+                "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+                ...extractedElements[0]
+            };
+            return columnFormat;
+        }
+    } else if (xmlObject.text && xmlObject.text.length > 0) {
+        const columnFormat: IColumnFormat = {
+            "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+            "elmType": "div",
+            "txtContent": xmlObject.text,
         };
         return columnFormat;
     }

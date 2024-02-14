@@ -1,4 +1,5 @@
 import * as xml2js from 'xml2js';
+import * as css from 'css';
 import { IColumnFormat, IFormatElement } from '../models';
 import { svgCircleToPathD, svgEllipseToPathD, svgLineToPathD, svgPolyToPathD, svgRectToPathD } from './svgTransforms';
 
@@ -17,6 +18,14 @@ declare interface IMappedNode {
     text?: string;
 }
 
+const styleElementProcessor = (value: any, name: string): any => {
+    if (name === 'style') {
+        const styles = css.parse(value);
+        return JSON.stringify(styles); //To be rehydrated later
+    }
+    return value;
+};
+
 const XMLToSPFormat = async (xmlText: string): Promise<{format:string;warnings:string[]}> => {
     const parser = new xml2js.Parser({
         normalizeTags: true,        // Normalize all tag names to lowercase.
@@ -25,15 +34,19 @@ const XMLToSPFormat = async (xmlText: string): Promise<{format:string;warnings:s
         attrkey: 'attributes',      // Key in the result for the attributes (needs to match IMappedNode)
         childkey: 'children',       // Key in the result for the children (needs to match IMappedNode)
         charkey: 'text',            // Key in the result text content (needs to match IMappedNode)
+        valueProcessors: [styleElementProcessor],
     });
+    const cleanedXML = xmlText
+        .trim()
+        .replace(/<style>([\s\S]*?)<\/style>/g, '<style><![CDATA[$1]]></style>'); //Wrap style content in CDATA to prevent breaking the parser
     let xmlObject;
-    if(xmlText.startsWith('<!DOCTYPE ')) {
+    if(cleanedXML.startsWith('<!DOCTYPE ')) {
         //You got a DOCTYPE, so we're assuming it's a full XML doc with a root element
-        const rawObject = await parser.parseStringPromise(xmlText);
+        const rawObject = await parser.parseStringPromise(cleanedXML);
         xmlObject = rawObject[Object.keys(rawObject)[0]]; //Point to that first element
     } else {
         //Assume it could be any XML including a snippet without root elements, so we wrap it then unwrap it
-        xmlObject = (await parser.parseStringPromise(`<jsonify>${xmlText}</jsonify>`)).jsonify;
+        xmlObject = (await parser.parseStringPromise(`<jsonify>${cleanedXML}</jsonify>`)).jsonify;
     }
     const columnFormat = columnFormatFromXML(xmlObject);
     const warnings: string[] = []; //TODO: Bubble up warnings for things like unsupported elements like <text>

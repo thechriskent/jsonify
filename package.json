@@ -109,6 +109,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "css": "^3.0.0",
     "xml2js": "^0.6.2"
   }
 }

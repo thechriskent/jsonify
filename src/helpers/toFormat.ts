@@ -4,10 +4,11 @@ import { svgCircleToPathD, svgEllipseToPathD, svgLineToPathD, svgPolyToPathD, sv
 
 const validElmTypes = ['div', 'button', 'span', 'a', 'img', 'svg', 'path', 'filepreview', 'p'];
 const svgShapesToPath = ['rect', 'circle', 'ellipse', 'line', 'polygon', 'polyline'];
-const transformableElmTypes = [...svgShapesToPath];
+const elmsToSwapToDivs = ['body','h1'];
+const transformableElmTypes = [...svgShapesToPath, ...elmsToSwapToDivs];
 const validAttributes = ['href', 'src', 'class', 'id', 'target', 'role', 'd', 'iconName', 'rel', 'title', 'alt', 'dataInterception', 'viewBox', 'preserveAspectRatio', 'draggable'];
 const validStyles = ['background-color', 'fill', 'background-image', 'border', 'border-bottom', 'border-bottom-color', 'border-bottom-style', 'border-bottom-width', 'border-color', 'border-left', 'border-left-color', 'border-left-style', 'border-left-width', 'border-right', 'border-right-color', 'border-right-style', 'border-right-width', 'border-style', 'border-top', 'border-top-color', 'border-top-style', 'border-top-width', 'border-width', 'outline', 'outline-color', 'outline-style', 'outline-width', 'border-bottom-left-radius', 'border-bottom-right-radius', 'border-radius', 'border-top-left-radius', 'border-top-right-radius', 'box-decoration-break', 'box-shadow', 'box-sizing', 'overflow-x', 'overflow-y', 'overflow-style', 'rotation', 'rotation-point', 'opacity', 'cursor', 'height', 'max-height', 'max-width', 'min-height', 'min-width', 'width', 'flex-grow', 'flex-shrink', 'flex-flow', 'flex-direction', 'flex-wrap', 'flex-basis', 'flex', 'justify-content', 'align-items', 'align-self', 'box-align', 'box-direction', 'box-flex', 'box-flex-group', 'box-lines', 'box-ordinal-group', 'box-orient', 'box-pack', 'font', 'font-family', 'font-size', 'font-style', 'font-variant', 'font-weight', 'font-size-adjust', 'font-stretch', 'grid-columns', 'grid-rows', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'column-count', 'column-fill', 'column-gap', 'column-rule', 'column-rule-color', 'column-rule-style', 'column-rule-width', 'column-span', 'column-width', 'columns', 'padding', 'padding-bottom', 'padding-left', 'padding-right', 'padding-top', 'bottom', 'clear', 'clip', 'display', 'float', 'left', 'overflow', 'position', 'right', 'top', 'visibility', 'z-index', 'border-collapse', 'border-spacing', 'caption-side', 'empty-cells', 'table-layout', 'color', 'direction', 'letter-spacing', 'line-height', 'text-align', 'text-decoration', 'text-indent', 'text-transform', 'unicode-bidi', 'vertical-align', 'white-space', 'word-spacing', 'hanging-punctuation', 'punctuation-trim', 'text-align-last', 'text-justify', 'text-outline', 'text-shadow', 'text-wrap', 'word-break', 'word-wrap', 'text-overflow', '--inline-editor-border-width', '--inline-editor-border-style', '--inline-editor-border-radius', '--inline-editor-border-color', 'stroke', 'fill-opacity', '-webkit-line-clamp', 'object-fit', 'transform'];
-const collapsibleElmTypes = ['g'];
+const collapsibleElmTypes = ['g','html'];
 
 const XMLToSPFormat = async (xmlText: string): Promise<{format:string;warnings:string[]}> => {
     const parser = new xml2js.Parser({
@@ -15,6 +16,8 @@ const XMLToSPFormat = async (xmlText: string): Promise<{format:string;warnings:s
         explicitChildren: true,
         attrkey: 'attributes',
         childkey: 'children',
+        charkey: 'text',
+        explicitCharkey: true,
     });
     const xmlObject = await parser.parseStringPromise(xmlText);
     const columnFormat = columnFormatFromXML(xmlObject);
@@ -39,6 +42,8 @@ const processChildren = (children: any): IFormatElement[] => {
 };
 
 const transformElement = (elmType: string, node: { attributes?: any, children?: any }): IFormatElement[] | undefined => {
+
+    //SVG Shapes to Path
     if (svgShapesToPath.includes(elmType)) {
         const path = processElementNode('path', node);
         if (typeof path !== 'undefined' && path.length > 0) {
@@ -78,9 +83,17 @@ const transformElement = (elmType: string, node: { attributes?: any, children?: 
             }
         }
     }
+
+    //HTML Element Swapping
+    if (elmsToSwapToDivs.includes(elmType)) {
+        const div = processElementNode('div', node);
+        if (div && div.length > 0) {
+            return div;
+        }
+    }
 };
 
-const processElementNode = (elmType: string, node: { attributes?: any, children?: any }): IFormatElement[] | undefined => {
+const processElementNode = (elmType: string, node: { attributes?: any, children?: any, text?: string }): IFormatElement[] | undefined => {
     if (!validElmTypes.includes(elmType)) {
         if (transformableElmTypes.includes(elmType)) {
             return transformElement(elmType, node);
@@ -91,7 +104,6 @@ const processElementNode = (elmType: string, node: { attributes?: any, children?
                 if (collapsibleElmTypes.includes(elmType)) {
                     return orphans;
                 }
-                //TODO: swap logic here for like to like elements?
             }
         }
         return undefined;
@@ -131,6 +143,10 @@ const processElementNode = (elmType: string, node: { attributes?: any, children?
         if (kids.length > 0) {
             element.children = kids;
         }
+    } else if (node.text && node.text.length > 0) {
+        // We prioritize children over text, so if we have both, we ignore the text
+        // TODO: Warn about ignored text
+        element.txtContent = node.text;
     }
 
     return [element];

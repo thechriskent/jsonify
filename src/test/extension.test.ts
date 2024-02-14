@@ -30,7 +30,8 @@ suite('jsonify Tests - Wowee!', () => {
   //  The note is optional and is used to provide justification for the test
   const formatMaps: IFormatTest[] = [
     { source:'FangBody.svg', note: 'Simple SVG' },
-    { source:'Bomb.svg', note: 'SVG Shapes'}
+    { source:'Bomb.svg', note: 'SVG Shapes'},
+    { source:'htmlFullBasic.html', note: 'Basic Elements' },
   ];
 
   formatMaps.forEach((formatMap: IFormatTest) => {

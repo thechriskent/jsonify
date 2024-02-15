@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import XMLToSPFormat from './helpers/toFormat';
+import HTMLToSPFormat from './helpers/toFormat';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let errorShown = false;
 		let json: string ='';
 		try {
-			const result = await XMLToSPFormat(content);
+			const result = await HTMLToSPFormat(content);
 			json = result.format;
 		} catch (error) {
 			if(typeof textEditor === 'undefined'){

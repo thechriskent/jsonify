@@ -41,7 +41,7 @@ const HTMLToSPFormat = (htmlText: string): { format: string; warnings: string[] 
         }
     });
     root.removeWhitespace(); //Get rid of any whitespace nodes left over from formatted HTML
-    console.log(root);
+    //console.log(root);
     const columnFormat = formatFixUp(columnFormatFromHTML(root));
     const warnings: string[] = []; //TODO: Bubble up warnings for things like unsupported elements like <text>
     return {

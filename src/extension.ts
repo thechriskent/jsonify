@@ -79,7 +79,6 @@ export function activate(context: vscode.ExtensionContext) {
 	const editorMap: { [key: string]: {editor: vscode.TextEditor, live: boolean }} = {};
 	const closeListener = vscode.workspace.onDidCloseTextDocument((doc) => {
 		const closedEditorId = doc.uri.toString();
-		console.log('Closed editor: ' + closedEditorId);
 		if(closedEditorId in editorMap){
 			//This was a source editor, so remove it from the list
 			delete editorMap[closedEditorId];

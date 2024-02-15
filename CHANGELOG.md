@@ -9,9 +9,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Things & Stuff
 
-## [0.0.1](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.0.1/vspackage) - 2024-01-31
+## [0.2.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.2.0/vspackage) - 2024-02-15
 
-- Initial release (Basic SVG functionality)
+### ➕ Added
+
+- 🧬 shx as dev dependency for cross-platform file copy operations during testing
+- 🧬 Format Conversion tests for development testing
+- A bunch of unit tests, aw yeah!
+- HTML to Column Formats!
+  - Whitelisted styles/attributes/elements map directly
+  - Most other elements either resolve to a div or a span with default stylings related to their original element
+  - Inline styles and attributes as styles are supported
+
+### 🔧 Changed
+
+- Changed underlying xml parser from [xml2js](https://www.npmjs.com/package/xml2js) to [node-html-parser](https://www.npmjs.com/package/node-html-parser)
+  - Much faster (necessary for live updates on complex files)
+  - xml2js was very flexible but ultimately it was designed for xml and html is just too big a beast
+- Consistent property sort order
+  - Properties will follow the same sorting pattern between runs
+  - Style properties are grouped and sorted following the [CSScomb](https://www.npmjs.com/package/csscomb) pattern
+
+### 🔨 Fixed
+
+- Resolved issues with the VS Code test runner
+- Realized this change log was backwards, so now the latest stuff is on top 😃
+
+
+
+## [0.1.1](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.1.1/vspackage) - 2024-02-04
+
+### 🔨 Fixed
+
+- Eliminated dependency on [SVG extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
+
+### 🗑 Removed
+
+- Got rid of those activation events afterall since they're automatically added
+
+
 
 ## [0.1.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.1.0/vspackage) - 2024-02-03
 
@@ -29,12 +65,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New formats now open _beside_ the target file rather than directly next to it which makes it easier to see the before and after
 - Choosing `Convert to SP Format` will reuse a previous window (if it exists) rather than continually make new ones (choosing the command from the explorer menu will always create a new window)
 
-## [0.1.1](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.1.1/vspackage) - 2024-02-04
 
-### 🔨 Fixed
 
-- Eliminated dependency on [SVG extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
+## [0.0.1](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.0.1/vspackage) - 2024-01-31
 
-### 🗑 Removed
-
-- Got rid of those activation events afterall since they're automatically added
+- Initial release (Basic SVG functionality)

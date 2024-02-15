@@ -1,15 +1,15 @@
 # jsonify
 
-jsonify lets you instantly convert SVG files to [**Microsoft SharePoint List Formats**](https://aka.ms/spdocs-column-formatting). Right click on an SVG file and choose `Convert to SP List Format` and a new editor will open with a column format that draws your image. Wowee!
+jsonify lets you instantly convert SVG and HTML files to [**Microsoft SharePoint List Formats**](https://aka.ms/spdocs-column-formatting). Right click on an SVG or HTML file and choose `Convert to SP List Format` and a new editor will open with a column format that draws your image. As you make changes to your original file, the format will continue to update. Wowee!
 
 ## Features
 
 - Maps all supported attributes and styles
 - Automatically converts common shapes _(`rect`, `circle`, `ellipse`, `line`, `polyline`, and `polygon`)_ to paths
-- Collapses element groups (`g`)
+- Collapses element groups and other non-visual containers (ie `g`)
 - Generated formats are kept in sync with your original file _(until you save or close them)_
 
-Just open an SVG file, right click and choose `Convert to SP List Format` to have a new window open with a column format that will display your SVG.
+Just open an SVG or HTML file, right click and choose `Convert to SP List Format` to have a new window open with a column format that will render your original file as close as possible.
 
 ![jsonify in action](./assets/jsonify.gif)
 
@@ -17,6 +17,8 @@ Just open an SVG file, right click and choose `Convert to SP List Format` to hav
 ## Requirements
 
 **None** - However, works great with the [SP Formatter extension](https://marketplace.visualstudio.com/items?itemName=s-kainet.sp-formatter) to enable live previews of your SharePoint List Formats!
+
+HTML files can be fully formed HTML (with a `body` and all that stuff) or just one or more elements sitting around waiting to get formatted.
 
 ## Extension Settings
 
@@ -41,7 +43,6 @@ This is in very early preview, so please report any issues that come up. But her
 
 - Style elements are ignored _(inline styles are mapped)_
 - Classes aren't filtered _(all are passed through regardless of effect)_
-- Some CSS styles aren't fully filtered
 
 ## Release Notes
 

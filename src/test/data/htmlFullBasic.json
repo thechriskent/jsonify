@@ -2,12 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
   "elmType": "div",
   "style": {
-    "display": "block"
+    "display": "block",
+    "margin": "8px"
   },
   "children": [
     {
       "elmType": "div",
-      "txtContent": "Wowee"
+      "txtContent": "Wowee",
+      "style": {
+        "font-size": "2em",
+        "font-weight": "bold"
+      }
     },
     {
       "elmType": "div",

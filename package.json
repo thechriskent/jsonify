@@ -2,7 +2,7 @@
   "name": "jsonify",
   "displayName": "jsonify",
   "description": "Converts SVG files to SharePoint List Formatting JSON",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -53,9 +53,9 @@
       ],
       "explorer/context": [
         {
-          "when": "resourceLangId == svg",
           "command": "jsonify.toFormat_Explorer",
-          "group": "1_modification"
+          "group": "1_modification",
+          "when": "resourceLangId == svg || resourceLangId == html || resourceFilename =~ /.*\\.(svg|htm|html)$/"
         }
       ],
       "commandPalette": [

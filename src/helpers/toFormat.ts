@@ -37,7 +37,7 @@ const collapsibleElmTypes = ['', 'g', 'html'];
 const HTMLToSPFormat = (htmlText: string): { format: string; warnings: string[] } => {
     const root = parse(htmlText, {
         voidTag: {
-            tags: ['area', 'base', 'col', 'embed', 'link', 'meta', 'param', 'source', 'track', 'wbr'],
+            tags: ['base', 'embed', 'link', 'meta', 'param', 'source', 'track', 'wbr'],
         }
     });
     root.removeWhitespace(); //Get rid of any whitespace nodes left over from formatted HTML

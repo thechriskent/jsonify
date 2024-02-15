@@ -38,6 +38,7 @@ suite('jsonify Tests - Wowee!', () => {
     { source:'htmlSnippetBasic.html', note: 'Basic Elements loose' },
     { source:'htmlBoldItalic.html', note: 'span with style mapping'},
     { source:'htmlDivSwaps.html', note: 'Elements that become divs'},
+    { source:'htmlSpanSwaps.html', note: 'Elements that become spans'},
   ];
 
   formatMaps.forEach((formatMap: IFormatTest) => {

@@ -8,6 +8,10 @@ jsonify lets you instantly convert SVG and HTML files to [**Microsoft SharePoint
 - Automatically converts common shapes _(`rect`, `circle`, `ellipse`, `line`, `polyline`, and `polygon`)_ to paths
 - Collapses element groups and other non-visual containers (ie `g`)
 - Generated formats are kept in sync with your original file _(until you save or close them)_
+- Classes defined in style elements are applied and removed
+- Classes only used in selectors or applied directly to elements are maintained
+- SPFx style theme token support (instead of `color: white;` use `color: "[theme:white]";` or even `color: "[theme: themePrimary, default: #565748]"`)
+- Use formatting expressions as CSS properties and other attribute values
 
 Just open an SVG or HTML file, right click and choose `Convert to SP List Format` to have a new window open with a column format that will render your original file as close as possible.
 
@@ -41,8 +45,7 @@ Toggle the setting on or off as desired.
 
 This is in very early preview, so please report any issues that come up. But here's a few off the top of my head:
 
-- Style elements are ignored _(inline styles are mapped)_
-- Classes aren't filtered _(all are passed through regardless of effect)_
+- Linked style sheets are not evaluated
 
 ## Release Notes
 

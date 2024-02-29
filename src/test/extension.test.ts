@@ -3,12 +3,11 @@ import * as assert from 'assert';
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
 
-import XMLToSPFormat from '../helpers/toFormat';
 import * as fs from 'fs';
 import * as path from 'path';
 import HTMLToSPFormat from '../helpers/toFormat';
+
 
 declare interface IFormatTest {
   source: string;
@@ -39,6 +38,7 @@ suite('jsonify Tests - Wowee!', () => {
     { source:'htmlBoldItalic.html', note: 'span with style mapping'},
     { source:'htmlDivSwaps.html', note: 'Elements that become divs'},
     { source:'htmlSpanSwaps.html', note: 'Elements that become spans'},
+    { source:'htmlWithStyleElement.html', note: 'Style element in HTML' },
   ];
 
   formatMaps.forEach((formatMap: IFormatTest) => {
@@ -54,7 +54,7 @@ suite('jsonify Tests - Wowee!', () => {
         .replace(/\r\n/g, '\n'); // Normalize line endings
 
       // Convert the source content to the SP format and compare it to the expected content
-      const result = await XMLToSPFormat(sourceContent);
+      const result = await HTMLToSPFormat(sourceContent);
       assert.strictEqual(typeof result.format, 'string');
       assert.strictEqual(result.format.length > 0, true);
       assert.strictEqual(result.format, expectedContent);

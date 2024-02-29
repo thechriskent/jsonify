@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .small-text {
+            font-size: 10px;
+        }
+        .otherSection {
+            background-color: midnightblue;
+            color: "[theme: white]";
+        }
+        .otherSection:hover {
+            padding: 9px;
+            color: "[theme: black]";
+        }
+        .otherSection p {
+            font-style: italic;
+            font-size: 14px;
+            padding: 8px;
+        }
+        section .someSillyClass {
+            background-color: red;
+            color: "=if(@currentField == 'Yes', 'green', 'red')";
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wowee</h1>
+    <div style="border:1px solid slategrey;">
+        <span><b>Horse</b></span>
+        <span class="small-text">Neigh</span>
+    </div>
+    <section class="otherSection">
+        <h2 class="ms-fontColor-neutralPrimary randomClass ms-fontColor-themePrimary--hover">Another section</h2>
+        <p class="someSillyClass" style="padding:4px">Some text</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "block"
+  },
+  "children": [
+    {
+      "elmType": "p",
+      "children": [
+        {
+          "elmType": "span",
+          "txtContent": "Here is some text where some is "
+        },
+        {
+          "elmType": "span",
+          "txtContent": "bolded using strong",
+          "style": {
+            "font-weight": "bold"
+          }
+        },
+        {
+          "elmType": "span",
+          "txtContent": " and others are "
+        },
+        {
+          "elmType": "span",
+          "txtContent": "italicized using em",
+          "style": {
+            "font-style": "italic"
+          }
+        },
+        {
+          "elmType": "span",
+          "txtContent": "."
+        }
+      ]
+    },
+    {
+      "elmType": "p",
+      "children": [
+        {
+          "elmType": "span",
+          "txtContent": "This text has "
+        },
+        {
+          "elmType": "span",
+          "txtContent": "bold test using b",
+          "style": {
+            "font-weight": "bold"
+          }
+        },
+        {
+          "elmType": "span",
+          "txtContent": " and "
+        },
+        {
+          "elmType": "span",
+          "txtContent": "italic text using i",
+          "style": {
+            "font-style": "italic"
+          }
+        },
+        {
+          "elmType": "span",
+          "txtContent": ". Wowee!"
+        }
+      ]
+    }
+  ]
+}

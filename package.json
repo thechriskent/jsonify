@@ -2,7 +2,7 @@
   "name": "jsonify",
   "displayName": "jsonify",
   "description": "Converts SVG files to SharePoint List Formatting JSON",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -48,20 +48,20 @@
         {
           "command": "jsonify.toFormat_Editor",
           "group": "1_modification",
-          "when": "resourceLangId == svg || resourceFilename =~ /.*\\.(svg)$/"
+          "when": "resourceLangId == svg || resourceLangId == html || resourceFilename =~ /.*\\.(svg|htm|html)$/"
         }
       ],
       "explorer/context": [
         {
-          "when": "resourceLangId == svg",
           "command": "jsonify.toFormat_Explorer",
-          "group": "1_modification"
+          "group": "1_modification",
+          "when": "resourceLangId == svg || resourceLangId == html || resourceFilename =~ /.*\\.(svg|htm|html)$/"
         }
       ],
       "commandPalette": [
         {
           "command": "jsonify.toFormat_Editor",
-          "when": "resourceLangId == svg || resourceFilename =~ /.*\\.(svg)$/"
+          "when": "resourceLangId == svg || resourceLangId == html || resourceFilename =~ /.*\\.(svg|htm|hmtl)$/"
         },
         {
           "command": "jsonify.toFormat_Explorer",
@@ -87,7 +87,8 @@
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "copy-test-data": "shx cp -r src/test/data out/test",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint && npm run copy-test-data",
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },
@@ -95,18 +96,18 @@
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@types/vscode": "^1.85.0",
-    "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
+    "shx": "^0.3.4",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.0",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "xml2js": "^0.6.2"
+    "node-html-parser": "^6.1.12"
   }
 }

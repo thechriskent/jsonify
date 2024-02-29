@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import XMLToSPFormat from './helpers/toFormat';
+import HTMLToSPFormat from './helpers/toFormat';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -21,22 +21,26 @@ export function activate(context: vscode.ExtensionContext) {
 	 * @returns The updated Text Editor object
 	 */
 	const toFormatFull = async (content: string, textEditor?: vscode.TextEditor): Promise<vscode.TextEditor | undefined> => {
+		let errorShown = false;
 		let json: string ='';
 		try {
-			json = await XMLToSPFormat(content);
+			const result = await HTMLToSPFormat(content);
+			json = result.format;
 		} catch (error) {
 			if(typeof textEditor === 'undefined'){
 				vscode.window.showErrorMessage('Unable to covert to SP format 😢: ' + error);
+				errorShown = true;
 			}// else swallow the error and keep the current editor content
 		}
 		try {
-			if(json.length > 0) {
+			if(typeof json !== "undefined" && json.length > 0) {
 				if (typeof textEditor === 'undefined') {
 					// Create a new editor with the formatted JSON
 					try {
 						return await newEditorWithContent(json);
 					} catch (error) {
 						vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
+						errorShown = true;
 						throw error;
 					};
 				} else {
@@ -50,12 +54,16 @@ export function activate(context: vscode.ExtensionContext) {
 					});
 					return editor;
 				}
+			} else {
+				if(!errorShown){
+					vscode.window.showErrorMessage('Unable to format the content 😢');
+				}
 			}
 		}
 		catch (error) {
 			vscode.window.showErrorMessage('Unable to create/access editor: ' + error);
 		}
-	}
+	};
 
 	// FILE EXPLORER CONTEXT MENU
 	// Always creates a new editor with the formatted content
@@ -71,7 +79,6 @@ export function activate(context: vscode.ExtensionContext) {
 	const editorMap: { [key: string]: {editor: vscode.TextEditor, live: boolean }} = {};
 	const closeListener = vscode.workspace.onDidCloseTextDocument((doc) => {
 		const closedEditorId = doc.uri.toString();
-		console.log('Closed editor: ' + closedEditorId);
 		if(closedEditorId in editorMap){
 			//This was a source editor, so remove it from the list
 			delete editorMap[closedEditorId];
@@ -125,7 +132,7 @@ export function activate(context: vscode.ExtensionContext) {
 				};
 			}
 		}
-	}
+	};
 
 	const comReg_toFormat_Editor = vscode.commands.registerTextEditorCommand('jsonify.toFormat_Editor', async (textEditor: vscode.TextEditor) => {
 		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html'

@@ -8,6 +8,7 @@ import * as vscode from 'vscode';
 import XMLToSPFormat from '../helpers/toFormat';
 import * as fs from 'fs';
 import * as path from 'path';
+import HTMLToSPFormat from '../helpers/toFormat';
 
 declare interface IFormatTest {
   source: string;
@@ -18,9 +19,10 @@ suite('jsonify Tests - Wowee!', () => {
   vscode.window.showInformationMessage('Starting all tests.');
 
   // Tests for the XMLToSPFormat function
-  test('XMLToSPFormat - Invalid XML (throws exception)', async () => {
+  test('HTMLToSPFormat - Invalid HTML (undefined result)', async () => {
     const invalidXML = '<invalid></xml>';
-    await assert.rejects(XMLToSPFormat(invalidXML), /^Error: Unexpected close tag\nLine: 0\nColumn: 15\nChar: >$/);
+    const result = HTMLToSPFormat(invalidXML);
+    assert.equal(result.format, undefined);
   });
 
   // Tests file conversions to formats
@@ -30,11 +32,17 @@ suite('jsonify Tests - Wowee!', () => {
   //  The note is optional and is used to provide justification for the test
   const formatMaps: IFormatTest[] = [
     { source:'FangBody.svg', note: 'Simple SVG' },
-    { source:'Bomb.svg', note: 'SVG Shapes'}
+    { source:'Bomb.svg', note: 'SVG Shapes'},
+    { source:'PlainText.html', note: 'Text only' },
+    { source:'htmlFullBasic.html', note: 'Basic Elements in HTML' },
+    { source:'htmlSnippetBasic.html', note: 'Basic Elements loose' },
+    { source:'htmlBoldItalic.html', note: 'span with style mapping'},
+    { source:'htmlDivSwaps.html', note: 'Elements that become divs'},
+    { source:'htmlSpanSwaps.html', note: 'Elements that become spans'},
   ];
 
   formatMaps.forEach((formatMap: IFormatTest) => {
-    test(`XMLToSPFormat - Conversion: ${formatMap.source}${typeof formatMap.note !== 'undefined' ? ` (${formatMap.note})` : ''}`, async () => {
+    test(`HTMLToSPFormat - Conversion: ${formatMap.source}${typeof formatMap.note !== 'undefined' ? ` (${formatMap.note})` : ''}`, async () => {
       // Go find the source file and grab the contents
       const sourcePath = path.join(__dirname, 'data', formatMap.source);
       const sourceContent = fs.readFileSync(sourcePath, { encoding: 'utf8' });

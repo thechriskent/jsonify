@@ -1,0 +1,483 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "block",
+    "margin": "8px"
+  },
+  "children": [
+    {
+      "elmType": "div",
+      "txtContent": "H1",
+      "style": {
+        "font-size": "2em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "H2",
+      "style": {
+        "font-size": "1.5em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "H3",
+      "style": {
+        "font-size": "1.17em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "H4",
+      "style": {
+        "font-size": "14px",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "H5",
+      "style": {
+        "font-size": ".83em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "H6",
+      "style": {
+        "font-size": ".67em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "HEADER"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "FOOTER"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "SECTION"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "ARTICLE"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "ASIDE"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "NAV"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "MAIN"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "HGROUP"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "LAYER"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "ADDRESS",
+      "style": {
+        "font-style": "italic"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "MARQUEE",
+      "style": {
+        "display": "inline-block"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "BLOCKQUOTE"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "FIGCAPTION"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "FIGURE"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "CENTER"
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "border-width": "1px",
+        "border-style": "inset"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "VIDEO",
+      "style": {
+        "object-fit": "contain"
+      }
+    },
+    {
+      "elmType": "div",
+      "attributes": {
+        "class": "ms-borderColor-neutralLight"
+      },
+      "style": {
+        "display": "table",
+        "border-spacing": "2px",
+        "border-collapse": "separate"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "style": {
+            "display": "table-header-group",
+            "vertical-align": "middle",
+            "border-color": "inherit"
+          },
+          "children": [
+            {
+              "elmType": "div",
+              "style": {
+                "display": "table-row",
+                "vertical-align": "inherit",
+                "border-color": "inherit"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "txtContent": "HEADER A",
+                  "style": {
+                    "font-weight": "100",
+                    "display": "table-cell",
+                    "vertical-align": "inherit",
+                    "color": "#909090"
+                  }
+                },
+                {
+                  "elmType": "div",
+                  "txtContent": "HEADER B",
+                  "style": {
+                    "font-weight": "bold",
+                    "display": "table-cell",
+                    "vertical-align": "inherit"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "elmType": "div",
+          "style": {
+            "display": "table-row-group",
+            "vertical-align": "middle",
+            "border-color": "inherit"
+          },
+          "children": [
+            {
+              "elmType": "div",
+              "style": {
+                "display": "table-row",
+                "vertical-align": "inherit",
+                "border-color": "inherit"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "txtContent": "ITEM A",
+                  "style": {
+                    "display": "table-cell",
+                    "vertical-align": "inherit"
+                  }
+                },
+                {
+                  "elmType": "div",
+                  "txtContent": "ITEM B",
+                  "style": {
+                    "display": "table-cell",
+                    "vertical-align": "inherit"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "elmType": "div",
+          "style": {
+            "display": "table-footer-group",
+            "vertical-align": "middle",
+            "border-color": "inherit"
+          },
+          "children": [
+            {
+              "elmType": "div",
+              "style": {
+                "display": "table-row",
+                "vertical-align": "inherit",
+                "border-color": "inherit"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "txtContent": "FOOTER A",
+                  "style": {
+                    "display": "table-cell",
+                    "vertical-align": "inherit"
+                  }
+                },
+                {
+                  "elmType": "div",
+                  "txtContent": "FOOTER B",
+                  "style": {
+                    "display": "table-cell",
+                    "vertical-align": "inherit"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "OLIST ITEM 1",
+          "style": {
+            "display": "list-item"
+          }
+        },
+        {
+          "elmType": "div",
+          "txtContent": "OLIST ITEM 2",
+          "style": {
+            "display": "list-item"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "ULIST ITEM 1",
+          "style": {
+            "display": "list-item"
+          }
+        },
+        {
+          "elmType": "div",
+          "txtContent": "ULIST ITEM 2",
+          "style": {
+            "display": "list-item"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "txtContent": "DD"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "DL"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "FORM",
+      "style": {
+        "margin-top": "0__qem"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "LEGEND",
+      "style": {
+        "border": "none"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "FIELDSET",
+      "style": {
+        "min-width": "-webkit-min-content",
+        "border": "2px groove ThreeDFace"
+      }
+    },
+    {
+      "elmType": "button",
+      "txtContent": "INPUT BUTTON"
+    },
+    {
+      "elmType": "div",
+      "txtContent": "CHECKBOX",
+      "attributes": {
+        "class": "ms-bgColor-white"
+      },
+      "style": {
+        "font": "-webkit-small-control",
+        "line-height": "normal",
+        "display": "inline-block",
+        "margin": "3px 0.5ex",
+        "padding": "initial",
+        "cursor": "auto",
+        "text-indent": "0",
+        "letter-spacing": "normal",
+        "word-spacing": "normal",
+        "text-transform": "none",
+        "color": "initial",
+        "border": "initial",
+        "background-color": "initial",
+        "text-shadow": "none"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "HIDDEN",
+      "attributes": {
+        "class": "ms-bgColor-white"
+      },
+      "style": {
+        "font": "-webkit-small-control",
+        "line-height": "normal",
+        "display": "none",
+        "margin": "0__qem",
+        "padding": "1px",
+        "cursor": "auto",
+        "text-indent": "0",
+        "letter-spacing": "normal",
+        "word-spacing": "normal",
+        "text-transform": "none",
+        "color": "initial",
+        "border": "2px inset",
+        "text-shadow": "none"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "RADIO",
+      "attributes": {
+        "class": "ms-bgColor-white"
+      },
+      "style": {
+        "font": "-webkit-small-control",
+        "line-height": "normal",
+        "display": "inline-block",
+        "margin": "3px 0.5ex",
+        "padding": "initial",
+        "cursor": "auto",
+        "text-indent": "0",
+        "letter-spacing": "normal",
+        "word-spacing": "normal",
+        "text-transform": "none",
+        "color": "initial",
+        "border": "initial",
+        "background-color": "initial",
+        "text-shadow": "none"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "SEARCH",
+      "attributes": {
+        "class": "ms-bgColor-white"
+      },
+      "style": {
+        "font": "-webkit-small-control",
+        "line-height": "normal",
+        "display": "inline-block",
+        "box-sizing": "border-box",
+        "margin": "0__qem",
+        "padding": "1px",
+        "cursor": "auto",
+        "text-indent": "0",
+        "letter-spacing": "normal",
+        "word-spacing": "normal",
+        "text-transform": "none",
+        "color": "initial",
+        "border": "2px inset",
+        "text-shadow": "none"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "METER",
+      "style": {
+        "display": "inline-block",
+        "box-sizing": "border-box",
+        "width": "5em",
+        "height": "1em",
+        "vertical-align": "-0.2em"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "PROGRESS",
+      "style": {
+        "display": "inline-block",
+        "box-sizing": "border-box",
+        "width": "10em",
+        "height": "1em",
+        "vertical-align": "-0.2em"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "PRE",
+      "style": {
+        "font-family": "monospace",
+        "margin": "1__qem 0",
+        "white-space": "pre"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "PLAINTEXT",
+      "style": {
+        "font-family": "monospace",
+        "margin": "1__qem 0",
+        "white-space": "pre"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "LISTING",
+      "style": {
+        "font-family": "monospace",
+        "margin": "1__qem 0",
+        "white-space": "pre"
+      }
+    },
+    {
+      "elmType": "div",
+      "txtContent": "XMP",
+      "style": {
+        "font-family": "monospace",
+        "margin": "1__qem 0",
+        "white-space": "pre"
+      }
+    }
+  ]
+}

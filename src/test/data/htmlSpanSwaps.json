@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "block"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "txtContent": "SPAN"
+    },
+    {
+      "elmType": "span",
+      "txtContent": "B",
+      "style": {
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "STRONG",
+      "style": {
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "I",
+      "style": {
+        "font-style": "italic"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "EM",
+      "style": {
+        "font-style": "italic"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "Q"
+    },
+    {
+      "elmType": "span",
+      "txtContent": "MAP"
+    },
+    {
+      "elmType": "span",
+      "txtContent": "AREA"
+    },
+    {
+      "elmType": "span",
+      "txtContent": "CITE",
+      "style": {
+        "font-style": "italic"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "VAR",
+      "style": {
+        "font-style": "italic"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "DFN",
+      "style": {
+        "font-style": "italic"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "TT",
+      "style": {
+        "font-family": "monospace"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "CODE",
+      "style": {
+        "font-family": "monospace"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "KBD",
+      "style": {
+        "font-family": "monospace"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "SAMP",
+      "style": {
+        "font-family": "monospace"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "BIG",
+      "style": {
+        "font-size": "larger"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "SMALL",
+      "style": {
+        "font-size": "smaller"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "S",
+      "style": {
+        "text-decoration": "line-through"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "STRIKE",
+      "style": {
+        "text-decoration": "line-through"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "DEL",
+      "style": {
+        "text-decoration": "line-through"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "SUB",
+      "style": {
+        "font-size": "smaller",
+        "vertical-align": "sub"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "SUP",
+      "style": {
+        "font-size": "smaller",
+        "vertical-align": "super"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "NOBR",
+      "style": {
+        "white-space": "nowrap"
+      }
+    }
+  ]
+}

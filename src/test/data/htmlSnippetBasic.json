@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "block"
+  },
+  "children": [
+    {
+      "elmType": "div",
+      "txtContent": "Wowee",
+      "style": {
+        "font-size": "2em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "children": [
+        {
+          "elmType": "span",
+          "txtContent": "Horse"
+        },
+        {
+          "elmType": "span",
+          "txtContent": "Neigh"
+        }
+      ]
+    }
+  ]
+}

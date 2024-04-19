@@ -103,7 +103,7 @@
         "path": "./syntaxes/horsescript.tmLanguage.json"
       },
       {
-        "scopeName": "source.json.horsescript",
+        "scopeName": "meta.embedded.source.json.horsescript",
         "path": "./syntaxes/horsescript-json.tmLanguage.json",
         "injectTo": ["source.json"]
       }

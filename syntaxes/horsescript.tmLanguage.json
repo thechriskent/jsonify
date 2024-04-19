@@ -1,0 +1,122 @@
+{
+  "name": "HorseScript",
+  "scopeName": "source.horsescript",
+  "patterns": [
+    {
+      "include": "#expression"
+    }
+  ],
+  "repository": {
+    "expression": {
+      "patterns": [
+        {
+          "include": "#constant"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#support"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#punctuation"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#unrecognized"
+        }
+      ]
+    },
+    "constant": {
+      "patterns": [
+        {
+          "match": "\\b(?:true|false)\\b",
+          "name": "constant.language.horsescript"
+        },
+        {
+          "match": "'ms-bgColor-(red|redDark|yellow|yellowLight|themePrimary|themeSecondary)'",
+          "name": "constant.other.horsescript"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single.horsescript"
+        }
+      ]
+    },
+    "support": {
+      "patterns": [
+        {
+          "match": "(@currentField|@now)",
+          "name": "support.constant.horsescript"
+        },
+        {
+          "match": "^=",
+          "name": "support.constant.horsescript"
+        }
+      ]
+    },
+    "keyword": {
+      "patterns": [
+        {
+          "match": "\\b(?:if)\\b",
+          "name": "keyword.control.horsescript"
+        },
+        {
+          "match": "(>|<|\\?|:|==|<=|>=|!=|&&|\\|\\||\\+|-|\\*|/|&)",
+          "name": "keyword.operator.horsescript"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "match": ",",
+          "name": "punctuation.separator.parameters.horsescript"
+        },
+        {
+          "match": "\\(",
+          "name": "punctuation.section.parens.begin.horsescript"
+        },
+        {
+          "match": "\\)",
+          "name": "punctuation.section.parens.end.horsescript"
+        }
+      ]
+    },
+    "variable": {
+      "begin": "\\[\\$",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.begin.horsescript"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.end.horsescript"
+        }
+      },
+      "name": "variable.parameter.horsescript",
+      "patterns": [
+        {
+          "match": "[^\\]]+",
+          "name": "variable.parameter.inner.horsescript"
+        }
+      ]
+    },
+    "unrecognized": {
+      "match": ".",
+      "name": "invalid.illegal.horsescript"
+    }
+  }
+}

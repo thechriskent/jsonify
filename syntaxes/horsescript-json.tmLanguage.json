@@ -1,0 +1,20 @@
+{
+  "name": "HorseScript (embedded in JSON)",
+  "scopeName": "source.json.horsescript",
+  "injectionSelector": "L:string.quoted.double.json",
+  "patterns": [
+    {
+      "begin": "(\\G\\s*=)",
+      "end": "(?=\")",
+      "name": "source.horsescript",
+      "patterns": [
+        {
+          "include": "source.horsescript"
+        }
+      ]
+    },
+    {
+      "name": "string.quoted.double"
+    }
+  ]
+}

@@ -78,7 +78,36 @@
           "description": "When enabled, changes to the source file will automatically show up in the output JSON window."
         }
       }
-    }
+    },
+    "languages": [
+      {
+        "id": "horsescript",
+        "aliases": [
+          "HorseScript"
+        ],
+        "extensions": [
+          ".horse",
+          ".neigh"
+        ],
+        "configuration": "./horsescript-configuration.json",
+        "icon": {
+          "light": "./assets/HorseScript.svg",
+          "dark": "./assets/HorseScript.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "horsescript",
+        "scopeName": "source.horsescript",
+        "path": "./syntaxes/horsescript.tmLanguage.json"
+      },
+      {
+        "scopeName": "source.json.horsescript",
+        "path": "./syntaxes/horsescript-json.tmLanguage.json",
+        "injectTo": ["source.json"]
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -109,7 +138,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "css-tree": "^2.3.1",
+    "css-tree": "2.3.1",
     "node-html-parser": "^6.1.12"
   }
 }

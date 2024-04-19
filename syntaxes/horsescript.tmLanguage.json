@@ -10,66 +10,62 @@
     "expression": {
       "patterns": [
         {
-          "include": "#constant"
+          "include": "#functions"
         },
         {
-          "include": "#string"
+          "include": "#magicstrings"
         },
         {
-          "include": "#support"
+          "include": "#operators"
         },
         {
-          "include": "#keyword"
+          "include": "#classes"
+        },
+        {
+          "include": "#fieldvalues"
+        },
+        {
+          "include": "#fieldmetadata"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#constants"
         },
         {
           "include": "#punctuation"
         },
         {
-          "include": "#variable"
-        },
-        {
-          "include": "#unrecognized"
+          "include": "#default"
         }
       ]
     },
-    "constant": {
+    "functions": {
       "patterns": [
         {
-          "match": "\\b(?:true|false)\\b",
-          "name": "constant.language.horsescript"
-        },
-        {
-          "match": "'ms-bgColor-(red|redDark|yellow|yellowLight|themePrimary|themeSecondary)'",
-          "name": "constant.other.horsescript"
+          "match": "\\b(?:toString)\\b",
+          "name": "entity.name.function.tostring.horsescript"
         }
       ]
     },
-    "string": {
+    "magicstrings": {
       "patterns": [
         {
-          "begin": "'",
-          "end": "'",
-          "name": "string.quoted.single.horsescript"
-        }
-      ]
-    },
-    "support": {
-      "patterns": [
-        {
-          "match": "(@currentField|@now)",
-          "name": "support.constant.horsescript"
+          "match": "(?<=\\W|^)@currentField(?=\\W|$)",
+          "name": "variable.language.currentfield.horsescript"
         },
         {
-          "match": "^=",
-          "name": "support.constant.horsescript"
+          "match": "(?<=\\W|^)@now(?=\\W|$)",
+          "name": "variable.language.now.horsescript"
         }
       ]
     },
-    "keyword": {
+    "operators": {
       "patterns": [
         {
           "match": "\\b(?:if)\\b",
-          "name": "keyword.control.horsescript"
+          "name": "keyword.control.conditional.horsescript"
         },
         {
           "match": "(>|<|\\?|:|==|<=|>=|!=|&&|\\|\\||\\+|-|\\*|/|&)",
@@ -77,23 +73,16 @@
         }
       ]
     },
-    "punctuation": {
+    
+    "classes": {
       "patterns": [
         {
-          "match": ",",
-          "name": "punctuation.separator.parameters.horsescript"
-        },
-        {
-          "match": "\\(",
-          "name": "punctuation.section.parens.begin.horsescript"
-        },
-        {
-          "match": "\\)",
-          "name": "punctuation.section.parens.end.horsescript"
+          "match": "'ms-bgColor-(red|redDark|yellow|yellowLight|themePrimary|themeSecondary)'",
+          "name": "constant.other.horsescript"
         }
       ]
     },
-    "variable": {
+    "fieldvalues": {
       "begin": "\\[\\$",
       "beginCaptures": {
         "0": {
@@ -114,7 +103,66 @@
         }
       ]
     },
-    "unrecognized": {
+    "fieldmetadata": {
+      "begin": "\\[\\!",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.begin.horsescript"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.end.horsescript"
+        }
+      },
+      "name": "variable.parameter.horsescript",
+      "patterns": [
+        {
+          "match": "[^\\]]+",
+          "name": "variable.parameter.inner.horsescript"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single.horsescript"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(?:true|false)\\b",
+          "name": "constant.language.boolean.horsescript"
+        },
+        {
+          "match": "^=",
+          "name": "support.constant.expressionprefix.horsescript"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "match": ",",
+          "name": "punctuation.separator.parameters.horsescript"
+        },
+        {
+          "match": "\\(",
+          "name": "punctuation.section.parens.begin.horsescript"
+        },
+        {
+          "match": "\\)",
+          "name": "punctuation.section.parens.end.horsescript"
+        }
+      ]
+    },
+    
+    "default": {
       "match": ".",
       "name": "invalid.illegal.horsescript"
     }

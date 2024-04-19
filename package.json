@@ -89,7 +89,7 @@
           ".horse",
           ".neigh"
         ],
-        "configuration": "./horsescript-configuration.json",
+        "configuration": "./horsescript-language-configuration.json",
         "icon": {
           "light": "./assets/HorseScript.svg",
           "dark": "./assets/HorseScript.svg"

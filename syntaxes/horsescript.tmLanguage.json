@@ -247,8 +247,12 @@
           "name": "keyword.control.conditional.horsescript"
         },
         {
-          "match": "(>|<|\\?|:|==|<=|>=|!=|&&|\\|\\||\\+|-|\\*|/|&)",
-          "name": "keyword.operator.horsescript"
+          "match": "(\\+|-|/|\\*|%)",
+          "name": "keyword.operator.arithmetic.horsescript"
+        },
+        {
+          "match": "(==|!=|<=|<|>=|>|\\|\\||&&)",
+          "name": "keyword.operator.logical.horsescript"
         }
       ]
     },
@@ -471,7 +475,7 @@
     },
     "default": {
       "match": ".",
-      "name": "invalid.illegal.horsescript"
+      "name": "source.horsescript"
     }
   }
 }

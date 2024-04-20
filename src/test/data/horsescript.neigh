@@ -2,6 +2,9 @@
 toString([!donkey])
 true, false, null, tiny, 'old', 'operator+inside'
 
+(4+5-38)/89%2
+if(4>3&&6<=9,if([$Number]<@now||89>=2||[$Ugly_x003a_Field]=='bunny','#ffffff','ms-bgColor-themeTertiary'))
+
 @currentField.title, @currentField.email, @currentField.sip
 @currentField.picture, @currentField.department, @currentField.jobTitle
 

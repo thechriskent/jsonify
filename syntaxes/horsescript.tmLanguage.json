@@ -47,8 +47,148 @@
     "functions": {
       "patterns": [
         {
-          "match": "\\b(?:toString)\\b",
+          "match": "\\btoString(?=\\()\\b",
           "name": "entity.name.function.tostring.horsescript"
+        },
+        {
+          "match": "\\bNumber(?=\\()\\b",
+          "name": "entity.name.function.number.horsescript"
+        },
+        {
+          "match": "\\bDate(?=\\()\\b",
+          "name": "entity.name.function.date.horsescript"
+        },
+        {
+          "match": "\\bcos(?=\\()\\b",
+          "name": "entity.name.function.cos.horsescript"
+        },
+        {
+          "match": "\\bsin(?=\\()\\b",
+          "name": "entity.name.function.sin.horsescript"
+        },
+        {
+          "match": "\\btoLocaleString(?=\\()\\b",
+          "name": "entity.name.function.tolocalestring.horsescript"
+        },
+        {
+          "match": "\\btoLocaleDateString(?=\\()\\b",
+          "name": "entity.name.function.tolocaledatestring.horsescript"
+        },
+        {
+          "match": "\\btoLocaleTimeString(?=\\()\\b",
+          "name": "entity.name.function.tolocaletimestring.horsescript"
+        },
+        {
+          "match": "\\bindexOf(?=\\()\\b",
+          "name": "entity.name.function.indexof.horsescript"
+        },
+        {
+          "match": "\\btoLowerCase(?=\\()\\b",
+          "name": "entity.name.function.tolowercase.horsescript"
+        },
+        {
+          "match": "\\bjoin(?=\\()\\b",
+          "name": "entity.name.function.join.horsescript"
+        },
+        {
+          "match": "\\blength(?=\\()\\b",
+          "name": "entity.name.function.length.horsescript"
+        },
+        {
+          "match": "\\babs(?=\\()\\b",
+          "name": "entity.name.function.abs.horsescript"
+        },
+        {
+          "match": "\\bloopIndex(?=\\()\\b",
+          "name": "entity.name.function.loopindex.horsescript"
+        },
+        {
+          "match": "\\bfloor(?=\\()\\b",
+          "name": "entity.name.function.floor.horsescript"
+        },
+        {
+          "match": "\\bceiling(?=\\()\\b",
+          "name": "entity.name.function.ceiling.horsescript"
+        },
+        {
+          "match": "\\bpow(?=\\()\\b",
+          "name": "entity.name.function.pow.horsescript"
+        },
+        {
+          "match": "\\bsubstring(?=\\()\\b",
+          "name": "entity.name.function.substring.horsescript"
+        },
+        {
+          "match": "\\bgetDate(?=\\()\\b",
+          "name": "entity.name.function.getdate.horsescript"
+        },
+        {
+          "match": "\\bgetMonth(?=\\()\\b",
+          "name": "entity.name.function.getmonth.horsescript"
+        },
+        {
+          "match": "\\bgetYear(?=\\()\\b",
+          "name": "entity.name.function.getyear.horsescript"
+        },
+        {
+          "match": "\\btoUpperCase(?=\\()\\b",
+          "name": "entity.name.function.touppercase.horsescript"
+        },
+        {
+          "match": "\\blastIndexOf(?=\\()\\b",
+          "name": "entity.name.function.lastindexof.horsescript"
+        },
+        {
+          "match": "\\bstartsWith(?=\\()\\b",
+          "name": "entity.name.function.startswith.horsescript"
+        },
+        {
+          "match": "\\bendsWith(?=\\()\\b",
+          "name": "entity.name.function.endswith.horsescript"
+        },
+        {
+          "match": "\\breplace(?=\\()\\b",
+          "name": "entity.name.function.replace.horsescript"
+        },
+        {
+          "match": "\\breplaceAll(?=\\()\\b",
+          "name": "entity.name.function.replaceall.horsescript"
+        },
+        {
+          "match": "\\bpadStart(?=\\()\\b",
+          "name": "entity.name.function.padstart.horsescript"
+        },
+        {
+          "match": "\\bpadEnd(?=\\()\\b",
+          "name": "entity.name.function.padend.horsescript"
+        },
+        {
+          "match": "\\bgetThumbnailImage(?=\\()\\b",
+          "name": "entity.name.function.getthumbnailimage.horsescript"
+        },
+        {
+          "match": "\\bgetUserImage(?=\\()\\b",
+          "name": "entity.name.function.getuserimage.horsescript"
+        },
+        {
+          "match": "\\baddDays(?=\\()\\b",
+          "name": "entity.name.function.adddays.horsescript"
+        },
+        {
+          "match": "\\baddMinutes(?=\\()\\b",
+          "name": "entity.name.function.addminutes.horsescript"
+        },
+        {
+          "match": "\\bappendTo(?=\\()\\b",
+          "name": "entity.name.function.appendto.horsescript"
+        },
+        {
+          "match": "\\bremoveFrom(?=\\()\\b",
+          "name": "entity.name.function.removefrom.horsescript"
+        },
+        {
+          "match": "\\bsplit(?=\\()\\b",
+          "name": "entity.name.function.split.horsescript"
         }
       ]
     },

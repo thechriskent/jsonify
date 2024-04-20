@@ -5,6 +5,32 @@ true, false, null, tiny, 'old', 'operator+inside'
 (4+5-38)/89%2
 if(4>3&&6<=9,if([$Number]<@now||89>=2||[$Ugly_x003a_Field]=='bunny','#ffffff','ms-bgColor-themeTertiary'))
 
+toString(45), Number('365'), Number('Wowee'), Number(Date('12/26/1981')), cos(5), sin(90)
+toLocaleTimeString(@now), toLocaleString(@now), toLocaleDateString(@now), toUpperCase('DogFood')
+toLowerCase('DogFood'), abs(-45), length(@currentField), length('Some Text'), length(''), length(45)
+floor(45.5), ceiling(45.5), getDate(Date('12/26/1981')), getMonth(Date('12/26/1981')), getYear(Date('12/26/1981'))
+
+indexOf('DogFood', 'Dog'), indexOf('DogFood','F'), indexOf(@currentField,[$field])
+join(@currentField, ', '), join(@currentField.title, '|'), join([$field.email],'')
+pow(2,3), pow(2, 45), pow(2,@currentField)
+lastIndexOf('DogFood DogFood', 'Dog'), lastIndexOf('DogFood DogFood','F')
+startsWith(@currentField,'R'), startsWith('DogFood', @rowIndex)
+endsWith(@currentField,'R'), endsWith('DogFood', @rowIndex)
+getUserImage(@me, 'small'), getUserImage('horse@neigh.com','s'), getUserImage(@me,'medium'),getUserImage(@me,'m'),getUserImage(@me,'large'),getUserImage(@me,'l')
+appendTo(@currentField, 'Choice 4'), appendTo([$People],@me)
+removeFrom(@currentField, 'Choice 4'), removeFrom([$People],@me)
+split('Hello World', ' '), split(@window.innerHeight,',')
+addDays(@now,4), addDays(Date('11/14/2021'), -1)
+addMinutes(@now, 56), addMinutes(Date('11/14/2021'),-57)
+loopIndex('personIterator')
+
+substring('DogFood',3,4), substring(@currentField, 45,3), substring([$Title.displayValue],2, 33)
+replace('Hello world','world','everyone'), replace('Wowee', 'W', 'w')
+replaceAll('H-e-l-l-o W-o-r-l-d', '-', ''),replaceAll('H-e-l-l-o W-o-r-l-d','o','0')
+padStart(@currentField,10,'A'), padStart('Wonkers', 100, '!')
+padEnd(@currentField,10,'A'), padEnd('Wonkers', 100, '!')
+getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,100)
+
 @currentField.title, @currentField.email, @currentField.sip
 @currentField.picture, @currentField.department, @currentField.jobTitle
 

@@ -413,6 +413,34 @@
           "name": "punctuation.section.brackets.end.horsescript"
         }
       },
+      "patterns": [
+        {
+          "match": "(?<=\\[\\!)[^~#%&*{}\\:<>?/+|\",.\\]]+",
+          "name": "variable.parameter.field.horsescript"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.horsescript"
+        },
+        {
+          "match": "DisplayName(?=\\W|$)",
+          "name": "support.constant.fieldmetadata.displayname.horsescript"
+        }
+      ]
+    },
+    "fieldmetadataOLD": {
+      "begin": "\\[\\!",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.begin.horsescript"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.end.horsescript"
+        }
+      },
       "name": "variable.parameter.horsescript",
       "patterns": [
         {

@@ -23,7 +23,7 @@ true, false, null, tiny, 'old', 'operator+inside'
 @thumbnail.small,@thumbnail.medium,@thumbnail.large
 @thumbnail.150,@thumbnail.4048,@thumbnail.100x200,@thumbnail.1000x1600
 
-[$Title,sa] [$!Title.DisplayName]
+[$Title,sa] [!Title.DisplayName]
 [$Editor.title], [$Editor.email], [$Editor.sip]
 [$Editor.picture], [$Editor.department], [$Editor.jobTitle]
 

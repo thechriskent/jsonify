@@ -1,0 +1,26 @@
+=if([$Title]=='tiny',@currentField,@now)+'ms-bgColor-redDark'
+toString([!donkey])
+true, false, null, tiny, 'old', 'operator+inside'
+
+@currentField.id, @currentField.title, @currentField.email, @currentField.sip
+@currentField.picture, @currentField.department, @currentField.jobTitle
+
+@currentField.DisplayName, @currentField.LocationUri
+@currentField.Address.City, @currentField.Address.CountryOrRegion, @currentField.Address.State, @currentField.Address.Street
+@currentField.Coordinates.Latitude, @currentField.Coordinates.Longitude
+
+@currentField.lookupId, @currentField.lookupValue
+
+@currentField.fileName, @currentField.serverRelativeUrl, @currentField.serverUrl
+@currentField.thumbnailRenderer.spItemUrl, @currentField.thumbnailRenderer.fileVersion, @currentField.thumbnailRenderer.sponsorToken
+
+@currentField.desc, @currentField.displayValue, @currentField.numeric
+
+@currentWeb,@me,@now,@rowIndex,@window.innerHeight,@window.innerWidth
+@isSelected,@lcid,@UIlcid
+
+@thumbnail.small,@thumbnail.medium,@thumbnail.large
+@thumbnail.150,@thumbnail.4048,@thumbnail.100x200,@thumbnail.1000x1600
+
+This stuff be bad on purpose (mostly)
+@thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer

@@ -1,3 +1,0 @@
-=if([$Title]=='tiny',@currentField,@now)+'ms-bgColor-redDark'
-
-true, false, null, tiny, 'old', 'operator+inside'

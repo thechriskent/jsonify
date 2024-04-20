@@ -398,7 +398,19 @@
         {
           "match": "\\bms-bgColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|info|success|severeWarning|warning|error|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?\\b",
           "name": "constant.other.predefinedclasses.ms-bgcolor.horsescript"
-        }
+        },
+        {
+          "match": "\\bms-borderColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?\\b",
+          "name": "constant.other.predefinedclasses.ms-bordercolor.horsescript"
+        },
+        {
+          "match": "\\b(ms-fontColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|info|success|alert|severeWarning|warning|error|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?)\\b",
+          "name": "constant.other.predefinedclasses.ms-fontcolor.horsescript"
+        },
+        {
+          "match": "\\b(ms-fontWeight-(regular|semibold|bold|semilight|light))\\b",
+          "name": "constant.other.predefinedclasses.ms-fontweight.horsescript"
+      }
       ]
     },
     "fieldvalues": {
@@ -575,7 +587,11 @@
           "begin": "'",
           "end": "'",
           "name": "string.quoted.single.horsescript",
-          "patterns": [{"include": "#classes"}]
+          "patterns": [
+            {
+              "include": "#classes"
+            }
+          ]
         }
       ]
     },

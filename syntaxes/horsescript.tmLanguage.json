@@ -396,21 +396,125 @@
     "classes": {
       "patterns": [
         {
+          "comment": "ms-bgColor-* & --hover versions",
           "match": "\\bms-bgColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|info|success|severeWarning|warning|error|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?\\b",
           "name": "constant.other.predefinedclasses.ms-bgcolor.horsescript"
         },
         {
+          "comment": "ms-borderColor-* & --hover versions",
           "match": "\\bms-borderColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?\\b",
           "name": "constant.other.predefinedclasses.ms-bordercolor.horsescript"
         },
         {
+          "comment": "ms-fontColor-* & --hover versions",
           "match": "\\b(ms-fontColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|info|success|alert|severeWarning|warning|error|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?)\\b",
           "name": "constant.other.predefinedclasses.ms-fontcolor.horsescript"
         },
         {
+          "comment": "ms-fontWeight-*",
           "match": "\\b(ms-fontWeight-(regular|semibold|bold|semilight|light))\\b",
           "name": "constant.other.predefinedclasses.ms-fontweight.horsescript"
-      }
+        },
+        {
+          "comment": "ms-font-*",
+          "match": "\\b(ms-font-(su|xxl|xl-plus|xl|l|m-plus|m|s-plus|s|xs|mi))\\b",
+          "name": "constant.other.predefinedclasses.ms-font.horsescript"
+        },
+        {
+          "comment": "ms-fontSize-*",
+          "match": "\\b(ms-fontSize-(su|xxl|xlPlus|xl|l|mPlus|m|sPlus|s|xs|mi|68|42|32|28|24|20|18|16|14|12|10))\\b",
+          "name": "constant.other.predefinedclasses.ms-fontsize.horsescript"
+        },
+        {
+          "comment": "sp-field-fontSize*",
+          "match": "\\b(sp-field-fontSize(14|15|17|21|24|28|32|36|42|Small|Medium|Large|XLarge))\\b",
+          "name": "constant.other.predefinedclasses.sp-field-fontsize.horsescript"
+        },
+        {
+          "comment": "ms-motion-*",
+          "match": "\\b(ms-motion-(fadeIn|fadeOut|scaleDownIn|scaleDownOut|slideLeftOut|slideRightOut|slideDownOut|slideUpOut|slideLeftIn|slideRightIn|slideDownIn|slideUpIn))\\b",
+          "name": "constant.other.predefinedclasses.ms-motion.horsescript"
+        },
+        {
+          "comment": "ms-* (animation classes)",
+          "match": "\\b(ms-(slideRightIn10|slideRightIn20|slideRightIn40|slideRightIn400|slideRightOut40|slideRightOut400|slideLeftIn10|slideLeftIn20|slideLeftIn40|slideLeftIn400|slideLeftOut40|slideLeftOut400|slideUpIn10|slideUpIn20|slideDownIn10|slideDownIn20|slideUpOut10|slideUpOut20|slideDownOut10|slideDownOut20|scaleUpIn100|scaleUpOut103|scaleDownIn100|scaleDownOut98|rotateN90deg|rotate90deg|fadeIn100|fadeIn200|fadeIn400|fadeIn500|fadeOut100|fadeOut200|fadeOut400|fadeOut500|expandCollapse100|expandCollapse200|expandCollapse400))\\b",
+          "name": "constant.other.predefinedclasses.msanimation.horsescript"
+        },
+        {
+          "comment": "sp-List-color*",
+          "match": "\\b(sp-List-color(0|1|2|3|4|5|6|7|8|9|10|11))\\b",
+          "name": "constant.other.predefinedclasses.sp-list-color.horsescript"
+        },
+        {
+          "comment": "sp-css-backgroundColor-*",
+          "match": "\\b(sp-css-backgroundColor-(BgDarkRed|BgRed|BgOrange|BgBrown|BgGreen|BgTeal|BgDarkGreen|BgBlue|BgLavender|BgDarkBlue|BgDarkPurple|BgPurple|BgDarkPink|BgGray|BgCoral|BgDustRose|BgPeak|BgGold|BgMintGreen|BgCyan|BgSage|BgCornflowerBlue|BgLightPurple|BgLightBlue|BgViolet|BgMauve|BgLilac|BgLightGray|BgCoral30|BgDustRose30|BgPeach40|BgGold60|BgMintGreen30|BgCyan30|BgSage20|BgCornflower40|BgLightPurple30|BgLightBlue20|BgViolet40|BgMauve50|BgLilac30|BgLightGray30|DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themePrimary|themeSeconary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|blue|yellow|yellowLight|red|redDark|green|greenLight|blueLight|blueDark|purple|neutralBackground30|neutralBackground20|neutralBackground10|neutralBackground|blueBackground37|blueBackground27|blueBackground17|blueBackground07|successBackground50|successBackground40|successBackground30|warningBackground50|warningBackground40|warningBackground30|blockingBackground50|blockingBackground40|blockingBackground30|errorBackground50|errorBackground40|errorBackground30|noFill))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-backgroundcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderTop-*",
+          "match": "\\b(sp-css-borderTop-(neutralBorder|blueBorder|successBorder|warningBorder|blockingBorder|errorBorder))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-bordertop.horsescript"
+        },
+        {
+          "comment": "sp-css-borderRight-*",
+          "match": "\\b(sp-css-borderRight-(neutralTertiaryDashed))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderright.horsescript"
+        },
+        {
+          "comment": "sp-css-color-*",
+          "match": "\\b(sp-css-color-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-color.horsescript"
+        },
+        {
+          "comment": "sp-css-borderColor-*",
+          "match": "\\b(sp-css-borderColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-bordercolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderLeftColor-*",
+          "match": "\\b(sp-css-borderLeftColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderleftcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderRightColor-*",
+          "match": "\\b(sp-css-borderRightColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderrightcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderTopColor-*",
+          "match": "\\b(sp-css-borderTopColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-bordertopcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderBottomColor-*",
+          "match": "\\b(sp-css-borderBottomColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderbottomcolor.horsescript"
+        },
+        {
+          "comment": "sp-card-*",
+          "match": "\\b(sp-card-(imagePreview-stretched|subContainer-borderRadius|container-noPadding|imagePreviewBackground-shortened|imageContainer-shortened|borderHighlight|personCallout|container|keyboard-focusable|defaultClickButton|subContainer|displayColumnContainer|previewColumnContainer|lastTextColumnContainer|label|content|userContent|boldText|highlightedContent|urlContent|formatterRef|imagePreviewBackground|userEmptyText|userContainer|userThumbnail|userOthers|userTitle|userCustomCard|lookupInlineValues|defaultImage|defaultImageOverlay|starRating|emptyFillStar|halfFillStar|ratingCount|bottomCommandBar|likes|heartIcon|multiline|showOnHoverParent|showOnHoverChild|showOnHover|imagePreview|imageContainer))\\b",
+          "name": "constant.other.predefinedclasses.sp-card.horsescript"
+        },
+        {
+          "comment": "sp-row-*",
+          "match": "\\b(sp-row-(card|listPadding|title|button))\\b",
+          "name": "constant.other.predefinedclasses.sp-row.horsescript"
+        },
+        {
+          "comment": "sp-field-*",
+          "match": "\\b(sp-field-(blue|blue17|blue27|blue37|bold|customFormatBackground-margin|customFormatter|dashedBorderRight|dataBars|editorBorder|iconLeftAligned|iconPadding|iconRightAligned|italic|neutral|neutral20|neutral30|quickAction|severity--blocked|severity--blocked30|severity--blocked40|severity--blocked50|severity--good|severity--good30|severity--good40|severity--good50|severity--low|severity--severeWarning|severity--severeWarning30|severity--severeWarning40|severity--severeWarning50|severity--warning|severity--warning30|severity--warning40|severity--warning50|strikeThrough|trending--down|trending--up|underline|underlineStrikeThrough))\\b",
+          "name": "constant.other.predefinedclasses.sp-field.horsescript"
+      },
+      {
+        "comment": "sp-field-border*",
+        "match": "\\b(sp-field-border(All|Bottom|Left|LeftRight|Right|Top|TopBottom)(Regular|Semibold|Bold|Dashed|Dotted|Solid))\\b",
+        "name": "constant.other.predefinedclasses.sp-field-border.horsescript"
+    },
+    {
+      "comment": "Misc classes",
+      "match": "\\b(itemHovered|sp-customformatter-thumbnail|ms-Tile-background)\\b",
+      "name": "constant.other.predefinedclasses.other.horsescript"
+  }
       ]
     },
     "fieldvalues": {

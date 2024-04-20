@@ -428,27 +428,6 @@
         }
       ]
     },
-    "fieldmetadataOLD": {
-      "begin": "\\[\\!",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.section.brackets.begin.horsescript"
-        }
-      },
-      "end": "\\]",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.section.brackets.end.horsescript"
-        }
-      },
-      "name": "variable.parameter.horsescript",
-      "patterns": [
-        {
-          "match": "[^\\]]+",
-          "name": "variable.parameter.inner.horsescript"
-        }
-      ]
-    },
     "strings": {
       "patterns": [
         {

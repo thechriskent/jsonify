@@ -16,6 +16,9 @@
           "include": "#magicstrings"
         },
         {
+          "include": "#fieldsubprops"
+        },
+        {
           "include": "#operators"
         },
         {
@@ -53,11 +56,187 @@
       "patterns": [
         {
           "match": "(?<=\\W|^)@currentField(?=\\W|$)",
-          "name": "variable.language.currentfield.horsescript"
+          "name": "variable.language.currentweb.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@currentWeb(?=\\W|$)",
+          "name": "variable.language.currentweb.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@me(?=\\W|$)",
+          "name": "variable.language.me.horsescript"
         },
         {
           "match": "(?<=\\W|^)@now(?=\\W|$)",
           "name": "variable.language.now.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@rowIndex(?=\\W|$)",
+          "name": "variable.language.rowindex.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@window(?=\\.(innerHeight|innerWidth)\\b)",
+          "name": "variable.language.window.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^@window\\.)innerHeight(?=\\W|$)",
+          "name": "support.constant.window.innerheight.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^@window\\.)innerWidth(?=\\W|$)",
+          "name": "support.constant.window.innerwidth.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@isSelected(?=\\W|$)",
+          "name": "variable.language.isselected.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@lcid(?=\\W|$)",
+          "name": "variable.language.lcid.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@UIlcid(?=\\W|$)",
+          "name": "variable.language.uilcid.horsescript"
+        },
+        {
+          "match": "(?<=@thumbnail\\.)small(?=\\W|$)",
+          "name": "support.constant.thumbnail.size.horsescript"
+        },
+        {
+          "match": "(?<=@thumbnail\\.)medium(?=\\W|$)",
+          "name": "support.constant.thumbnail.size.horsescript"
+        },
+        {
+          "match": "(?<=@thumbnail\\.)large(?=\\W|$)",
+          "name": "support.constant.thumbnail.size.horsescript"
+        },
+        {
+          "match": "(?<=@thumbnail\\.)\\d+(x\\d+)?(?=\\W|$)",
+          "name": "constant.numeric.thumbnail.dimensions.horsescript"
+        },
+        {
+          "match": "(?<=\\W|^)@thumbnail(?=\\.(small|medium|large|\\d+(x\\d+)?)\\b)",
+          "name": "variable.language.thumbnail.horsescript"
+        }
+      ]
+    },
+    "fieldsubprops": {
+      "patterns": [
+        {
+          "match": "(?<=@currentField\\.)title(?=\\W|$)",
+          "name": "support.constant.person.title.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)email(?=\\W|$)",
+          "name": "support.constant.person.email.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)sip(?=\\W|$)",
+          "name": "support.constant.person.sip.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)picture(?=\\W|$)",
+          "name": "support.constant.person.picture.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)department(?=\\W|$)",
+          "name": "support.constant.person.department.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)jobTitle(?=\\W|$)",
+          "name": "support.constant.person.jobtitle.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)DisplayName(?=\\W|$)",
+          "name": "support.constant.location.displayname.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)LocationUri(?=\\W|$)",
+          "name": "support.constant.location.locationuri.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)Address(?=\\.(City|CountryOrRegion|State|Street)\\b)",
+          "name": "variable.language.location.address.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.Address\\.)City(?=\\W|$)",
+          "name": "support.constant.location.address.city.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.Address\\.)CountryOrRegion(?=\\W|$)",
+          "name": "support.constant.location.address.countryorregion.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.Address\\.)State(?=\\W|$)",
+          "name": "support.constant.location.address.state.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.Address\\.)Street(?=\\W|$)",
+          "name": "support.constant.location.address.street.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)Coordinates(?=\\.(Latitude|Longitude)\\b)",
+          "name": "variable.language.location.coordinates.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.Coordinates\\.)Latitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.latitude.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.Coordinates\\.)Longitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.longitude.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)lookupId(?=\\W|$)",
+          "name": "support.constant.lookup.lookupid.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)lookupValue(?=\\W|$)",
+          "name": "support.constant.lookup.lookupvalue.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)fileName(?=\\W|$)",
+          "name": "support.constant.image.filename.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)serverRelativeUrl(?=\\W|$)",
+          "name": "support.constant.image.serverrelativeurl.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)serverUrl(?=\\W|$)",
+          "name": "support.constant.image.serverurl.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)thumbnailRenderer(?=\\.(spItemUrl|fileVersion|sponsorToken)\\b)",
+          "name": "variable.language.image.thumbnailrenderer.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)desc(?=\\W|$)",
+          "name": "support.constant.hyperlink.desc.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)numeric(?=\\W|$)",
+          "name": "support.constant.moderation.numeric.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)displayValue(?=\\W|$)",
+          "name": "support.constant.field.displayvalue.horsescript"
+        },
+        {
+          "match": "(?<=@currentField\\.)id(?=\\W|$)",
+          "name": "support.constant.field.id.horsescript"
         }
       ]
     },
@@ -73,7 +252,6 @@
         }
       ]
     },
-    
     "classes": {
       "patterns": [
         {
@@ -158,10 +336,13 @@
         {
           "match": "\\)",
           "name": "punctuation.section.parens.end.horsescript"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.horsescript"
         }
       ]
     },
-    
     "default": {
       "match": ".",
       "name": "invalid.illegal.horsescript"

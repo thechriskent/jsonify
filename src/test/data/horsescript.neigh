@@ -68,5 +68,44 @@ getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,
 [$Title.id], [$Title.displayValue]
 [$Hyperlink.desc], [$Approval.numeric]
 
+'ms-bgColor-themePrimary', 'ms-bgColor-themePrimary--hover', 'ms-bgColor-themeSecondary', 'ms-bgColor-themeSecondary--hover', 'ms-bgColor-themeTertiary', 'ms-bgColor-themeTertiary--hover',
+'ms-bgColor-themeLight', 'ms-bgColor-themeLight--hover', 'ms-bgColor-themeLighter', 'ms-bgColor-themeLighter--hover', 'ms-bgColor-themeLighterAlt', 'ms-bgColor-themeLighterAlt--hover',
+'ms-bgColor-themeDark', 'ms-bgColor-themeDark--hover', 'ms-bgColor-themeDarker', 'ms-bgColor-themeDarker--hover', 'ms-bgColor-themeDarkAlt', 'ms-bgColor-themeDarkAlt--hover'
+'ms-bgColor-neutralDark', 'ms-bgColor-neutralDark--hover', 'ms-bgColor-neutralPrimary', 'ms-bgColor-neutralPrimary--hover', 'ms-bgColor-neutralPrimaryAlt', 'ms-bgColor-neutralPrimaryAlt--hover',
+'ms-bgColor-neutralSecondary', 'ms-bgColor-neutralSecondary--hover', 'ms-bgColor-neutralSecondaryAlt', 'ms-bgColor-neutralSecondaryAlt--hover', 'ms-bgColor-neutralTertiary',
+'ms-bgColor-neutralTertiary--hover', 'ms-bgColor-neutralTertiaryAlt', 'ms-bgColor-neutralTertiaryAlt--hover', 'ms-bgColor-neutralQuaternary', 'ms-bgColor-neutralQuaternary--hover',
+'ms-bgColor-neutralQuaternaryAlt', 'ms-bgColor-neutralQuaternaryAlt--hover', 'ms-bgColor-neutralLight', 'ms-bgColor-neutralLight--hover', 'ms-bgColor-neutralLighter',
+'ms-bgColor-neutralLighter--hover', 'ms-bgColor-neutralLighterAlt', 'ms-bgColor-neutralLighterAlt--hover'
+'ms-bgColor-white', 'ms-bgColor-white--hover', 'ms-bgColor-black', 'ms-bgColor-black--hover', 'ms-bgColor-yellow', 'ms-bgColor-yellow--hover', 'ms-bgColor-yellowLight', 'ms-bgColor-yellowLight--hover',
+'ms-bgColor-orange', 'ms-bgColor-orange--hover', 'ms-bgColor-orangeLight', 'ms-bgColor-orangeLight--hover', 'ms-bgColor-orangeLighter', 'ms-bgColor-orangeLighter--hover', 'ms-bgColor-red',
+'ms-bgColor-red--hover', 'ms-bgColor-redDark', 'ms-bgColor-redDark--hover', 'ms-bgColor-magentaDark', 'ms-bgColor-magentaDark--hover', 'ms-bgColor-magenta', 'ms-bgColor-magenta--hover',
+'ms-bgColor-magentaLight', 'ms-bgColor-magentaLight--hover', 'ms-bgColor-purpleDark', 'ms-bgColor-purpleDark--hover', 'ms-bgColor-purple', 'ms-bgColor-purple--hover', 'ms-bgColor-purpleLight',
+'ms-bgColor-purpleLight--hover', 'ms-bgColor-blueDark', 'ms-bgColor-blueDark--hover', 'ms-bgColor-blueMid', 'ms-bgColor-blueMid--hover', 'ms-bgColor-blue', 'ms-bgColor-blue--hover',
+'ms-bgColor-blueLight', 'ms-bgColor-blueLight--hover', 'ms-bgColor-tealDark', 'ms-bgColor-tealDark--hover', 'ms-bgColor-teal', 'ms-bgColor-teal--hover', 'ms-bgColor-tealLight',
+'ms-bgColor-tealLight--hover', 'ms-bgColor-greenDark', 'ms-bgColor-greenDark--hover', 'ms-bgColor-green', 'ms-bgColor-green--hover', 'ms-bgColor-greenLight', 'ms-bgColor-greenLight--hover'
+'ms-bgColor-info', 'ms-bgColor-info--hover', 'ms-bgColor-success', 'ms-bgColor-success--hover', 'ms-bgColor-severeWarning', 'ms-bgColor-severeWarning--hover', 'ms-bgColor-warning',
+'ms-bgColor-warning--hover', 'ms-bgColor-error', 'ms-bgColor-error--hover', 'ms-bgColor-contrastBlackDisabled', 'ms-bgColor-contrastBlackDisabled--hover', 'ms-bgColor-contrastWhiteDisabled',
+'ms-bgColor-contrastWhiteDisabled--hover', 'ms-bgColor-contrastBlackSelected', 'ms-bgColor-contrastBlackSelected--hover', 'ms-bgColor-contrastWhiteSelected', 'ms-bgColor-contrastWhiteSelected--hover',
+'ms-bgColor-communicationShade30', 'ms-bgColor-communicationShade30--hover', 'ms-bgColor-communicationShade20', 'ms-bgColor-communicationShade20--hover', 'ms-bgColor-communicationShade10',
+'ms-bgColor-communicationShade10--hover', 'ms-bgColor-communicationPrimary', 'ms-bgColor-communicationPrimary--hover', 'ms-bgColor-communicationTint10', 'ms-bgColor-communicationTint10--hover',
+'ms-bgColor-communicationTint20', 'ms-bgColor-communicationTint20--hover', 'ms-bgColor-communicationTint30', 'ms-bgColor-communicationTint30--hover', 'ms-bgColor-communicationTint40', 'ms-bgColor-communicationTint40--hover'
+'ms-bgColor-gray220', 'ms-bgColor-gray220--hover', 'ms-bgColor-gray210', 'ms-bgColor-gray210--hover', 'ms-bgColor-gray200', 'ms-bgColor-gray200--hover', 'ms-bgColor-gray190', 'ms-bgColor-gray190--hover',
+'ms-bgColor-gray180', 'ms-bgColor-gray180--hover', 'ms-bgColor-gray170', 'ms-bgColor-gray170--hover', 'ms-bgColor-gray160', 'ms-bgColor-gray160--hover', 'ms-bgColor-gray150', 'ms-bgColor-gray150--hover',
+'ms-bgColor-gray140', 'ms-bgColor-gray140--hover', 'ms-bgColor-gray130', 'ms-bgColor-gray130--hover', 'ms-bgColor-gray120', 'ms-bgColor-gray120--hover', 'ms-bgColor-gray110', 'ms-bgColor-gray110--hover',
+'ms-bgColor-gray100', 'ms-bgColor-gray100--hover', 'ms-bgColor-gray90', 'ms-bgColor-gray90--hover', 'ms-bgColor-gray80', 'ms-bgColor-gray80--hover', 'ms-bgColor-gray70', 'ms-bgColor-gray70--hover',
+'ms-bgColor-gray60', 'ms-bgColor-gray60--hover', 'ms-bgColor-gray50', 'ms-bgColor-gray50--hover', 'ms-bgColor-gray40', 'ms-bgColor-gray40--hover', 'ms-bgColor-gray30', 'ms-bgColor-gray30--hover',
+'ms-bgColor-gray20', 'ms-bgColor-gray20--hover', 'ms-bgColor-gray10', 'ms-bgColor-gray10--hover', 'ms-bgColor-sharedPinkRed10', 'ms-bgColor-sharedPinkRed10--hover', 'ms-bgColor-sharedRed20',
+'ms-bgColor-sharedRed20--hover', 'ms-bgColor-sharedRed10', 'ms-bgColor-sharedRed10--hover', 'ms-bgColor-sharedRedOrange20', 'ms-bgColor-sharedRedOrange20--hover', 'ms-bgColor-sharedRedOrange10',
+'ms-bgColor-sharedRedOrange10--hover', 'ms-bgColor-sharedOrange30', 'ms-bgColor-sharedOrange30--hover', 'ms-bgColor-sharedOrange20', 'ms-bgColor-sharedOrange20--hover', 'ms-bgColor-sharedOrange10',
+'ms-bgColor-sharedOrange10--hover', 'ms-bgColor-sharedYellow10', 'ms-bgColor-sharedYellow10--hover', 'ms-bgColor-sharedOrangeYellow20', 'ms-bgColor-sharedOrangeYellow20--hover', 'ms-bgColor-sharedOrangeYellow10',
+'ms-bgColor-sharedOrangeYellow10--hover', 'ms-bgColor-sharedYellowGreen10', 'ms-bgColor-sharedYellowGreen10--hover', 'ms-bgColor-sharedGreen20', 'ms-bgColor-sharedGreen20--hover', 'ms-bgColor-sharedGreen10',
+'ms-bgColor-sharedGreen10--hover', 'ms-bgColor-sharedGreenCyan10', 'ms-bgColor-sharedGreenCyan10--hover', 'ms-bgColor-sharedCyan40', 'ms-bgColor-sharedCyan40--hover', 'ms-bgColor-sharedCyan30',
+'ms-bgColor-sharedCyan30--hover', 'ms-bgColor-sharedCyan20', 'ms-bgColor-sharedCyan20--hover', 'ms-bgColor-sharedCyan10', 'ms-bgColor-sharedCyan10--hover', 'ms-bgColor-sharedCyanBlue20',
+'ms-bgColor-sharedCyanBlue20--hover', 'ms-bgColor-sharedCyanBlue10', 'ms-bgColor-sharedCyanBlue10--hover', 'ms-bgColor-sharedBlue10', 'ms-bgColor-sharedBlue10--hover', 'ms-bgColor-sharedBlueMagenta40',
+'ms-bgColor-sharedBlueMagenta40--hover', 'ms-bgColor-sharedBlueMagenta30', 'ms-bgColor-sharedBlueMagenta30--hover', 'ms-bgColor-sharedBlueMagenta20', 'ms-bgColor-sharedBlueMagenta20--hover',
+'ms-bgColor-sharedBlueMagenta10', 'ms-bgColor-sharedBlueMagenta10--hover', 'ms-bgColor-sharedMagenta20', 'ms-bgColor-sharedMagenta20--hover', 'ms-bgColor-sharedMagenta10', 'ms-bgColor-sharedMagenta10--hover',
+'ms-bgColor-sharedMagentaPink20', 'ms-bgColor-sharedMagentaPink20--hover', 'ms-bgColor-sharedMagentaPink10', 'ms-bgColor-sharedMagentaPink10--hover', 'ms-bgColor-sharedGray40', 'ms-bgColor-sharedGray40--hover',
+'ms-bgColor-sharedGray30', 'ms-bgColor-sharedGray30--hover', 'ms-bgColor-sharedGray20', 'ms-bgColor-sharedGray20--hover', 'ms-bgColor-sharedGray10', 'ms-bgColor-sharedGray10--hover'
+
 This stuff be bad on purpose (mostly)
 @thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer

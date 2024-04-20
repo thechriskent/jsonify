@@ -2,7 +2,7 @@
 toString([!donkey])
 true, false, null, tiny, 'old', 'operator+inside'
 
-@currentField.id, @currentField.title, @currentField.email, @currentField.sip
+@currentField.title, @currentField.email, @currentField.sip
 @currentField.picture, @currentField.department, @currentField.jobTitle
 
 @currentField.DisplayName, @currentField.LocationUri
@@ -14,13 +14,30 @@ true, false, null, tiny, 'old', 'operator+inside'
 @currentField.fileName, @currentField.serverRelativeUrl, @currentField.serverUrl
 @currentField.thumbnailRenderer.spItemUrl, @currentField.thumbnailRenderer.fileVersion, @currentField.thumbnailRenderer.sponsorToken
 
-@currentField.desc, @currentField.displayValue, @currentField.numeric
+@currentField.id, @currentField.displayValue
+@currentField.desc, @currentField.numeric
 
 @currentWeb,@me,@now,@rowIndex,@window.innerHeight,@window.innerWidth
 @isSelected,@lcid,@UIlcid
 
 @thumbnail.small,@thumbnail.medium,@thumbnail.large
 @thumbnail.150,@thumbnail.4048,@thumbnail.100x200,@thumbnail.1000x1600
+
+[$Title,sa] [$!Title.DisplayName]
+[$Editor.title], [$Editor.email], [$Editor.sip]
+[$Editor.picture], [$Editor.department], [$Editor.jobTitle]
+
+[$Location.DisplayName], [$Location.LocationUri]
+[$Location.Address.City], [$Location.Address.CountryOrRegion], [$Location.Address.State], [$Location.Address.Street]
+[$Location.Coordinates.Latitude], [$Location.Coordinates.Longitude]
+
+[$Lookup_x0020_Field.lookupId], [$Lookup_x0020_Field.lookupValue]
+
+[$Image.fileName], [$Image.serverRelativeUrl], [$Image.serverUrl]
+[$Image.thumbnailRenderer.spItemUrl], [$Image.thumbnailRenderer.fileVersion], [$Image.thumbnailRenderer.sponsorToken]
+
+[$Title.id], [$Title.displayValue]
+[$Hyperlink.desc], [$Approval.numeric]
 
 This stuff be bad on purpose (mostly)
 @thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer

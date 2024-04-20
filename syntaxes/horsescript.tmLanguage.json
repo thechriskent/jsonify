@@ -273,11 +273,130 @@
           "name": "punctuation.section.brackets.end.horsescript"
         }
       },
-      "name": "variable.parameter.horsescript",
       "patterns": [
         {
-          "match": "[^\\]]+",
-          "name": "variable.parameter.inner.horsescript"
+          "match": "(?<=\\[\\$)[^~#%&*{}\\:<>?/+|\",.\\]]+",
+          "name": "variable.parameter.field.horsescript"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.horsescript"
+        },
+        {
+          "match": "title(?=\\W|$)",
+          "name": "support.constant.person.title.horsescript"
+        },
+        {
+          "match": "email(?=\\W|$)",
+          "name": "support.constant.person.email.horsescript"
+        },
+        {
+          "match": "sip(?=\\W|$)",
+          "name": "support.constant.person.sip.horsescript"
+        },
+        {
+          "match": "picture(?=\\W|$)",
+          "name": "support.constant.person.picture.horsescript"
+        },
+        {
+          "match": "department(?=\\W|$)",
+          "name": "support.constant.person.department.horsescript"
+        },
+        {
+          "match": "jobTitle(?=\\W|$)",
+          "name": "support.constant.person.jobtitle.horsescript"
+        },
+        {
+          "match": "DisplayName(?=\\W|$)",
+          "name": "support.constant.location.displayname.horsescript"
+        },
+        {
+          "match": "LocationUri(?=\\W|$)",
+          "name": "support.constant.location.locationuri.horsescript"
+        },
+        {
+          "match": "Address(?=\\.(City|CountryOrRegion|State|Street)\\b)",
+          "name": "variable.language.location.address.horsescript"
+        },
+        {
+          "match": "(?<=\\.Address\\.)City(?=\\W|$)",
+          "name": "support.constant.location.address.city.horsescript"
+        },
+        {
+          "match": "(?<=\\.Address\\.)CountryOrRegion(?=\\W|$)",
+          "name": "support.constant.location.address.countryorregion.horsescript"
+        },
+        {
+          "match": "(?<=\\.Address\\.)State(?=\\W|$)",
+          "name": "support.constant.location.address.state.horsescript"
+        },
+        {
+          "match": "(?<=\\.Address\\.)Street(?=\\W|$)",
+          "name": "support.constant.location.address.street.horsescript"
+        },
+        {
+          "match": "Coordinates(?=\\.(Latitude|Longitude)\\b)",
+          "name": "variable.language.location.coordinates.horsescript"
+        },
+        {
+          "match": "(?<=\\.Coordinates\\.)Latitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.latitude.horsescript"
+        },
+        {
+          "match": "(?<=\\.Coordinates\\.)Longitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.longitude.horsescript"
+        },
+        {
+          "match": "lookupId(?=\\W|$)",
+          "name": "support.constant.lookup.lookupid.horsescript"
+        },
+        {
+          "match": "lookupValue(?=\\W|$)",
+          "name": "support.constant.lookup.lookupvalue.horsescript"
+        },
+        {
+          "match": "fileName(?=\\W|$)",
+          "name": "support.constant.image.filename.horsescript"
+        },
+        {
+          "match": "serverRelativeUrl(?=\\W|$)",
+          "name": "support.constant.image.serverrelativeurl.horsescript"
+        },
+        {
+          "match": "serverUrl(?=\\W|$)",
+          "name": "support.constant.image.serverurl.horsescript"
+        },
+        {
+          "match": "thumbnailRenderer(?=\\.(spItemUrl|fileVersion|sponsorToken)\\b)",
+          "name": "variable.language.image.thumbnailrenderer.horsescript"
+        },
+        {
+          "match": "(?<=\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
+        },
+        {
+          "match": "(?<=\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
+        },
+        {
+          "match": "(?<=\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
+        },
+        {
+          "match": "desc(?=\\W|$)",
+          "name": "support.constant.hyperlink.desc.horsescript"
+        },
+        {
+          "match": "numeric(?=\\W|$)",
+          "name": "support.constant.moderation.numeric.horsescript"
+        },
+        {
+          "match": "displayValue(?=\\W|$)",
+          "name": "support.constant.field.displayvalue.horsescript"
+        },
+        {
+          "match": "id(?=\\W|$)",
+          "name": "support.constant.field.id.horsescript"
         }
       ]
     },

@@ -3,7 +3,7 @@
   "elmType": "div",
   "txtContent": "Wowee!",
   "style": {
-    "display": "=if(@currentField,'dog','wow')",
+    "display": "=if(@currentField,'dog','wow') + @group.count / [$Title.email]",
     "flex": "=donkey"
   }
 }

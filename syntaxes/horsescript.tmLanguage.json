@@ -311,118 +311,147 @@
     "fieldsubprops": {
       "patterns": [
         {
+          "comment": "@currentField.title (person)",
           "match": "(?<=@currentField\\.)title(?=\\W|$)",
           "name": "support.constant.person.title.horsescript"
         },
         {
+          "comment": "@currentField.email (person)",
           "match": "(?<=@currentField\\.)email(?=\\W|$)",
           "name": "support.constant.person.email.horsescript"
         },
         {
+          "comment": "@currentField.sip (person)",
           "match": "(?<=@currentField\\.)sip(?=\\W|$)",
           "name": "support.constant.person.sip.horsescript"
         },
         {
+          "comment": "@currentField.picture (person)",
           "match": "(?<=@currentField\\.)picture(?=\\W|$)",
           "name": "support.constant.person.picture.horsescript"
         },
         {
+          "comment": "@currentField.department (person)",
           "match": "(?<=@currentField\\.)department(?=\\W|$)",
           "name": "support.constant.person.department.horsescript"
         },
         {
+          "comment": "@currentField.jobTitle (person)",
           "match": "(?<=@currentField\\.)jobTitle(?=\\W|$)",
           "name": "support.constant.person.jobtitle.horsescript"
         },
         {
+          "comment": "@currentField.DisplayName (location)",
           "match": "(?<=@currentField\\.)DisplayName(?=\\W|$)",
           "name": "support.constant.location.displayname.horsescript"
         },
         {
+          "comment": "@currentField.LocationUri (location)",
           "match": "(?<=@currentField\\.)LocationUri(?=\\W|$)",
           "name": "support.constant.location.locationuri.horsescript"
         },
         {
-          "match": "(?<=@currentField\\.)Address(?=\\.(City|CountryOrRegion|State|Street)\\b)",
+          "comment": "@currentField.Address (location, only when paired with subprop)",
+          "match": "(?<=@currentField\\.)Address(?=\\.)",
           "name": "variable.language.location.address.horsescript"
         },
         {
+          "comment": "@currentField.Address.City (location)",
           "match": "(?<=@currentField\\.Address\\.)City(?=\\W|$)",
           "name": "support.constant.location.address.city.horsescript"
         },
         {
+          "comment": "@currentField.Address.CountryOrRegion (location)",
           "match": "(?<=@currentField\\.Address\\.)CountryOrRegion(?=\\W|$)",
           "name": "support.constant.location.address.countryorregion.horsescript"
         },
         {
+          "comment": "@currentField.Address.State (location)",
           "match": "(?<=@currentField\\.Address\\.)State(?=\\W|$)",
           "name": "support.constant.location.address.state.horsescript"
         },
         {
+          "comment": "@currentField.Address.Street (location)",
           "match": "(?<=@currentField\\.Address\\.)Street(?=\\W|$)",
           "name": "support.constant.location.address.street.horsescript"
         },
         {
-          "match": "(?<=@currentField\\.)Coordinates(?=\\.(Latitude|Longitude)\\b)",
+          "comment": "@currentField.Coordinates (location, only when paired with subprop)",
+          "match": "(?<=@currentField\\.)Coordinates(?=\\.)",
           "name": "variable.language.location.coordinates.horsescript"
         },
         {
+          "comment": "@currentField.Coordinates.Latitude (location)",
           "match": "(?<=@currentField\\.Coordinates\\.)Latitude(?=\\W|$)",
           "name": "support.constant.location.coordinates.latitude.horsescript"
         },
         {
+          "comment": "@currentField.Coordinates.Longitude (location)",
           "match": "(?<=@currentField\\.Coordinates\\.)Longitude(?=\\W|$)",
           "name": "support.constant.location.coordinates.longitude.horsescript"
         },
         {
+          "comment": "@currentField.lookupId (lookup)",
           "match": "(?<=@currentField\\.)lookupId(?=\\W|$)",
           "name": "support.constant.lookup.lookupid.horsescript"
         },
         {
+          "comment": "@currentField.lookupValue (lookup)",
           "match": "(?<=@currentField\\.)lookupValue(?=\\W|$)",
           "name": "support.constant.lookup.lookupvalue.horsescript"
         },
         {
+          "comment": "@currentField.fileName (image)",
           "match": "(?<=@currentField\\.)fileName(?=\\W|$)",
           "name": "support.constant.image.filename.horsescript"
         },
         {
+          "comment": "@currentField.serverRelativeUrl (image)",
           "match": "(?<=@currentField\\.)serverRelativeUrl(?=\\W|$)",
           "name": "support.constant.image.serverrelativeurl.horsescript"
         },
         {
+          "comment": "@currentField.serverUrl (image)",
           "match": "(?<=@currentField\\.)serverUrl(?=\\W|$)",
           "name": "support.constant.image.serverurl.horsescript"
         },
         {
-          "match": "(?<=@currentField\\.)thumbnailRenderer(?=\\.(spItemUrl|fileVersion|sponsorToken)\\b)",
+          "comment": "@currentField.thumbnailRenderer (image, only when paired with subprop)",
+          "match": "(?<=@currentField\\.)thumbnailRenderer(?=\\.)",
           "name": "variable.language.image.thumbnailrenderer.horsescript"
         },
         {
+          "comment": "@currentField.thumbnailRenderer.spItemUrl (image)",
           "match": "(?<=@currentField\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
           "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
         },
         {
+          "comment": "@currentField.thumbnailRenderer.fileVersion (image)",
           "match": "(?<=@currentField\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
           "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
         },
         {
+          "comment": "@currentField.thumbnailRenderer.sponsorToken (image)",
           "match": "(?<=@currentField\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
           "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
         },
         {
+          "comment": "@currentField.desc (hyperlink/picture)",
           "match": "(?<=@currentField\\.)desc(?=\\W|$)",
           "name": "support.constant.hyperlink.desc.horsescript"
         },
         {
+          "comment": "@currentField.numeric (moderation)",
           "match": "(?<=@currentField\\.)numeric(?=\\W|$)",
           "name": "support.constant.moderation.numeric.horsescript"
         },
         {
+          "comment": "@currentField.displayValue",
           "match": "(?<=@currentField\\.)displayValue(?=\\W|$)",
           "name": "support.constant.field.displayvalue.horsescript"
         },
         {
+          "comment": "@currentField.id (image, person)",
           "match": "(?<=@currentField\\.)id(?=\\W|$)",
           "name": "support.constant.field.id.horsescript"
         }

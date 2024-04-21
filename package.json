@@ -107,6 +107,13 @@
         "path": "./syntaxes/horsescript-json.tmLanguage.json",
         "injectTo": ["source.json"]
       }
+    ],
+    "themes": [
+      {
+        "label": "Warrior Horse",
+        "uiTheme": "vs-dark",
+        "path": "./themes/warriorhorse-dark-color-theme.json"
+      }
     ]
   },
   "scripts": {
@@ -119,7 +126,8 @@
     "copy-test-data": "shx cp -r src/test/data out/test",
     "pretest": "npm run compile-tests && npm run compile && npm run lint && npm run copy-test-data",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "generate-themes": "node ./src/themes/generate-themes.js"
   },
   "devDependencies": {
     "@types/css-tree": "^2.3.6",

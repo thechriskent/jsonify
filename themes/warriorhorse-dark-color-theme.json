@@ -1,0 +1,7 @@
+{
+    "type": "dark",
+    "colors": {
+      "editor.background": "#0000ff",
+      "editor.foreground": "#ff0000"
+    }
+  }

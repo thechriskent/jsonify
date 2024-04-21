@@ -1,0 +1,7 @@
+{
+    "type": "dark",
+    "colors": {
+      "editor.background": "${myBlue}",
+      "editor.foreground": "${myRed}"
+    }
+  }

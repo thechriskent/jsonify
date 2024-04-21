@@ -598,6 +598,7 @@
       ]
     },
     "fieldvalues": {
+      "comment": "Field value references, broken into nested patterns to allow distinction of fieldname from known subprops",
       "begin": "\\[\\$",
       "beginCaptures": {
         "0": {
@@ -612,6 +613,7 @@
       },
       "patterns": [
         {
+          "comment": "Internal field name",
           "match": "(?<=\\[\\$)[^~#%&*{}\\:<>?/+|\",.\\]]+",
           "name": "variable.parameter.field.horsescript"
         },
@@ -620,118 +622,147 @@
           "name": "punctuation.accessor.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.title] (person)",
           "match": "title(?=\\W|$)",
           "name": "support.constant.person.title.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.email] (person)",
           "match": "email(?=\\W|$)",
           "name": "support.constant.person.email.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.sip] (person)",
           "match": "sip(?=\\W|$)",
           "name": "support.constant.person.sip.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.picture] (person)",
           "match": "picture(?=\\W|$)",
           "name": "support.constant.person.picture.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.department] (person)",
           "match": "department(?=\\W|$)",
           "name": "support.constant.person.department.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.jobTitle] (person)",
           "match": "jobTitle(?=\\W|$)",
           "name": "support.constant.person.jobtitle.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.DisplayName] (location)",
           "match": "DisplayName(?=\\W|$)",
           "name": "support.constant.location.displayname.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.LocationUri] (location)",
           "match": "LocationUri(?=\\W|$)",
           "name": "support.constant.location.locationuri.horsescript"
         },
         {
-          "match": "Address(?=\\.(City|CountryOrRegion|State|Street)\\b)",
+          "comment": "[$InternalFieldName.Address.] (location, only when paired with subprop)",
+          "match": "Address(?=\\.)",
           "name": "variable.language.location.address.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.Address.City] (location)",
           "match": "(?<=\\.Address\\.)City(?=\\W|$)",
           "name": "support.constant.location.address.city.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.Address.CountryOrRegion] (location)",
           "match": "(?<=\\.Address\\.)CountryOrRegion(?=\\W|$)",
           "name": "support.constant.location.address.countryorregion.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.Address.State] (location)",
           "match": "(?<=\\.Address\\.)State(?=\\W|$)",
           "name": "support.constant.location.address.state.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.Address.Street] (location)",
           "match": "(?<=\\.Address\\.)Street(?=\\W|$)",
           "name": "support.constant.location.address.street.horsescript"
         },
         {
-          "match": "Coordinates(?=\\.(Latitude|Longitude)\\b)",
+          "comment": "[$InternalFieldName.Coordinates.] (location, only when paired with subprop)",
+          "match": "Coordinates(?=\\.)",
           "name": "variable.language.location.coordinates.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.Coordinates.Latitude] (location)",
           "match": "(?<=\\.Coordinates\\.)Latitude(?=\\W|$)",
           "name": "support.constant.location.coordinates.latitude.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.Coordinates.Longitude] (location)",
           "match": "(?<=\\.Coordinates\\.)Longitude(?=\\W|$)",
           "name": "support.constant.location.coordinates.longitude.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.lookupId] (lookup)",
           "match": "lookupId(?=\\W|$)",
           "name": "support.constant.lookup.lookupid.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.lookupValue] (lookup)",
           "match": "lookupValue(?=\\W|$)",
           "name": "support.constant.lookup.lookupvalue.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.fileName] (image)",
           "match": "fileName(?=\\W|$)",
           "name": "support.constant.image.filename.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.serverRelativeUrl] (image)",
           "match": "serverRelativeUrl(?=\\W|$)",
           "name": "support.constant.image.serverrelativeurl.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.serverUrl] (image)",
           "match": "serverUrl(?=\\W|$)",
           "name": "support.constant.image.serverurl.horsescript"
         },
         {
-          "match": "thumbnailRenderer(?=\\.(spItemUrl|fileVersion|sponsorToken)\\b)",
+          "comment": "[$InternalFieldName.thumbnailRenderer.] (image, only when paired with subprop)",
+          "match": "thumbnailRenderer(?=\\.)",
           "name": "variable.language.image.thumbnailrenderer.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.thumbnailRenderer.spItemUrl] (image)",
           "match": "(?<=\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
           "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.thumbnailRenderer.fileVersion] (image)",
           "match": "(?<=\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
           "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.thumbnailRenderer.sponsorToken] (image)",
           "match": "(?<=\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
           "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.desc] (hyperlink/picture)",
           "match": "desc(?=\\W|$)",
           "name": "support.constant.hyperlink.desc.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.numeric] (moderation)",
           "match": "numeric(?=\\W|$)",
           "name": "support.constant.moderation.numeric.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.displayValue]",
           "match": "displayValue(?=\\W|$)",
           "name": "support.constant.field.displayvalue.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.id] (image, person)",
           "match": "id(?=\\W|$)",
           "name": "support.constant.field.id.horsescript"
         }

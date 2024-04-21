@@ -5,6 +5,8 @@ true, false, null, tiny, 'old', 'operator+inside'
 (4+5-38)/89%2
 if(4>3&&6<=9,if([$Number]<@now||89>=2||[$Ugly_x003a_Field]=='bunny','#ffffff','ms-bgColor-themeTertiary'))
 
+if(@currentField=='Critical','#d13438', '#fce100') 'rgb(255,255,255)', 'rgba(0,0,0,.5)', 'rGbA(0, 23, 56)', 'rgba(255, 56, 12, 0.2)', 'red', 'lime'
+
 toString(45), Number('365'), Number('Wowee'), Number(Date('12/26/1981')), cos(5), sin(90)
 toLocaleTimeString(@now), toLocaleString(@now), toLocaleDateString(@now), toUpperCase('DogFood')
 toLowerCase('DogFood'), abs(-45), length(@currentField), length('Some Text'), length(''), length(45)
@@ -385,6 +387,21 @@ getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,
 'sp-field-borderTopBottomRegular', 'sp-field-borderTopBottomSemibold', 'sp-field-borderTopBottomBold', 'sp-field-borderTopBottomDashed', 'sp-field-borderTopBottomDotted', 'sp-field-borderTopBottomSolid'
 
 'itemHovered', 'sp-customformatter-thumbnail', 'ms-Tile-background'
+
+'aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal', 'white', 'yellow',
+'aliceblue', 'antiquewhite', 'aquamarine', 'azure', 'beige', 'bisque', 'blanchedalmond', 'blueviolet', 'brown', 'burlywood', 'cadetblue',
+'chartreuse', 'chocolate', 'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan', 'darkgoldenrod', 'darkgray',
+'darkgreen', 'darkgrey', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred', 'darksalmon', 'darkseagreen',
+'darkslateblue', 'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dimgrey', 'dodgerblue',
+'firebrick', 'floralwhite', 'forestgreen', 'gainsboro', 'ghostwhite', 'gold', 'goldenrod', 'greenyellow', 'grey', 'honeydew', 'hotpink',
+'indianred', 'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan',
+'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightgrey', 'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray',
+'lightslategrey', 'lightsteelblue', 'lightyellow', 'limegreen', 'linen', 'magenta', 'mediumaquamarine', 'mediumblue', 'mediumorchid',
+'mediumpurple', 'mediumseagreen', 'mediumslateblue', 'mediumspringgreen', 'mediumturquoise', 'mediumvioletred', 'midnightblue', 'mintcream',
+'mistyrose', 'moccasin', 'navajowhite', 'oldlace', 'olivedrab', 'orange', 'orangered', 'orchid', 'palegoldenrod', 'palegreen', 'paleturquoise',
+'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink', 'plum', 'powderblue', 'rebeccapurple', 'rosybrown', 'royalblue', 'saddlebrown',
+'salmon', 'sandybrown', 'seagreen', 'seashell', 'sienna', 'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen', 'steelblue',
+'tan', 'thistle', 'tomato', 'turquoise', 'violet', 'wheat', 'whitesmoke', 'yellowgreen'
 
 This stuff be bad on purpose (mostly)
 @thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer,@group

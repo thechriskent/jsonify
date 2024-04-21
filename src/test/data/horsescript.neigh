@@ -29,7 +29,7 @@ replace('Hello world','world','everyone'), replace('Wowee', 'W', 'w')
 replaceAll('H-e-l-l-o W-o-r-l-d', '-', ''),replaceAll('H-e-l-l-o W-o-r-l-d','o','0')
 padStart(@currentField,10,'A'), padStart('Wonkers', 100, '!')
 padEnd(@currentField,10,'A'), padEnd('Wonkers', 100, '!')
-getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,100)
+getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,100) 'Yes' 'No' 'Uh, I guess Yes?', 'Nope'
 
 @currentField.title, @currentField.email, @currentField.sip
 @currentField.picture, @currentField.department, @currentField.jobTitle

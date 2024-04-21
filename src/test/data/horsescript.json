@@ -1,9 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
   "elmType": "div",
-  "txtContent": "Wowee!",
   "style": {
-    "display": "=if(@currentField,'dog','wow') + @group.count / [$Title.email]",
-    "flex": "=donkey"
-  }
+    "font-size": "18px"
+  },
+  "txtContent": "=if(@currentField == 'Yes', 'Yes', 'No')"
 }

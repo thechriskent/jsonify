@@ -460,14 +460,17 @@
     "operators": {
       "patterns": [
         {
+          "comment": "if",
           "match": "\\b(?:if)\\b",
           "name": "keyword.control.conditional.horsescript"
         },
         {
+          "comment": "+, -, /, *, %",
           "match": "(\\+|-|/|\\*|%)",
           "name": "keyword.operator.arithmetic.horsescript"
         },
         {
+          "comment": "==, !=, <=, <, >=, >, ||, &&",
           "match": "(==|!=|<=|<|>=|>|\\|\\||&&)",
           "name": "keyword.operator.logical.horsescript"
         }
@@ -769,6 +772,7 @@
       ]
     },
     "fieldmetadata": {
+      "comment": "Field metadata, broken into nested patterns to allow distinction of fieldname from known subprops",
       "begin": "\\[\\!",
       "beginCaptures": {
         "0": {
@@ -783,6 +787,7 @@
       },
       "patterns": [
         {
+          "comment": "Internal field name",
           "match": "(?<=\\[\\!)[^~#%&*{}\\:<>?/+|\",.\\]]+",
           "name": "variable.parameter.field.horsescript"
         },
@@ -791,6 +796,7 @@
           "name": "punctuation.accessor.horsescript"
         },
         {
+          "comment": "[!InternalFieldName.DisplayName]",
           "match": "DisplayName(?=\\W|$)",
           "name": "support.constant.fieldmetadata.displayname.horsescript"
         }
@@ -804,7 +810,13 @@
           "name": "string.quoted.single.horsescript",
           "patterns": [
             {
+              "comment": "By including these here we can highlight them even when they're part of a string (weird for most languages, but these are more like constants in usage)",
               "include": "#classes"
+            },
+            {
+              "comment": "Yes, No (boolean, must be only word in string)",
+              "match": "(?<=')\\b(Yes|No)\\b(?=')",
+              "name": "constant.other.boolean.english.horsescript"
             }
           ]
         }
@@ -817,6 +829,7 @@
           "name": "constant.language.boolean.horsescript"
         },
         {
+          "comment": "The = required to move from property value to expression",
           "match": "^=",
           "name": "support.constant.expressionprefix.horsescript"
         }
@@ -843,6 +856,7 @@
       ]
     },
     "default": {
+      "comment": "Anything not caught by the above patterns",
       "match": ".",
       "name": "source.horsescript"
     }

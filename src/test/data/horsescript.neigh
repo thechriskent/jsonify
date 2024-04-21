@@ -46,13 +46,17 @@ getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,
 @currentField.id, @currentField.displayValue
 @currentField.desc, @currentField.numeric
 
-@currentWeb,@me,@now,@rowIndex,@window.innerHeight,@window.innerWidth
-@isSelected,@lcid,@UIlcid
+@currentWeb, @me, @now, @rowIndex,
+@window.innerHeight, @window.innerWidth
+@isSelected, @lcid, @UIlcid
 
 @thumbnail.small,@thumbnail.medium,@thumbnail.large
 @thumbnail.150,@thumbnail.4048,@thumbnail.100x200,@thumbnail.1000x1600
 
-[$Title,sa] [!Title.DisplayName]
+@groupfieldData, @group.count, @group.columnDisplayName, @aggregates
+@columnAggregate.type, @columnAggregate.value, @columnAggregate.columnDisplayName
+
+[$Title] [!Title.DisplayName]
 [$Editor.title], [$Editor.email], [$Editor.sip]
 [$Editor.picture], [$Editor.department], [$Editor.jobTitle]
 
@@ -383,4 +387,4 @@ getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,
 'itemHovered', 'sp-customformatter-thumbnail', 'ms-Tile-background'
 
 This stuff be bad on purpose (mostly)
-@thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer
+@thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer,@group

@@ -1,21 +1,31 @@
 const fs = require('fs');
 const path = require('path');
-let tokens = require(path.resolve(__dirname, './tokens.json'));
 
 // Set the source and output directories
 const srcDir = __dirname;
 const outDir = path.resolve(__dirname, '../../themes');
 
 // Function to replace tokens in a file
-function replaceTokensInFile(file) {
+function replaceTokensInFile(file, tokens, prefix) {
   let theme = fs.readFileSync(path.join(srcDir, file), 'utf-8');
+  let replaced;
 
-  for (const token in tokens) {
-    theme = theme.replace(new RegExp(`\\$\\{${token}\\}`, 'g'), tokens[token]);
-  }
+  do {
+    replaced = false;
 
-  // Remove the 'template.' prefix from the file name
-  const outputFileName = file.replace('template.', '');
+    for (const token in tokens) {
+      const newTheme = theme.replace(new RegExp(`\\$\\{${token}\\}`, 'g'), tokens[token]);
+
+      if (newTheme !== theme) {
+        replaced = true;
+      }
+
+      theme = newTheme;
+    }
+  } while (replaced);
+
+  // Remove the 'template.' prefix from the file name and add the prefix
+  const outputFileName = file.replace('template.', '').replace('color-theme.json', `${prefix}color-theme.json`);
 
   fs.writeFileSync(path.join(outDir, outputFileName), theme);
 }
@@ -23,13 +33,19 @@ function replaceTokensInFile(file) {
 // Read all files in the source directory
 const files = fs.readdirSync(srcDir);
 
-// Filter files based on the naming format
+// Filter files to get token files and template files
+const tokenFiles = files.filter(file => file.endsWith('.tokens.json'));
 const templateFiles = files.filter(file => file.startsWith('template.') && file.endsWith('-color-theme.json'));
 
-// Replace tokens in all template files
-for (const file of templateFiles) {
-  replaceTokensInFile(file);
-}
+// For each token file, use each template file to make a theme
+tokenFiles.forEach(tokenFile => {
+  const tokens = JSON.parse(fs.readFileSync(path.resolve(srcDir, tokenFile), 'utf-8'));
+  const prefix = tokenFile.replace('.tokens.json', '-');
+
+  templateFiles.forEach(templateFile => {
+    replaceTokensInFile(templateFile, tokens, prefix);
+  });
+});
 
 console.info(`\x1b[36mWatching for changes to theme files in ${srcDir}...\x1b[0m`);
 
@@ -37,22 +53,28 @@ console.info(`\x1b[36mWatching for changes to theme files in ${srcDir}...\x1b[0m
 fs.watch(srcDir, (eventType, filename) => {
   if (eventType === 'change' && filename.startsWith('template.') && filename.endsWith('-color-theme.json')) {
     console.info(`\x1b[36m${filename} has changed. Updating theme...\x1b[0m`);
-    replaceTokensInFile(filename);
+
+    tokenFiles.forEach(tokenFile => {
+      const tokens = JSON.parse(fs.readFileSync(path.resolve(srcDir, tokenFile), 'utf-8'));
+      const prefix = tokenFile.replace('.tokens.json', '-');
+
+      replaceTokensInFile(filename, tokens, prefix);
+    });
   }
 });
 
-// Watch for changes to tokens.json
-fs.watch(path.resolve(__dirname, './tokens.json'), (eventType, filename) => {
-  if (eventType === 'change') {
-    console.info(`\x1b[36m${filename} has changed. Updating themes...\x1b[0m`);
+// Watch for changes to token files
+tokenFiles.forEach(tokenFile => {
+  fs.watch(path.resolve(__dirname, tokenFile), (eventType, filename) => {
+    if (eventType === 'change') {
+      console.info(`\x1b[36m${filename} has changed. Updating themes...\x1b[0m`);
 
-    // Reload tokens
-    delete require.cache[require.resolve('./tokens.json')];
-    tokens = require('./tokens.json');
+      const tokens = JSON.parse(fs.readFileSync(path.resolve(srcDir, tokenFile), 'utf-8'));
+      const prefix = tokenFile.replace('.tokens.json', '-');
 
-    // Replace tokens in all template files
-    for (const file of templateFiles) {
-      replaceTokensInFile(file);
+      templateFiles.forEach(templateFile => {
+        replaceTokensInFile(templateFile, tokens, prefix);
+      });
     }
-  }
+  });
 });

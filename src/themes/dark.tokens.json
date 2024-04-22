@@ -1,0 +1,52 @@
+{
+  "white": "#FFFFFF",
+  "black": "#0A0A0A",
+  "yellow": "#FFD700",
+  "yellowLight": "#D1B566",
+  "yellowDark": "#F59D00",
+  "orange": "#F36A00",
+  "brown": "#AD702A",
+  "brownLight": "#D9855B",
+  "pinkLight": "#E5A482",
+  "red": "#F50810",
+  "magenta": "#EB0282",
+  "purple": "#A156D6",
+  "purpleLight": "#D5C2CF",
+  "blueDark": "#0C89B3",
+  "blue": "#00B1B8",
+  "blueLight": "#9DC5DE",
+  "green": "#13CC30",
+  "cream": "#EDE8DF",
+
+
+  "background:Color": "${black}",
+  "foreground:Color": "${white}",
+
+  "entity:Color": "${green}",
+  "variable:Color": "${magenta}",
+  "variable.parameter:Color": "${blue}",
+  "bracket:Color": "${blueDark}",
+  "constant:Color": "${orange}",
+  "constant.other:Color": "${pinkLight}",
+  "support:Color": "${blueLight}",
+  "storage:Color": "${blueLight}",
+  "storage.type:Color": "#b8860b",
+  "keyword:Color": "${purple}",
+  "string:Color": "${yellow}",
+  "jsonProperty:Color": "${brownLight}",
+  "jsonProperty.quoteMark:Color": "${brown}",
+  "jsonProperty.value:Color": "${cream}",
+  "punctuation:Color": "${purpleLight}",
+  "quotemark.single:Color": "${yellowDark}",
+  "json.colon:Color": "${yellowDark}",
+
+  "invalid:Color": "${red}",
+  "comment:Color": "${pinkLight}",
+
+
+  "quote:Color": "${yellowLight}",
+  "token.info-token:Color": "{$blueLight}",
+  "token.warn-token:Color": "${yellowDark}",
+  "token.error-token:Color": "${invalid:Color}",
+  "token.debug-token:Color": "${purple}"
+}

@@ -2,7 +2,11 @@
     "type": "dark",
     "colors": {
         "editor.background": "${background:Color}",
-        "editor.foreground": "${foreground:Color}"
+        "editor.foreground": "${foreground:Color}",
+
+        "editor.selectionBackground": "${yellowDark}4D",
+        "focusBorder": "${magenta}",
+        "errorForeground": "${red}"
     },
     "tokenColors": [
         {
@@ -33,6 +37,35 @@
             "scope": "string",
             "settings": {
                 "foreground": "${string:Color}"
+            }
+        },
+        {
+            "name": "Single Quote Marks",
+            "scope": "string.quoted.single.horsescript punctuation.definition",
+            "settings": {
+                "foreground": "${quotemark.single:Color}"
+            }
+        },
+        {
+            "name": "General Punctuation",
+            "scope": "punctuation.definition",
+            "settings": {
+                "foreground": "${punctuation:Color}"
+            }
+        },
+        {
+            "name": "JSON Property Colons",
+            "scope": "meta.structure.dictionary.json punctuation.separator.dictionary.key-value",
+            "settings": {
+                "foreground": "${json.colon:Color}"
+            }
+        },
+        {
+            "name": "Brackets",
+            "scope": "punctuation.section.brackets",
+            "settings": {
+                "foreground": "${bracket:Color}",
+                "fontStyle": "bold"
             }
         },
         {
@@ -72,7 +105,7 @@
             "name": "User-defined constant",
             "scope": "constant.character, constant.other",
             "settings": {
-                "foreground": "${constant:Color}"
+                "foreground": "${constant.other:Color}"
             }
         },
         {
@@ -84,10 +117,19 @@
             }
         },
         {
+            "name": "Variable",
+            "scope": "variable",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${foregro}"
+            }
+        },
+        {
             "name": "Keyword",
             "scope": "keyword",
             "settings": {
-                "foreground": "${keyword:Color}"
+                "foreground": "${keyword:Color}",
+                "fontStyle": "bold"
             }
         },
         {
@@ -135,7 +177,7 @@
             "scope": "variable.parameter",
             "settings": {
                 "fontStyle": "italic",
-                "foreground": "${variable:Color}"
+                "foreground": "${variable.parameter:Color}"
             }
         },
         {
@@ -201,10 +243,25 @@
             }
         },
         {
-            "name": "JSON String",
+            "name": "JSON Double Quote Marks",
+            "scope": "meta.structure.dictionary.json punctuation.support.type.property-name",
+            "settings": {
+                "foreground": "${jsonProperty.quoteMark:Color}"
+            }
+        },
+        {
+            "name": "JSON Property",
+            "scope": "meta.structure.dictionary.json support.type.property-name.json",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "${jsonProperty:Color}"
+            }
+        },
+        {
+            "name": "JSON Property Value",
             "scope": "meta.structure.dictionary.json string.quoted.double.json",
             "settings": {
-                "foreground": "${jsonPropertyValue:Color}"
+                "foreground": "${jsonProperty.value:Color}"
             }
         },
         {
@@ -371,7 +428,7 @@
         {
             "scope": "token.error-token",
             "settings": {
-                "foreground": "${invalid:Color}"
+                "foreground": "${token.error-token:Color}"
             }
         },
         {

@@ -148,6 +148,11 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
+
+	// const virtualDocumentContents = new Map<string, string>();
+	// vscode.workspace.regis
+
+
 	//Register the commands for proper disposal
 	context.subscriptions.push(comReg_toFormat_Explorer);
 	context.subscriptions.push(comReg_toFormat_Editor);

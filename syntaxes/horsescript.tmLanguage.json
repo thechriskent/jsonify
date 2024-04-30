@@ -1,0 +1,916 @@
+{
+  "name": "HorseScript",
+  "scopeName": "source.horsescript",
+  "patterns": [
+    {
+      "include": "#expression"
+    }
+  ],
+  "repository": {
+    "expression": {
+      "patterns": [
+        {
+          "include": "#functions"
+        },
+        {
+          "include": "#magicstrings"
+        },
+        {
+          "include": "#fieldsubprops"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#fieldvalues"
+        },
+        {
+          "include": "#fieldmetadata"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#constants"
+        },
+        {
+          "include": "#punctuation"
+        },
+        {
+          "include": "#default"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "match": "\\btoString(?=\\()\\b",
+          "name": "entity.name.function.tostring.horsescript"
+        },
+        {
+          "match": "\\bNumber(?=\\()\\b",
+          "name": "entity.name.function.number.horsescript"
+        },
+        {
+          "match": "\\bDate(?=\\()\\b",
+          "name": "entity.name.function.date.horsescript"
+        },
+        {
+          "match": "\\bcos(?=\\()\\b",
+          "name": "entity.name.function.cos.horsescript"
+        },
+        {
+          "match": "\\bsin(?=\\()\\b",
+          "name": "entity.name.function.sin.horsescript"
+        },
+        {
+          "match": "\\btoLocaleString(?=\\()\\b",
+          "name": "entity.name.function.tolocalestring.horsescript"
+        },
+        {
+          "match": "\\btoLocaleDateString(?=\\()\\b",
+          "name": "entity.name.function.tolocaledatestring.horsescript"
+        },
+        {
+          "match": "\\btoLocaleTimeString(?=\\()\\b",
+          "name": "entity.name.function.tolocaletimestring.horsescript"
+        },
+        {
+          "match": "\\bindexOf(?=\\()\\b",
+          "name": "entity.name.function.indexof.horsescript"
+        },
+        {
+          "match": "\\btoLowerCase(?=\\()\\b",
+          "name": "entity.name.function.tolowercase.horsescript"
+        },
+        {
+          "match": "\\bjoin(?=\\()\\b",
+          "name": "entity.name.function.join.horsescript"
+        },
+        {
+          "match": "\\blength(?=\\()\\b",
+          "name": "entity.name.function.length.horsescript"
+        },
+        {
+          "match": "\\babs(?=\\()\\b",
+          "name": "entity.name.function.abs.horsescript"
+        },
+        {
+          "match": "\\bloopIndex(?=\\()\\b",
+          "name": "entity.name.function.loopindex.horsescript"
+        },
+        {
+          "match": "\\bfloor(?=\\()\\b",
+          "name": "entity.name.function.floor.horsescript"
+        },
+        {
+          "match": "\\bceiling(?=\\()\\b",
+          "name": "entity.name.function.ceiling.horsescript"
+        },
+        {
+          "match": "\\bpow(?=\\()\\b",
+          "name": "entity.name.function.pow.horsescript"
+        },
+        {
+          "match": "\\bsubstring(?=\\()\\b",
+          "name": "entity.name.function.substring.horsescript"
+        },
+        {
+          "match": "\\bgetDate(?=\\()\\b",
+          "name": "entity.name.function.getdate.horsescript"
+        },
+        {
+          "match": "\\bgetMonth(?=\\()\\b",
+          "name": "entity.name.function.getmonth.horsescript"
+        },
+        {
+          "match": "\\bgetYear(?=\\()\\b",
+          "name": "entity.name.function.getyear.horsescript"
+        },
+        {
+          "match": "\\btoUpperCase(?=\\()\\b",
+          "name": "entity.name.function.touppercase.horsescript"
+        },
+        {
+          "match": "\\blastIndexOf(?=\\()\\b",
+          "name": "entity.name.function.lastindexof.horsescript"
+        },
+        {
+          "match": "\\bstartsWith(?=\\()\\b",
+          "name": "entity.name.function.startswith.horsescript"
+        },
+        {
+          "match": "\\bendsWith(?=\\()\\b",
+          "name": "entity.name.function.endswith.horsescript"
+        },
+        {
+          "match": "\\breplace(?=\\()\\b",
+          "name": "entity.name.function.replace.horsescript"
+        },
+        {
+          "match": "\\breplaceAll(?=\\()\\b",
+          "name": "entity.name.function.replaceall.horsescript"
+        },
+        {
+          "match": "\\bpadStart(?=\\()\\b",
+          "name": "entity.name.function.padstart.horsescript"
+        },
+        {
+          "match": "\\bpadEnd(?=\\()\\b",
+          "name": "entity.name.function.padend.horsescript"
+        },
+        {
+          "match": "\\bgetThumbnailImage(?=\\()\\b",
+          "name": "entity.name.function.getthumbnailimage.horsescript"
+        },
+        {
+          "match": "\\bgetUserImage(?=\\()\\b",
+          "name": "entity.name.function.getuserimage.horsescript"
+        },
+        {
+          "match": "\\baddDays(?=\\()\\b",
+          "name": "entity.name.function.adddays.horsescript"
+        },
+        {
+          "match": "\\baddMinutes(?=\\()\\b",
+          "name": "entity.name.function.addminutes.horsescript"
+        },
+        {
+          "match": "\\bappendTo(?=\\()\\b",
+          "name": "entity.name.function.appendto.horsescript"
+        },
+        {
+          "match": "\\bremoveFrom(?=\\()\\b",
+          "name": "entity.name.function.removefrom.horsescript"
+        },
+        {
+          "match": "\\bsplit(?=\\()\\b",
+          "name": "entity.name.function.split.horsescript"
+        }
+      ]
+    },
+    "magicstrings": {
+      "patterns": [
+        {
+          "comment": "@currentField (standalone)",
+          "match": "(?<=\\W|^)@currentField(?=\\W|$)",
+          "name": "variable.language.currentfield.horsescript"
+        },
+        {
+          "comment": "@currentWeb",
+          "match": "(?<=\\W|^)@currentWeb(?=\\W|$)",
+          "name": "variable.language.currentweb.horsescript"
+        },
+        {
+          "comment": "@me",
+          "match": "(?<=\\W|^)@me(?=\\W|$)",
+          "name": "variable.language.me.horsescript"
+        },
+        {
+          "comment": "@now",
+          "match": "(?<=\\W|^)@now(?=\\W|$)",
+          "name": "variable.language.now.horsescript"
+        },
+        {
+          "comment": "@rowIndex",
+          "match": "(?<=\\W|^)@rowIndex(?=\\W|$)",
+          "name": "variable.language.rowindex.horsescript"
+        },
+        {
+          "comment": "@window (only when paired with subprop)",
+          "match": "(?<=\\W|^)@window(?=\\.)",
+          "name": "variable.language.window.horsescript"
+        },
+        {
+          "comment": "@window.innerHeight",
+          "match": "(?<=\\W|^@window\\.)innerHeight(?=\\W|$)",
+          "name": "support.constant.window.innerheight.horsescript"
+        },
+        {
+          "comment": "@window.innerWidth",
+          "match": "(?<=\\W|^@window\\.)innerWidth(?=\\W|$)",
+          "name": "support.constant.window.innerwidth.horsescript"
+        },
+        {
+          "comment": "@isSelected",
+          "match": "(?<=\\W|^)@isSelected(?=\\W|$)",
+          "name": "variable.language.isselected.horsescript"
+        },
+        {
+          "comment": "@lcid",
+          "match": "(?<=\\W|^)@lcid(?=\\W|$)",
+          "name": "variable.language.lcid.horsescript"
+        },
+        {
+          "comment": "@UIlcid",
+          "match": "(?<=\\W|^)@UIlcid(?=\\W|$)",
+          "name": "variable.language.uilcid.horsescript"
+        },
+        {
+          "comment": "@thumbnail (only when paired with subprop)",
+          "match": "(?<=\\W|^)@thumbnail(?=\\.)",
+          "name": "variable.language.thumbnail.horsescript"
+        },
+        {
+          "comment": "@thumbnail (named size)",
+          "match": "(?<=@thumbnail\\.)(small|medium|large)(?=\\W|$)",
+          "name": "support.constant.thumbnail.size.horsescript"
+        },
+        {
+          "comment": "@thumbnail (dimensions)",
+          "match": "(?<=@thumbnail\\.)\\d+(x\\d+)?(?=\\W|$)",
+          "name": "constant.numeric.thumbnail.dimensions.horsescript"
+        },
+        {
+          "comment": "@groupfieldData",
+          "match": "(?<=\\W|^)@groupfieldData(?=\\W|$)",
+          "name": "variable.language.groupfielddata.horsescript"
+        },
+        {
+          "comment": "@aggregates",
+          "match": "(?<=\\W|^)@aggregates(?=\\W|$)",
+          "name": "variable.language.aggregates.horsescript"
+        },
+        {
+          "comment": "@group (only when paired with subprop)",
+          "match": "(?<=\\W|^)@group(?=\\.)",
+          "name": "variable.language.group.horsescript"
+        },
+        {
+          "comment": "@group.count",
+          "match": "(?<=@group\\.)count(?=\\W|$)",
+          "name": "support.constant.group.count.horsescript"
+        },
+        {
+          "comment": "@group.columnDisplayName",
+          "match": "(?<=@group\\.)columnDisplayName(?=\\W|$)",
+          "name": "support.constant.group.columndisplayname.horsescript"
+        },
+        {
+          "comment": "@columnAggregate (only when paired with subprop)",
+          "match": "(?<=\\W|^)@columnAggregate(?=\\.)",
+          "name": "variable.language.columnaggregate.horsescript"
+        },
+        {
+          "comment": "@columnAggregate.type",
+          "match": "(?<=@columnAggregate\\.)type(?=\\W|$)",
+          "name": "support.constant.columnaggregate.type.horsescript"
+        },
+        {
+          "comment": "@columnAggregate.value",
+          "match": "(?<=@columnAggregate\\.)value(?=\\W|$)",
+          "name": "support.constant.columnaggregate.value.horsescript"
+        },
+        {
+          "comment": "@columnAggregate.columnDisplayName",
+          "match": "(?<=@columnAggregate\\.)columnDisplayName(?=\\W|$)",
+          "name": "support.constant.columnaggregate.columndisplayname.horsescript"
+        }
+      ]
+    },
+    "fieldsubprops": {
+      "patterns": [
+        {
+          "comment": "@currentField.title (person)",
+          "match": "(?<=@currentField\\.)title(?=\\W|$)",
+          "name": "support.constant.person.title.horsescript"
+        },
+        {
+          "comment": "@currentField.email (person)",
+          "match": "(?<=@currentField\\.)email(?=\\W|$)",
+          "name": "support.constant.person.email.horsescript"
+        },
+        {
+          "comment": "@currentField.sip (person)",
+          "match": "(?<=@currentField\\.)sip(?=\\W|$)",
+          "name": "support.constant.person.sip.horsescript"
+        },
+        {
+          "comment": "@currentField.picture (person)",
+          "match": "(?<=@currentField\\.)picture(?=\\W|$)",
+          "name": "support.constant.person.picture.horsescript"
+        },
+        {
+          "comment": "@currentField.department (person)",
+          "match": "(?<=@currentField\\.)department(?=\\W|$)",
+          "name": "support.constant.person.department.horsescript"
+        },
+        {
+          "comment": "@currentField.jobTitle (person)",
+          "match": "(?<=@currentField\\.)jobTitle(?=\\W|$)",
+          "name": "support.constant.person.jobtitle.horsescript"
+        },
+        {
+          "comment": "@currentField.DisplayName (location)",
+          "match": "(?<=@currentField\\.)DisplayName(?=\\W|$)",
+          "name": "support.constant.location.displayname.horsescript"
+        },
+        {
+          "comment": "@currentField.LocationUri (location)",
+          "match": "(?<=@currentField\\.)LocationUri(?=\\W|$)",
+          "name": "support.constant.location.locationuri.horsescript"
+        },
+        {
+          "comment": "@currentField.Address (location, only when paired with subprop)",
+          "match": "(?<=@currentField\\.)Address(?=\\.)",
+          "name": "variable.language.location.address.horsescript"
+        },
+        {
+          "comment": "@currentField.Address.City (location)",
+          "match": "(?<=@currentField\\.Address\\.)City(?=\\W|$)",
+          "name": "support.constant.location.address.city.horsescript"
+        },
+        {
+          "comment": "@currentField.Address.CountryOrRegion (location)",
+          "match": "(?<=@currentField\\.Address\\.)CountryOrRegion(?=\\W|$)",
+          "name": "support.constant.location.address.countryorregion.horsescript"
+        },
+        {
+          "comment": "@currentField.Address.State (location)",
+          "match": "(?<=@currentField\\.Address\\.)State(?=\\W|$)",
+          "name": "support.constant.location.address.state.horsescript"
+        },
+        {
+          "comment": "@currentField.Address.Street (location)",
+          "match": "(?<=@currentField\\.Address\\.)Street(?=\\W|$)",
+          "name": "support.constant.location.address.street.horsescript"
+        },
+        {
+          "comment": "@currentField.Coordinates (location, only when paired with subprop)",
+          "match": "(?<=@currentField\\.)Coordinates(?=\\.)",
+          "name": "variable.language.location.coordinates.horsescript"
+        },
+        {
+          "comment": "@currentField.Coordinates.Latitude (location)",
+          "match": "(?<=@currentField\\.Coordinates\\.)Latitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.latitude.horsescript"
+        },
+        {
+          "comment": "@currentField.Coordinates.Longitude (location)",
+          "match": "(?<=@currentField\\.Coordinates\\.)Longitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.longitude.horsescript"
+        },
+        {
+          "comment": "@currentField.lookupId (lookup)",
+          "match": "(?<=@currentField\\.)lookupId(?=\\W|$)",
+          "name": "support.constant.lookup.lookupid.horsescript"
+        },
+        {
+          "comment": "@currentField.lookupValue (lookup)",
+          "match": "(?<=@currentField\\.)lookupValue(?=\\W|$)",
+          "name": "support.constant.lookup.lookupvalue.horsescript"
+        },
+        {
+          "comment": "@currentField.fileName (image)",
+          "match": "(?<=@currentField\\.)fileName(?=\\W|$)",
+          "name": "support.constant.image.filename.horsescript"
+        },
+        {
+          "comment": "@currentField.serverRelativeUrl (image)",
+          "match": "(?<=@currentField\\.)serverRelativeUrl(?=\\W|$)",
+          "name": "support.constant.image.serverrelativeurl.horsescript"
+        },
+        {
+          "comment": "@currentField.serverUrl (image)",
+          "match": "(?<=@currentField\\.)serverUrl(?=\\W|$)",
+          "name": "support.constant.image.serverurl.horsescript"
+        },
+        {
+          "comment": "@currentField.thumbnailRenderer (image, only when paired with subprop)",
+          "match": "(?<=@currentField\\.)thumbnailRenderer(?=\\.)",
+          "name": "variable.language.image.thumbnailrenderer.horsescript"
+        },
+        {
+          "comment": "@currentField.thumbnailRenderer.spItemUrl (image)",
+          "match": "(?<=@currentField\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
+        },
+        {
+          "comment": "@currentField.thumbnailRenderer.fileVersion (image)",
+          "match": "(?<=@currentField\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
+        },
+        {
+          "comment": "@currentField.thumbnailRenderer.sponsorToken (image)",
+          "match": "(?<=@currentField\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
+        },
+        {
+          "comment": "@currentField.desc (hyperlink/picture)",
+          "match": "(?<=@currentField\\.)desc(?=\\W|$)",
+          "name": "support.constant.hyperlink.desc.horsescript"
+        },
+        {
+          "comment": "@currentField.numeric (moderation)",
+          "match": "(?<=@currentField\\.)numeric(?=\\W|$)",
+          "name": "support.constant.moderation.numeric.horsescript"
+        },
+        {
+          "comment": "@currentField.displayValue",
+          "match": "(?<=@currentField\\.)displayValue(?=\\W|$)",
+          "name": "support.constant.field.displayvalue.horsescript"
+        },
+        {
+          "comment": "@currentField.id (image, person)",
+          "match": "(?<=@currentField\\.)id(?=\\W|$)",
+          "name": "support.constant.field.id.horsescript"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "comment": "Negative floats",
+          "match": "(?:(?<=\\s|^|[=+/*<>,-])-\\d+\\.\\d+\\b)",
+          "name": "constant.numeric.float.horsescript"
+        },
+        {
+          "comment": "Positive floats",
+          "match": "\\b\\d+\\.\\d+\\b",
+          "name": "constant.numeric.float.horsescript"
+        },
+        {
+          "comment": "Negative integers",
+          "match": "(?:(?<=\\s|^|[=+/*<>,-])-\\d+\\b)",
+          "name": "constant.numeric.integer.horsescript"
+        },
+        {
+          "comment": "Positive integers",
+          "match": "\\b\\d+\\b",
+          "name": "constant.numeric.integer.horsescript"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "comment": "if",
+          "match": "\\b(?:if)\\b",
+          "name": "keyword.control.conditional.horsescript"
+        },
+        {
+          "comment": "+, -, /, *, %",
+          "match": "(\\+|-|/|\\*|%)",
+          "name": "keyword.operator.arithmetic.horsescript"
+        },
+        {
+          "comment": "==, !=, <=, <, >=, >, ||, &&",
+          "match": "(==|!=|<=|<|>=|>|\\|\\||&&)",
+          "name": "keyword.operator.logical.horsescript"
+        }
+      ]
+    },
+    "classes": {
+      "patterns": [
+        {
+          "comment": "ms-bgColor-* & --hover versions",
+          "match": "\\bms-bgColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|info|success|severeWarning|warning|error|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?\\b",
+          "name": "constant.other.predefinedclasses.ms-bgcolor.horsescript"
+        },
+        {
+          "comment": "ms-borderColor-* & --hover versions",
+          "match": "\\bms-borderColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?\\b",
+          "name": "constant.other.predefinedclasses.ms-bordercolor.horsescript"
+        },
+        {
+          "comment": "ms-fontColor-* & --hover versions",
+          "match": "\\b(ms-fontColor-(themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralSecondaryAlt|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|yellow|yellowLight|orange|orangeLight|orangeLighter|red|redDark|magentaDark|magenta|magentaLight|purpleDark|purple|purpleLight|blueDark|blueMid|blue|blueLight|tealDark|teal|tealLight|greenDark|green|greenLight|info|success|alert|severeWarning|warning|error|contrastBlackDisabled|contrastWhiteDisabled|contrastBlackSelected|contrastWhiteSelected|communicationShade30|communicationShade20|communicationShade10|communicationPrimary|communicationTint10|communicationTint20|communicationTint30|communicationTint40|gray220|gray210|gray200|gray190|gray180|gray170|gray160|gray150|gray140|gray130|gray120|gray110|gray100|gray90|gray80|gray70|gray60|gray50|gray40|gray30|gray20|gray10|sharedPinkRed10|sharedRed20|sharedRed10|sharedRedOrange20|sharedRedOrange10|sharedOrange30|sharedOrange20|sharedOrange10|sharedYellow10|sharedOrangeYellow20|sharedOrangeYellow10|sharedYellowGreen10|sharedGreen20|sharedGreen10|sharedGreenCyan10|sharedCyan40|sharedCyan30|sharedCyan20|sharedCyan10|sharedCyanBlue20|sharedCyanBlue10|sharedBlue10|sharedBlueMagenta40|sharedBlueMagenta30|sharedBlueMagenta20|sharedBlueMagenta10|sharedMagenta20|sharedMagenta10|sharedMagentaPink20|sharedMagentaPink10|sharedGray40|sharedGray30|sharedGray20|sharedGray10)(--hover)?)\\b",
+          "name": "constant.other.predefinedclasses.ms-fontcolor.horsescript"
+        },
+        {
+          "comment": "ms-fontWeight-*",
+          "match": "\\b(ms-fontWeight-(regular|semibold|bold|semilight|light))\\b",
+          "name": "constant.other.predefinedclasses.ms-fontweight.horsescript"
+        },
+        {
+          "comment": "ms-font-*",
+          "match": "\\b(ms-font-(su|xxl|xl-plus|xl|l|m-plus|m|s-plus|s|xs|mi))\\b",
+          "name": "constant.other.predefinedclasses.ms-font.horsescript"
+        },
+        {
+          "comment": "ms-fontSize-*",
+          "match": "\\b(ms-fontSize-(su|xxl|xlPlus|xl|l|mPlus|m|sPlus|s|xs|mi|68|42|32|28|24|20|18|16|14|12|10))\\b",
+          "name": "constant.other.predefinedclasses.ms-fontsize.horsescript"
+        },
+        {
+          "comment": "sp-field-fontSize*",
+          "match": "\\b(sp-field-fontSize(14|15|17|21|24|28|32|36|42|Small|Medium|Large|XLarge))\\b",
+          "name": "constant.other.predefinedclasses.sp-field-fontsize.horsescript"
+        },
+        {
+          "comment": "ms-motion-*",
+          "match": "\\b(ms-motion-(fadeIn|fadeOut|scaleDownIn|scaleDownOut|slideLeftOut|slideRightOut|slideDownOut|slideUpOut|slideLeftIn|slideRightIn|slideDownIn|slideUpIn))\\b",
+          "name": "constant.other.predefinedclasses.ms-motion.horsescript"
+        },
+        {
+          "comment": "ms-* (animation classes)",
+          "match": "\\b(ms-(slideRightIn10|slideRightIn20|slideRightIn40|slideRightIn400|slideRightOut40|slideRightOut400|slideLeftIn10|slideLeftIn20|slideLeftIn40|slideLeftIn400|slideLeftOut40|slideLeftOut400|slideUpIn10|slideUpIn20|slideDownIn10|slideDownIn20|slideUpOut10|slideUpOut20|slideDownOut10|slideDownOut20|scaleUpIn100|scaleUpOut103|scaleDownIn100|scaleDownOut98|rotateN90deg|rotate90deg|fadeIn100|fadeIn200|fadeIn400|fadeIn500|fadeOut100|fadeOut200|fadeOut400|fadeOut500|expandCollapse100|expandCollapse200|expandCollapse400))\\b",
+          "name": "constant.other.predefinedclasses.msanimation.horsescript"
+        },
+        {
+          "comment": "sp-List-color*",
+          "match": "\\b(sp-List-color(0|1|2|3|4|5|6|7|8|9|10|11))\\b",
+          "name": "constant.other.predefinedclasses.sp-list-color.horsescript"
+        },
+        {
+          "comment": "sp-css-backgroundColor-*",
+          "match": "\\b(sp-css-backgroundColor-(BgDarkRed|BgRed|BgOrange|BgBrown|BgGreen|BgTeal|BgDarkGreen|BgBlue|BgLavender|BgDarkBlue|BgDarkPurple|BgPurple|BgDarkPink|BgGray|BgCoral|BgDustRose|BgPeak|BgGold|BgMintGreen|BgCyan|BgSage|BgCornflowerBlue|BgLightPurple|BgLightBlue|BgViolet|BgMauve|BgLilac|BgLightGray|BgCoral30|BgDustRose30|BgPeach40|BgGold60|BgMintGreen30|BgCyan30|BgSage20|BgCornflower40|BgLightPurple30|BgLightBlue20|BgViolet40|BgMauve50|BgLilac30|BgLightGray30|DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themePrimary|themeSeconary|themeTertiary|themeLight|themeLighter|themeLighterAlt|themeDark|themeDarker|themeDarkAlt|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|black|blue|yellow|yellowLight|red|redDark|green|greenLight|blueLight|blueDark|purple|neutralBackground30|neutralBackground20|neutralBackground10|neutralBackground|blueBackground37|blueBackground27|blueBackground17|blueBackground07|successBackground50|successBackground40|successBackground30|warningBackground50|warningBackground40|warningBackground30|blockingBackground50|blockingBackground40|blockingBackground30|errorBackground50|errorBackground40|errorBackground30|noFill))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-backgroundcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderTop-*",
+          "match": "\\b(sp-css-borderTop-(neutralBorder|blueBorder|successBorder|warningBorder|blockingBorder|errorBorder))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-bordertop.horsescript"
+        },
+        {
+          "comment": "sp-css-borderRight-*",
+          "match": "\\b(sp-css-borderRight-(neutralTertiaryDashed))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderright.horsescript"
+        },
+        {
+          "comment": "sp-css-color-*",
+          "match": "\\b(sp-css-color-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-color.horsescript"
+        },
+        {
+          "comment": "sp-css-borderColor-*",
+          "match": "\\b(sp-css-borderColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-bordercolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderLeftColor-*",
+          "match": "\\b(sp-css-borderLeftColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderleftcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderRightColor-*",
+          "match": "\\b(sp-css-borderRightColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderrightcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderTopColor-*",
+          "match": "\\b(sp-css-borderTopColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-bordertopcolor.horsescript"
+        },
+        {
+          "comment": "sp-css-borderBottomColor-*",
+          "match": "\\b(sp-css-borderBottomColor-(DarkRedText|RedText|OrangeText|BrownText|GreenText|TealText|DarkGreenText|BlueText|LavenderText|DarkBlueText|DarkPurpleText|PurpleText|LightPurpleText|GrayText|WhiteText|BlackText|CoralFont|DustRoseFont|PeachFont|GoldFont|MintGreenFont|CyanFont|SageFont|CornflowerBlueFont|LightPurpleFont|LightBlueFont|VioletFont|MauveFont|LilacFont|LightGrayFont|WhiteFont|BlackFont|bodyBackground|bodyText|bodySubtext|bodyDivider|disabledBackground|disabledText|disabledSubtext|errorBackground|errorText|listBackground|listTextColor|listItemBackgroundChecked|warningBackground|successBackground|blockingBackground|themeDarker|themeDark|themeDarkAlt|themePrimary|themeSecondary|themeTertiary|themeLight|themeLighter|themeLighterAlt|black|neutralDark|neutralPrimary|neutralPrimaryAlt|neutralSecondary|neutralTertiary|neutralTertiaryAlt|neutralQuaternary|neutralQuaternaryAlt|neutralLight|neutralLighter|neutralLighterAlt|white|blue|redDark|red|yellow|yellowLight|greenLight|green|blueLight|blueDark|purple))\\b",
+          "name": "constant.other.predefinedclasses.sp-css-borderbottomcolor.horsescript"
+        },
+        {
+          "comment": "sp-card-*",
+          "match": "\\b(sp-card-(imagePreview-stretched|subContainer-borderRadius|container-noPadding|imagePreviewBackground-shortened|imageContainer-shortened|borderHighlight|personCallout|container|keyboard-focusable|defaultClickButton|subContainer|displayColumnContainer|previewColumnContainer|lastTextColumnContainer|label|content|userContent|boldText|highlightedContent|urlContent|formatterRef|imagePreviewBackground|userEmptyText|userContainer|userThumbnail|userOthers|userTitle|userCustomCard|lookupInlineValues|defaultImage|defaultImageOverlay|starRating|emptyFillStar|halfFillStar|ratingCount|bottomCommandBar|likes|heartIcon|multiline|showOnHoverParent|showOnHoverChild|showOnHover|imagePreview|imageContainer))\\b",
+          "name": "constant.other.predefinedclasses.sp-card.horsescript"
+        },
+        {
+          "comment": "sp-row-*",
+          "match": "\\b(sp-row-(card|listPadding|title|button))\\b",
+          "name": "constant.other.predefinedclasses.sp-row.horsescript"
+        },
+        {
+          "comment": "sp-field-*",
+          "match": "\\b(sp-field-(blue|blue17|blue27|blue37|bold|customFormatBackground-margin|customFormatter|dashedBorderRight|dataBars|editorBorder|iconLeftAligned|iconPadding|iconRightAligned|italic|neutral|neutral20|neutral30|quickAction|severity--blocked|severity--blocked30|severity--blocked40|severity--blocked50|severity--good|severity--good30|severity--good40|severity--good50|severity--low|severity--severeWarning|severity--severeWarning30|severity--severeWarning40|severity--severeWarning50|severity--warning|severity--warning30|severity--warning40|severity--warning50|strikeThrough|trending--down|trending--up|underline|underlineStrikeThrough))\\b",
+          "name": "constant.other.predefinedclasses.sp-field.horsescript"
+        },
+        {
+          "comment": "sp-field-border*",
+          "match": "\\b(sp-field-border(All|Bottom|Left|LeftRight|Right|Top|TopBottom)(Regular|Semibold|Bold|Dashed|Dotted|Solid))\\b",
+          "name": "constant.other.predefinedclasses.sp-field-border.horsescript"
+        },
+        {
+          "comment": "Misc classes",
+          "match": "\\b(itemHovered|sp-customformatter-thumbnail|ms-Tile-background)\\b",
+          "name": "constant.other.predefinedclasses.other.horsescript"
+        }
+      ]
+    },
+    "fieldvalues": {
+      "comment": "Field value references, broken into nested patterns to allow distinction of fieldname from known subprops",
+      "begin": "\\[\\$",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.begin.horsescript"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.end.horsescript"
+        }
+      },
+      "patterns": [
+        {
+          "comment": "Internal field name",
+          "match": "(?<=\\[\\$)[^~#%&*{}\\:<>?/+|\",.\\]]+",
+          "name": "variable.parameter.field.horsescript"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.title] (person)",
+          "match": "title(?=\\W|$)",
+          "name": "support.constant.person.title.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.email] (person)",
+          "match": "email(?=\\W|$)",
+          "name": "support.constant.person.email.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.sip] (person)",
+          "match": "sip(?=\\W|$)",
+          "name": "support.constant.person.sip.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.picture] (person)",
+          "match": "picture(?=\\W|$)",
+          "name": "support.constant.person.picture.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.department] (person)",
+          "match": "department(?=\\W|$)",
+          "name": "support.constant.person.department.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.jobTitle] (person)",
+          "match": "jobTitle(?=\\W|$)",
+          "name": "support.constant.person.jobtitle.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.DisplayName] (location)",
+          "match": "DisplayName(?=\\W|$)",
+          "name": "support.constant.location.displayname.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.LocationUri] (location)",
+          "match": "LocationUri(?=\\W|$)",
+          "name": "support.constant.location.locationuri.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Address.] (location, only when paired with subprop)",
+          "match": "Address(?=\\.)",
+          "name": "variable.language.location.address.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Address.City] (location)",
+          "match": "(?<=\\.Address\\.)City(?=\\W|$)",
+          "name": "support.constant.location.address.city.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Address.CountryOrRegion] (location)",
+          "match": "(?<=\\.Address\\.)CountryOrRegion(?=\\W|$)",
+          "name": "support.constant.location.address.countryorregion.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Address.State] (location)",
+          "match": "(?<=\\.Address\\.)State(?=\\W|$)",
+          "name": "support.constant.location.address.state.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Address.Street] (location)",
+          "match": "(?<=\\.Address\\.)Street(?=\\W|$)",
+          "name": "support.constant.location.address.street.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Coordinates.] (location, only when paired with subprop)",
+          "match": "Coordinates(?=\\.)",
+          "name": "variable.language.location.coordinates.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Coordinates.Latitude] (location)",
+          "match": "(?<=\\.Coordinates\\.)Latitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.latitude.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.Coordinates.Longitude] (location)",
+          "match": "(?<=\\.Coordinates\\.)Longitude(?=\\W|$)",
+          "name": "support.constant.location.coordinates.longitude.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.lookupId] (lookup)",
+          "match": "lookupId(?=\\W|$)",
+          "name": "support.constant.lookup.lookupid.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.lookupValue] (lookup)",
+          "match": "lookupValue(?=\\W|$)",
+          "name": "support.constant.lookup.lookupvalue.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.fileName] (image)",
+          "match": "fileName(?=\\W|$)",
+          "name": "support.constant.image.filename.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.serverRelativeUrl] (image)",
+          "match": "serverRelativeUrl(?=\\W|$)",
+          "name": "support.constant.image.serverrelativeurl.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.serverUrl] (image)",
+          "match": "serverUrl(?=\\W|$)",
+          "name": "support.constant.image.serverurl.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.thumbnailRenderer.] (image, only when paired with subprop)",
+          "match": "thumbnailRenderer(?=\\.)",
+          "name": "variable.language.image.thumbnailrenderer.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.thumbnailRenderer.spItemUrl] (image)",
+          "match": "(?<=\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.thumbnailRenderer.fileVersion] (image)",
+          "match": "(?<=\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.thumbnailRenderer.sponsorToken] (image)",
+          "match": "(?<=\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
+          "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.desc] (hyperlink/picture)",
+          "match": "desc(?=\\W|$)",
+          "name": "support.constant.hyperlink.desc.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.numeric] (moderation)",
+          "match": "numeric(?=\\W|$)",
+          "name": "support.constant.moderation.numeric.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.displayValue]",
+          "match": "displayValue(?=\\W|$)",
+          "name": "support.constant.field.displayvalue.horsescript"
+        },
+        {
+          "comment": "[$InternalFieldName.id] (image, person)",
+          "match": "id(?=\\W|$)",
+          "name": "support.constant.field.id.horsescript"
+        }
+      ]
+    },
+    "fieldmetadata": {
+      "comment": "Field metadata, broken into nested patterns to allow distinction of fieldname from known subprops",
+      "begin": "\\[\\!",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.begin.horsescript"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.brackets.end.horsescript"
+        }
+      },
+      "patterns": [
+        {
+          "comment": "Internal field name",
+          "match": "(?<=\\[\\!)[^~#%&*{}\\:<>?/+|\",.\\]]+",
+          "name": "variable.parameter.field.horsescript"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.horsescript"
+        },
+        {
+          "comment": "[!InternalFieldName.DisplayName]",
+          "match": "DisplayName(?=\\W|$)",
+          "name": "support.constant.fieldmetadata.displayname.horsescript"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "(')",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.begin.horsescript"
+            }
+          },
+          "end": "(')",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.end.horsescript"
+            }
+          },
+          "name": "string.quoted.single.horsescript",
+          "patterns": [
+            {
+              "comment": "By including these here we can highlight them even when they're part of a string (weird for most languages, but these are more like constants in usage)",
+              "include": "#classes"
+            },
+            {
+              "comment": "Yes, No (boolean, must be only word in string)",
+              "match": "(?<=')\\b(Yes|No)\\b(?=')",
+              "name": "constant.other.boolean.english.horsescript"
+            },
+            {
+              "comment": "Hex color (3 or 6 digits, must be only word in string)",
+              "match": "(?<=')#([0-9a-fA-F]{3}){1,2}(?='|$)",
+              "name": "constant.other.color.rgb-value.hex.css"
+            },
+            {
+              "comment": "RGBA color (3 or 4 parameters, must be only word in string, case insensitive)",
+              "match": "(?i)(?<=')\\brgba\\(\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*,\\s*\\d{1,3}(\\s*,\\s*(1|0?\\.\\d+))?\\s*\\)(?='|$)",
+              "name": "constant.other.color.rgb-value.rgb.css"
+            },
+            {
+              "comment": "Named color (must be only word in string, case insensitive)",
+              "match": "(?i)(?<=')\\b(aliceblue|antiquewhite|aqua|aquamarine|azure|beige|bisque|black|blanchedalmond|blue|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|gold|goldenrod|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavender|lavenderblush|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|teal|thistle|tomato|turquoise|violet|wheat|white|whitesmoke|yellow|yellowgreen)\\b(?='|$)",
+              "name": "support.constant.color.w3c-standard-color-name.css"
+            }
+          ]
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(?:true|false)\\b",
+          "name": "constant.language.boolean.horsescript"
+        },
+        {
+          "comment": "The = required to move from property value to expression",
+          "match": "^=",
+          "name": "support.constant.expressionprefix.horsescript"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "match": ",",
+          "name": "punctuation.separator.parameters.horsescript"
+        },
+        {
+          "match": "\\(",
+          "name": "punctuation.section.parens.begin.horsescript"
+        },
+        {
+          "match": "\\)",
+          "name": "punctuation.section.parens.end.horsescript"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.horsescript"
+        }
+      ]
+    },
+    "default": {
+      "comment": "Anything not caught by the above patterns",
+      "match": ".",
+      "name": "invalid.illegal.horsescript"
+    }
+  }
+}

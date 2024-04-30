@@ -9,7 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Things & Stuff
 
-## [0.3.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.2.1/vspackage) - 2024-02-29
+## [0.4.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.4.0/vspackage) - 2024-04-30
+
+### ➕ Added
+- HorseScript!
+  - Syntax Highlighting in dedicated HorseScript files (.neigh)
+  - Syntax Highlighting within JSON files
+- Warrior Horse Theme (Dark)
+  - All colors pass strict colorblind validation
+  - All colors have at least AA contrast ratio rating and most have AAA
+  - Works as a standard theme (not just list formatting)
+
+
+## [0.3.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.3.0/vspackage) - 2024-02-29
 
 ### ➕ Added
 

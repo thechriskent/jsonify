@@ -9,6 +9,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Things & Stuff
 
+## [0.4.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.4.0/vspackage) - 2024-04-30
+
+### ➕ Added
+- HorseScript!
+  - Syntax Highlighting in dedicated HorseScript files (.neigh)
+  - Syntax Highlighting within JSON files
+- Warrior Horse Theme (Dark)
+  - All colors pass strict colorblind validation
+  - All colors have at least AA contrast ratio rating and most have AAA
+  - Works as a standard theme (not just list formatting)
+
+
+## [0.3.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.3.0/vspackage) - 2024-02-29
+
+### ➕ Added
+
+- Style element support!
+  - Style elements without media queries (or using the default of all) are processed and applied
+  - Support for [SPFx style theme tokens](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/use-theme-colors-in-your-customizations#available-theme-tokens-and-their-occurrences)
+  - Support for expressions as CSS property values
+  - Automatic classes for theme token usage including limited support for mapping hover classes
+- Additional test for verifying style elements map correctly
+
+### 🔨 Fixed
+
+- In rare cases a file wasn't recognized as html and the file extension expression had a typo, oopsie!
+
+
+
 ## [0.2.1](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.2.1/vspackage) - 2024-02-15
 
 ### 🔨 Fixed

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "block",
+    "margin": "8px"
+  },
+  "children": [
+    {
+      "elmType": "div",
+      "txtContent": "Wowee",
+      "style": {
+        "font-size": "2em",
+        "font-weight": "bold"
+      }
+    },
+    {
+      "elmType": "div",
+      "style": {
+        "border": "1px solid slategrey"
+      },
+      "children": [
+        {
+          "elmType": "span",
+          "children": [
+            {
+              "elmType": "span",
+              "txtContent": "Horse",
+              "style": {
+                "font-weight": "bold"
+              }
+            }
+          ]
+        },
+        {
+          "elmType": "span",
+          "txtContent": "Neigh",
+          "style": {
+            "font-size": "10px"
+          }
+        }
+      ]
+    },
+    {
+      "elmType": "div",
+      "attributes": {
+        "class": "ms-fontColor-white ms-fontColor-black--hover"
+      },
+      "style": {
+        "background-color": "midnightblue"
+      },
+      "children": [
+        {
+          "elmType": "div",
+          "txtContent": "Another section",
+          "attributes": {
+            "class": "ms-fontColor-neutralPrimary randomClass ms-fontColor-themePrimary--hover"
+          },
+          "style": {
+            "font-size": "1.5em",
+            "font-weight": "bold"
+          }
+        },
+        {
+          "elmType": "p",
+          "txtContent": "Some text",
+          "attributes": {
+            "class": "someSillyClass"
+          },
+          "style": {
+            "font-size": "14px",
+            "font-style": "italic",
+            "padding": "4px",
+            "color": "if(@currentField == 'Yes', 'green', 'red')",
+            "background-color": "red"
+          }
+        }
+      ]
+    }
+  ]
+}

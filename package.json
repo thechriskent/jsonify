@@ -1,8 +1,8 @@
 {
   "name": "jsonify",
   "displayName": "jsonify",
-  "description": "Converts SVG files to SharePoint List Formatting JSON",
-  "version": "0.2.1",
+  "description": "Converts SVG and HTML files to SharePoint List Formatting JSON",
+  "version": "0.4.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -14,8 +14,15 @@
     "json",
     "svg",
     "sharepoint",
+    "m365",
     "list",
-    "formatting"
+    "formatting",
+    "horsescript",
+    "column formatting",
+    "view formatting",
+    "conditional formatting",
+    "neigh",
+    "warrior horses"
   ],
   "repository": {
     "type": "git",
@@ -61,7 +68,7 @@
       "commandPalette": [
         {
           "command": "jsonify.toFormat_Editor",
-          "when": "resourceLangId == svg || resourceLangId == html || resourceFilename =~ /.*\\.(svg|htm|hmtl)$/"
+          "when": "resourceLangId == svg || resourceLangId == html || resourceFilename =~ /.*\\.(svg|htm|html)$/"
         },
         {
           "command": "jsonify.toFormat_Explorer",
@@ -78,7 +85,43 @@
           "description": "When enabled, changes to the source file will automatically show up in the output JSON window."
         }
       }
-    }
+    },
+    "languages": [
+      {
+        "id": "horsescript",
+        "aliases": [
+          "HorseScript"
+        ],
+        "extensions": [
+          ".horse",
+          ".neigh"
+        ],
+        "configuration": "./horsescript-language-configuration.json",
+        "icon": {
+          "light": "./assets/HorseScript.svg",
+          "dark": "./assets/HorseScript.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "horsescript",
+        "scopeName": "source.horsescript",
+        "path": "./syntaxes/horsescript.tmLanguage.json"
+      },
+      {
+        "scopeName": "meta.embedded.source.json.horsescript",
+        "path": "./syntaxes/horsescript-json.tmLanguage.json",
+        "injectTo": ["source.json"]
+      }
+    ],
+    "themes": [
+      {
+        "label": "Warrior Horse",
+        "uiTheme": "vs-dark",
+        "path": "./themes/warriorhorse-dark-color-theme.json"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -90,9 +133,11 @@
     "copy-test-data": "shx cp -r src/test/data out/test",
     "pretest": "npm run compile-tests && npm run compile && npm run lint && npm run copy-test-data",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "generate-themes": "node ./src/themes/generate-themes.js"
   },
   "devDependencies": {
+    "@types/css-tree": "^2.3.6",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@types/vscode": "^1.85.0",
@@ -108,6 +153,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "css-tree": "2.3.1",
     "node-html-parser": "^6.1.12"
   }
 }

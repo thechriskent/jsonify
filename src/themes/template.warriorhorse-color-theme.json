@@ -1,0 +1,449 @@
+{
+    "type": "dark",
+    "colors": {
+        "editor.background": "${background:Color}",
+        "editor.foreground": "${foreground:Color}",
+
+        "editor.selectionBackground": "${yellowDark}4D",
+        "focusBorder": "${magenta}",
+        "errorForeground": "${red}"
+    },
+    "tokenColors": [
+        {
+            "settings": {
+                "foreground": "${foreground:Color}"
+            }
+        },
+        {
+            "scope": [
+                "meta.embedded",
+                "source.groovy.embedded",
+                "string meta.image.inline.markdown",
+                "variable.legacy.builtin.python"
+            ],
+            "settings": {
+                "foreground": "${foreground:Color}"
+            }
+        },
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "settings": {
+                "foreground": "${comment:Color}"
+            }
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "settings": {
+                "foreground": "${string:Color}"
+            }
+        },
+        {
+            "name": "Single Quote Marks",
+            "scope": "string.quoted.single.horsescript punctuation.definition",
+            "settings": {
+                "foreground": "${quotemark.single:Color}"
+            }
+        },
+        {
+            "name": "General Punctuation",
+            "scope": "punctuation.definition",
+            "settings": {
+                "foreground": "${punctuation:Color}"
+            }
+        },
+        {
+            "name": "JSON Property Colons",
+            "scope": "meta.structure.dictionary.json punctuation.separator.dictionary.key-value",
+            "settings": {
+                "foreground": "${json.colon:Color}"
+            }
+        },
+        {
+            "name": "Brackets",
+            "scope": "punctuation.section.brackets",
+            "settings": {
+                "foreground": "${bracket:Color}",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "Template Definition",
+            "scope": [
+                "punctuation.definition.template-expression",
+                "punctuation.section.embedded"
+            ],
+            "settings": {
+                "foreground": "${keyword:Color}"
+            }
+        },
+        {
+            "name": "Reset JavaScript string interpolation expression",
+            "scope": [
+                "meta.template.expression"
+            ],
+            "settings": {
+                "foreground": "${foreground:Color}"
+            }
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "settings": {
+                "foreground": "${constant:Color}"
+            }
+        },
+        {
+            "name": "Built-in constant",
+            "scope": "constant.language",
+            "settings": {
+                "foreground": "${constant:Color}"
+            }
+        },
+        {
+            "name": "User-defined constant",
+            "scope": "constant.character, constant.other",
+            "settings": {
+                "foreground": "${constant.other:Color}"
+            }
+        },
+        {
+            "name": "Variable",
+            "scope": "variable",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${foreground:Color}"
+            }
+        },
+        {
+            "name": "Variable",
+            "scope": "variable",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${foregro}"
+            }
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword",
+            "settings": {
+                "foreground": "${keyword:Color}",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "Storage",
+            "scope": "storage",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${storage:Color}"
+            }
+        },
+        {
+            "name": "Storage type",
+            "scope": "storage.type",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "${storage.type::Color}"
+            }
+        },
+        {
+            "name": "Class name",
+            "scope": "entity.name.type, entity.name.class, entity.name.namespace, entity.name.scope-resolution",
+            "settings": {
+                "fontStyle": "underline",
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "name": "Inherited class",
+            "scope": "entity.other.inherited-class",
+            "settings": {
+                "fontStyle": "italic underline",
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "name": "Function name",
+            "scope": "entity.name.function",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "name": "Function argument",
+            "scope": "variable.parameter",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "${variable.parameter:Color}"
+            }
+        },
+        {
+            "name": "Tag name",
+            "scope": "entity.name.tag",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${keyword:Color}"
+            }
+        },
+        {
+            "name": "Tag attribute",
+            "scope": "entity.other.attribute-name",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "support.function",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${support:Color}"
+            }
+        },
+        {
+            "name": "Library constant",
+            "scope": "support.constant",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${support:Color}"
+            }
+        },
+        {
+            "name": "Library class/type",
+            "scope": "support.type, support.class",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "${support:Color}"
+            }
+        },
+        {
+            "name": "Library variable",
+            "scope": "support.other.variable",
+            "settings": {
+                "fontStyle": ""
+            }
+        },
+        {
+            "name": "Invalid",
+            "scope": "invalid",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${invalid:Color}"
+            }
+        },
+        {
+            "name": "Invalid deprecated",
+            "scope": "invalid.deprecated",
+            "settings": {
+                "foreground": "${invalid:Color}"
+            }
+        },
+        {
+            "name": "JSON Double Quote Marks",
+            "scope": "meta.structure.dictionary.json punctuation.support.type.property-name",
+            "settings": {
+                "foreground": "${jsonProperty.quoteMark:Color}"
+            }
+        },
+        {
+            "name": "JSON Property",
+            "scope": "meta.structure.dictionary.json support.type.property-name.json",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "${jsonProperty:Color}"
+            }
+        },
+        {
+            "name": "JSON Property Value",
+            "scope": "meta.structure.dictionary.json string.quoted.double.json",
+            "settings": {
+                "foreground": "${jsonProperty.value:Color}"
+            }
+        },
+        {
+            "name": "diff.header",
+            "scope": "meta.diff, meta.diff.header",
+            "settings": {
+                "foreground": "${quote:Color}"
+            }
+        },
+        {
+            "name": "diff.deleted",
+            "scope": "markup.deleted",
+            "settings": {
+                "foreground": "${keyword:Color}"
+            }
+        },
+        {
+            "name": "diff.inserted",
+            "scope": "markup.inserted",
+            "settings": {
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "name": "diff.changed",
+            "scope": "markup.changed",
+            "settings": {
+                "foreground": "${string:Color}"
+            }
+        },
+        {
+            "scope": "constant.numeric.line-number.find-in-files - match",
+            "settings": {
+                "foreground": "${constantColor}A0"
+            }
+        },
+        {
+            "scope": "entity.name.filename.find-in-files",
+            "settings": {
+                "foreground": "${string:Color}"
+            }
+        },
+        {
+            "name": "Markup Quote",
+            "scope": "markup.quote",
+            "settings": {
+                "foreground": "${keyword:Color}"
+            }
+        },
+        {
+            "name": "Markup Lists",
+            "scope": "markup.list",
+            "settings": {
+                "foreground": "${string:Color}"
+            }
+        },
+        {
+            "name": "Markup Styling",
+            "scope": "markup.bold, markup.italic",
+            "settings": {
+                "foreground": "${support:Color}"
+            }
+        },
+        {
+            "name": "Markup Inline",
+            "scope": "markup.inline.raw",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "${variable:Color}"
+            }
+        },
+        {
+            "name": "Markup Headings",
+            "scope": "markup.heading",
+            "settings": {
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "name": "Markup Setext Header",
+            "scope": "markup.heading.setext",
+            "settings": {
+                "foreground": "${entity:Color}",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "Markup Headings",
+            "scope": "markup.heading.markdown",
+            "settings": {
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "Markdown Quote",
+            "scope": "markup.quote.markdown",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "${quote:Color}"
+            }
+        },
+        {
+            "name": "Markdown Bold",
+            "scope": "markup.bold.markdown",
+            "settings": {
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "Markdown Link Title/Description",
+            "scope": "string.other.link.title.markdown,string.other.link.description.markdown",
+            "settings": {
+                "foreground": "${constant:Color}"
+            }
+        },
+        {
+            "name": "Markdown Underline Link/Image",
+            "scope": "markup.underline.link.markdown,markup.underline.link.image.markdown",
+            "settings": {
+                "foreground": "${string:Color}"
+            }
+        },
+        {
+            "name": "Markdown Emphasis",
+            "scope": "markup.italic.markdown",
+            "settings": {
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": "markup.strikethrough",
+            "settings": {
+                "fontStyle": "strikethrough"
+            }
+        },
+        {
+            "name": "Markdown Punctuation Definition Link",
+            "scope": "markup.list.unnumbered.markdown, markup.list.numbered.markdown",
+            "settings": {
+                "foreground": "${foreground:Color}"
+            }
+        },
+        {
+            "name": "Markdown List Punctuation",
+            "scope": [
+                "punctuation.definition.list.begin.markdown"
+            ],
+            "settings": {
+                "foreground": "${entity:Color}"
+            }
+        },
+        {
+            "scope": "token.info-token",
+            "settings": {
+                "foreground": "${token.info-token:Color}"
+            }
+        },
+        {
+            "scope": "token.warn-token",
+            "settings": {
+                "foreground": "${token.warn-token:Color}"
+            }
+        },
+        {
+            "scope": "token.error-token",
+            "settings": {
+                "foreground": "${token.error-token:Color}"
+            }
+        },
+        {
+            "scope": "token.debug-token",
+            "settings": {
+                "foreground": "${token.debug-token:Color}"
+            }
+        },
+        {
+            "name": "this.self",
+            "scope": "variable.language",
+            "settings": {
+                "foreground": "${variable:Color}"
+            }
+        }
+    ],
+    "semanticHighlighting": true
+}

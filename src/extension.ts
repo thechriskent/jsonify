@@ -1,7 +1,10 @@
 import * as vscode from 'vscode';
 import HTMLToSPFormat from './helpers/toFormat';
+import ITransformResult, { transformResultMessageToString } from './models/ITransformResult';
 
 export function activate(context: vscode.ExtensionContext) {
+
+	const outputChannel = vscode.window.createOutputChannel('JSONify');
 
 	/**
 	 * Creates a new editor with the given content and language
@@ -22,25 +25,26 @@ export function activate(context: vscode.ExtensionContext) {
 	 */
 	const toFormatFull = async (content: string, textEditor?: vscode.TextEditor): Promise<vscode.TextEditor | undefined> => {
 		let errorShown = false;
-		let json: string ='';
+		let result: ITransformResult | undefined;
 		try {
-			const result = await HTMLToSPFormat(content);
-			json = result.format;
+			result = await HTMLToSPFormat(content);
 		} catch (error) {
 			if(typeof textEditor === 'undefined'){
 				vscode.window.showErrorMessage('Unable to covert to SP format 😢: ' + error);
-				errorShown = true;
 			}// else swallow the error and keep the current editor content
 		}
 		try {
-			if(typeof json !== "undefined" && json.length > 0) {
+			if(typeof result !== "undefined" && typeof result.format !== "undefined" && result.format.length > 0) {
+				outputChannel.clear();
+				result?.messages.forEach((message) => {
+					outputChannel.appendLine(transformResultMessageToString(message));
+				});
 				if (typeof textEditor === 'undefined') {
 					// Create a new editor with the formatted JSON
 					try {
-						return await newEditorWithContent(json);
+						return await newEditorWithContent(result.format);
 					} catch (error) {
 						vscode.window.showErrorMessage('Unable to create a new editor with the JSON 😟: ' + error);
-						errorShown = true;
 						throw error;
 					};
 				} else {
@@ -50,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
 						const firstLine = editor.document.lineAt(0);
 						const lastLine = editor.document.lineAt(editor.document.lineCount - 1);
 						const fullRange = new vscode.Range(firstLine.range.start, lastLine.range.end);
-						editBuilder.replace(fullRange, json);
+						editBuilder.replace(fullRange, result?.format || '');
 					});
 					return editor;
 				}
@@ -79,6 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const editorMap: { [key: string]: {editor: vscode.TextEditor, live: boolean }} = {};
 	const closeListener = vscode.workspace.onDidCloseTextDocument((doc) => {
 		const closedEditorId = doc.uri.toString();
+		//console.log('Closed editor: ' + closedEditorId);
 		if(closedEditorId in editorMap){
 			//This was a source editor, so remove it from the list
 			delete editorMap[closedEditorId];
@@ -143,11 +148,17 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
+
+	// const virtualDocumentContents = new Map<string, string>();
+	// vscode.workspace.regis
+
+
 	//Register the commands for proper disposal
 	context.subscriptions.push(comReg_toFormat_Explorer);
 	context.subscriptions.push(comReg_toFormat_Editor);
 	context.subscriptions.push(closeListener);
 	context.subscriptions.push(changeListener);
+	context.subscriptions.push(outputChannel);
 }
 
 export function deactivate() {}

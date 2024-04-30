@@ -1,0 +1,407 @@
+=if([$Title]=='tiny',@currentField,@now)+'ms-bgColor-redDark'
+toString([!donkey])
+true, false, null, tiny, 'old', 'operator+inside'
+
+(4+5-38)/89%2
+if(4>3&&6<=9,if([$Number]<@now||89>=2||[$Ugly_x003a_Field]=='bunny','#ffffff','ms-bgColor-themeTertiary'))
+
+if(@currentField=='Critical','#d13438', '#fce100') 'rgb(255,255,255)', 'rgba(0,0,0,.5)', 'rGbA(0, 23, 56)', 'rgba(255, 56, 12, 0.2)', 'red', 'lime'
+
+toString(45), Number('365'), Number('Wowee'), Number(Date('12/26/1981')), cos(5), sin(90)
+toLocaleTimeString(@now), toLocaleString(@now), toLocaleDateString(@now), toUpperCase('DogFood')
+toLowerCase('DogFood'), abs(-45), length(@currentField), length('Some Text'), length(''), length(45)
+floor(45.5), ceiling(45.5), getDate(Date('12/26/1981')), getMonth(Date('12/26/1981')), getYear(Date('12/26/1981'))
+
+indexOf('DogFood', 'Dog'), indexOf('DogFood','F'), indexOf(@currentField,[$field])
+join(@currentField, ', '), join(@currentField.title, '|'), join([$field.email],'')
+pow(2,3), pow(2, 45), pow(2,@currentField)
+lastIndexOf('DogFood DogFood', 'Dog'), lastIndexOf('DogFood DogFood','F')
+startsWith(@currentField,'R'), startsWith('DogFood', @rowIndex)
+endsWith(@currentField,'R'), endsWith('DogFood', @rowIndex)
+getUserImage(@me, 'small'), getUserImage('horse@neigh.com','s'), getUserImage(@me,'medium'),getUserImage(@me,'m'),getUserImage(@me,'large'),getUserImage(@me,'l')
+appendTo(@currentField, 'Choice 4'), appendTo([$People],@me)
+removeFrom(@currentField, 'Choice 4'), removeFrom([$People],@me)
+split('Hello World', ' '), split(@window.innerHeight,',')
+addDays(@now,4), addDays(Date('11/14/2021'), -1)
+addMinutes(@now, 56), addMinutes(Date('11/14/2021'),-57)
+loopIndex('personIterator')
+
+substring('DogFood',3,4), substring(@currentField, 45,3), substring([$Title.displayValue],2, 33)
+replace('Hello world','world','everyone'), replace('Wowee', 'W', 'w')
+replaceAll('H-e-l-l-o W-o-r-l-d', '-', ''),replaceAll('H-e-l-l-o W-o-r-l-d','o','0')
+padStart(@currentField,10,'A'), padStart('Wonkers', 100, '!')
+padEnd(@currentField,10,'A'), padEnd('Wonkers', 100, '!')
+getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,100) 'Yes' 'No' 'Uh, I guess Yes?', 'Nope'
+
+@currentField.title, @currentField.email, @currentField.sip
+@currentField.picture, @currentField.department, @currentField.jobTitle
+
+@currentField.DisplayName, @currentField.LocationUri
+@currentField.Address.City, @currentField.Address.CountryOrRegion, @currentField.Address.State, @currentField.Address.Street
+@currentField.Coordinates.Latitude, @currentField.Coordinates.Longitude
+
+@currentField.lookupId, @currentField.lookupValue
+
+@currentField.fileName, @currentField.serverRelativeUrl, @currentField.serverUrl
+@currentField.thumbnailRenderer.spItemUrl, @currentField.thumbnailRenderer.fileVersion, @currentField.thumbnailRenderer.sponsorToken
+
+@currentField.id, @currentField.displayValue
+@currentField.desc, @currentField.numeric
+
+@currentWeb, @me, @now, @rowIndex,
+@window.innerHeight, @window.innerWidth
+@isSelected, @lcid, @UIlcid
+
+@thumbnail.small,@thumbnail.medium,@thumbnail.large
+@thumbnail.150,@thumbnail.4048,@thumbnail.100x200,@thumbnail.1000x1600
+
+@groupfieldData, @group.count, @group.columnDisplayName, @aggregates
+@columnAggregate.type, @columnAggregate.value, @columnAggregate.columnDisplayName
+
+[$Title] [!Title.DisplayName]
+[$Editor.title], [$Editor.email], [$Editor.sip]
+[$Editor.picture], [$Editor.department], [$Editor.jobTitle]
+
+[$Location.DisplayName], [$Location.LocationUri]
+[$Location.Address.City], [$Location.Address.CountryOrRegion], [$Location.Address.State], [$Location.Address.Street]
+[$Location.Coordinates.Latitude], [$Location.Coordinates.Longitude]
+
+[$Lookup_x0020_Field.lookupId], [$Lookup_x0020_Field.lookupValue]
+
+[$Image.fileName], [$Image.serverRelativeUrl], [$Image.serverUrl]
+[$Image.thumbnailRenderer.spItemUrl], [$Image.thumbnailRenderer.fileVersion], [$Image.thumbnailRenderer.sponsorToken]
+
+[$Title.id], [$Title.displayValue]
+[$Hyperlink.desc], [$Approval.numeric]
+
+'ms-bgColor-themePrimary', 'ms-bgColor-themePrimary--hover', 'ms-bgColor-themeSecondary', 'ms-bgColor-themeSecondary--hover', 'ms-bgColor-themeTertiary', 'ms-bgColor-themeTertiary--hover',
+'ms-bgColor-themeLight', 'ms-bgColor-themeLight--hover', 'ms-bgColor-themeLighter', 'ms-bgColor-themeLighter--hover', 'ms-bgColor-themeLighterAlt', 'ms-bgColor-themeLighterAlt--hover',
+'ms-bgColor-themeDark', 'ms-bgColor-themeDark--hover', 'ms-bgColor-themeDarker', 'ms-bgColor-themeDarker--hover', 'ms-bgColor-themeDarkAlt', 'ms-bgColor-themeDarkAlt--hover'
+'ms-bgColor-neutralDark', 'ms-bgColor-neutralDark--hover', 'ms-bgColor-neutralPrimary', 'ms-bgColor-neutralPrimary--hover', 'ms-bgColor-neutralPrimaryAlt', 'ms-bgColor-neutralPrimaryAlt--hover',
+'ms-bgColor-neutralSecondary', 'ms-bgColor-neutralSecondary--hover', 'ms-bgColor-neutralSecondaryAlt', 'ms-bgColor-neutralSecondaryAlt--hover', 'ms-bgColor-neutralTertiary',
+'ms-bgColor-neutralTertiary--hover', 'ms-bgColor-neutralTertiaryAlt', 'ms-bgColor-neutralTertiaryAlt--hover', 'ms-bgColor-neutralQuaternary', 'ms-bgColor-neutralQuaternary--hover',
+'ms-bgColor-neutralQuaternaryAlt', 'ms-bgColor-neutralQuaternaryAlt--hover', 'ms-bgColor-neutralLight', 'ms-bgColor-neutralLight--hover', 'ms-bgColor-neutralLighter',
+'ms-bgColor-neutralLighter--hover', 'ms-bgColor-neutralLighterAlt', 'ms-bgColor-neutralLighterAlt--hover'
+'ms-bgColor-white', 'ms-bgColor-white--hover', 'ms-bgColor-black', 'ms-bgColor-black--hover', 'ms-bgColor-yellow', 'ms-bgColor-yellow--hover', 'ms-bgColor-yellowLight', 'ms-bgColor-yellowLight--hover',
+'ms-bgColor-orange', 'ms-bgColor-orange--hover', 'ms-bgColor-orangeLight', 'ms-bgColor-orangeLight--hover', 'ms-bgColor-orangeLighter', 'ms-bgColor-orangeLighter--hover', 'ms-bgColor-red',
+'ms-bgColor-red--hover', 'ms-bgColor-redDark', 'ms-bgColor-redDark--hover', 'ms-bgColor-magentaDark', 'ms-bgColor-magentaDark--hover', 'ms-bgColor-magenta', 'ms-bgColor-magenta--hover',
+'ms-bgColor-magentaLight', 'ms-bgColor-magentaLight--hover', 'ms-bgColor-purpleDark', 'ms-bgColor-purpleDark--hover', 'ms-bgColor-purple', 'ms-bgColor-purple--hover', 'ms-bgColor-purpleLight',
+'ms-bgColor-purpleLight--hover', 'ms-bgColor-blueDark', 'ms-bgColor-blueDark--hover', 'ms-bgColor-blueMid', 'ms-bgColor-blueMid--hover', 'ms-bgColor-blue', 'ms-bgColor-blue--hover',
+'ms-bgColor-blueLight', 'ms-bgColor-blueLight--hover', 'ms-bgColor-tealDark', 'ms-bgColor-tealDark--hover', 'ms-bgColor-teal', 'ms-bgColor-teal--hover', 'ms-bgColor-tealLight',
+'ms-bgColor-tealLight--hover', 'ms-bgColor-greenDark', 'ms-bgColor-greenDark--hover', 'ms-bgColor-green', 'ms-bgColor-green--hover', 'ms-bgColor-greenLight', 'ms-bgColor-greenLight--hover'
+'ms-bgColor-info', 'ms-bgColor-info--hover', 'ms-bgColor-success', 'ms-bgColor-success--hover', 'ms-bgColor-severeWarning', 'ms-bgColor-severeWarning--hover', 'ms-bgColor-warning',
+'ms-bgColor-warning--hover', 'ms-bgColor-error', 'ms-bgColor-error--hover', 'ms-bgColor-contrastBlackDisabled', 'ms-bgColor-contrastBlackDisabled--hover', 'ms-bgColor-contrastWhiteDisabled',
+'ms-bgColor-contrastWhiteDisabled--hover', 'ms-bgColor-contrastBlackSelected', 'ms-bgColor-contrastBlackSelected--hover', 'ms-bgColor-contrastWhiteSelected', 'ms-bgColor-contrastWhiteSelected--hover',
+'ms-bgColor-communicationShade30', 'ms-bgColor-communicationShade30--hover', 'ms-bgColor-communicationShade20', 'ms-bgColor-communicationShade20--hover', 'ms-bgColor-communicationShade10',
+'ms-bgColor-communicationShade10--hover', 'ms-bgColor-communicationPrimary', 'ms-bgColor-communicationPrimary--hover', 'ms-bgColor-communicationTint10', 'ms-bgColor-communicationTint10--hover',
+'ms-bgColor-communicationTint20', 'ms-bgColor-communicationTint20--hover', 'ms-bgColor-communicationTint30', 'ms-bgColor-communicationTint30--hover', 'ms-bgColor-communicationTint40', 'ms-bgColor-communicationTint40--hover'
+'ms-bgColor-gray220', 'ms-bgColor-gray220--hover', 'ms-bgColor-gray210', 'ms-bgColor-gray210--hover', 'ms-bgColor-gray200', 'ms-bgColor-gray200--hover', 'ms-bgColor-gray190', 'ms-bgColor-gray190--hover',
+'ms-bgColor-gray180', 'ms-bgColor-gray180--hover', 'ms-bgColor-gray170', 'ms-bgColor-gray170--hover', 'ms-bgColor-gray160', 'ms-bgColor-gray160--hover', 'ms-bgColor-gray150', 'ms-bgColor-gray150--hover',
+'ms-bgColor-gray140', 'ms-bgColor-gray140--hover', 'ms-bgColor-gray130', 'ms-bgColor-gray130--hover', 'ms-bgColor-gray120', 'ms-bgColor-gray120--hover', 'ms-bgColor-gray110', 'ms-bgColor-gray110--hover',
+'ms-bgColor-gray100', 'ms-bgColor-gray100--hover', 'ms-bgColor-gray90', 'ms-bgColor-gray90--hover', 'ms-bgColor-gray80', 'ms-bgColor-gray80--hover', 'ms-bgColor-gray70', 'ms-bgColor-gray70--hover',
+'ms-bgColor-gray60', 'ms-bgColor-gray60--hover', 'ms-bgColor-gray50', 'ms-bgColor-gray50--hover', 'ms-bgColor-gray40', 'ms-bgColor-gray40--hover', 'ms-bgColor-gray30', 'ms-bgColor-gray30--hover',
+'ms-bgColor-gray20', 'ms-bgColor-gray20--hover', 'ms-bgColor-gray10', 'ms-bgColor-gray10--hover', 'ms-bgColor-sharedPinkRed10', 'ms-bgColor-sharedPinkRed10--hover', 'ms-bgColor-sharedRed20',
+'ms-bgColor-sharedRed20--hover', 'ms-bgColor-sharedRed10', 'ms-bgColor-sharedRed10--hover', 'ms-bgColor-sharedRedOrange20', 'ms-bgColor-sharedRedOrange20--hover', 'ms-bgColor-sharedRedOrange10',
+'ms-bgColor-sharedRedOrange10--hover', 'ms-bgColor-sharedOrange30', 'ms-bgColor-sharedOrange30--hover', 'ms-bgColor-sharedOrange20', 'ms-bgColor-sharedOrange20--hover', 'ms-bgColor-sharedOrange10',
+'ms-bgColor-sharedOrange10--hover', 'ms-bgColor-sharedYellow10', 'ms-bgColor-sharedYellow10--hover', 'ms-bgColor-sharedOrangeYellow20', 'ms-bgColor-sharedOrangeYellow20--hover', 'ms-bgColor-sharedOrangeYellow10',
+'ms-bgColor-sharedOrangeYellow10--hover', 'ms-bgColor-sharedYellowGreen10', 'ms-bgColor-sharedYellowGreen10--hover', 'ms-bgColor-sharedGreen20', 'ms-bgColor-sharedGreen20--hover', 'ms-bgColor-sharedGreen10',
+'ms-bgColor-sharedGreen10--hover', 'ms-bgColor-sharedGreenCyan10', 'ms-bgColor-sharedGreenCyan10--hover', 'ms-bgColor-sharedCyan40', 'ms-bgColor-sharedCyan40--hover', 'ms-bgColor-sharedCyan30',
+'ms-bgColor-sharedCyan30--hover', 'ms-bgColor-sharedCyan20', 'ms-bgColor-sharedCyan20--hover', 'ms-bgColor-sharedCyan10', 'ms-bgColor-sharedCyan10--hover', 'ms-bgColor-sharedCyanBlue20',
+'ms-bgColor-sharedCyanBlue20--hover', 'ms-bgColor-sharedCyanBlue10', 'ms-bgColor-sharedCyanBlue10--hover', 'ms-bgColor-sharedBlue10', 'ms-bgColor-sharedBlue10--hover', 'ms-bgColor-sharedBlueMagenta40',
+'ms-bgColor-sharedBlueMagenta40--hover', 'ms-bgColor-sharedBlueMagenta30', 'ms-bgColor-sharedBlueMagenta30--hover', 'ms-bgColor-sharedBlueMagenta20', 'ms-bgColor-sharedBlueMagenta20--hover',
+'ms-bgColor-sharedBlueMagenta10', 'ms-bgColor-sharedBlueMagenta10--hover', 'ms-bgColor-sharedMagenta20', 'ms-bgColor-sharedMagenta20--hover', 'ms-bgColor-sharedMagenta10', 'ms-bgColor-sharedMagenta10--hover',
+'ms-bgColor-sharedMagentaPink20', 'ms-bgColor-sharedMagentaPink20--hover', 'ms-bgColor-sharedMagentaPink10', 'ms-bgColor-sharedMagentaPink10--hover', 'ms-bgColor-sharedGray40', 'ms-bgColor-sharedGray40--hover',
+'ms-bgColor-sharedGray30', 'ms-bgColor-sharedGray30--hover', 'ms-bgColor-sharedGray20', 'ms-bgColor-sharedGray20--hover', 'ms-bgColor-sharedGray10', 'ms-bgColor-sharedGray10--hover'
+
+'ms-borderColor-themePrimary', 'ms-borderColor-themePrimary--hover', 'ms-borderColor-themeSecondary', 'ms-borderColor-themeSecondary--hover',
+'ms-borderColor-themeTertiary', 'ms-borderColor-themeTertiary--hover', 'ms-borderColor-themeLight', 'ms-borderColor-themeLight--hover',
+'ms-borderColor-themeLighter', 'ms-borderColor-themeLighter--hover', 'ms-borderColor-themeLighterAlt', 'ms-borderColor-themeLighterAlt--hover',
+'ms-borderColor-themeDark', 'ms-borderColor-themeDark--hover', 'ms-borderColor-themeDarker', 'ms-borderColor-themeDarker--hover',
+'ms-borderColor-themeDarkAlt', 'ms-borderColor-themeDarkAlt--hover', 'ms-borderColor-neutralDark', 'ms-borderColor-neutralDark--hover',
+'ms-borderColor-neutralPrimary', 'ms-borderColor-neutralPrimary--hover', 'ms-borderColor-neutralPrimaryAlt', 'ms-borderColor-neutralPrimaryAlt--hover',
+'ms-borderColor-neutralSecondary', 'ms-borderColor-neutralSecondary--hover', 'ms-borderColor-neutralSecondaryAlt', 'ms-borderColor-neutralSecondaryAlt--hover',
+'ms-borderColor-neutralTertiary', 'ms-borderColor-neutralTertiary--hover', 'ms-borderColor-neutralTertiaryAlt', 'ms-borderColor-neutralTertiaryAlt--hover',
+'ms-borderColor-neutralQuaternary', 'ms-borderColor-neutralQuaternary--hover', 'ms-borderColor-neutralQuaternaryAlt', 'ms-borderColor-neutralQuaternaryAlt--hover',
+'ms-borderColor-neutralLight', 'ms-borderColor-neutralLight--hover', 'ms-borderColor-neutralLighter', 'ms-borderColor-neutralLighter--hover',
+'ms-borderColor-neutralLighterAlt', 'ms-borderColor-neutralLighterAlt--hover', 'ms-borderColor-white', 'ms-borderColor-white--hover',
+'ms-borderColor-black', 'ms-borderColor-black--hover', 'ms-borderColor-yellow', 'ms-borderColor-yellow--hover',
+'ms-borderColor-yellowLight', 'ms-borderColor-yellowLight--hover', 'ms-borderColor-orange', 'ms-borderColor-orange--hover',
+'ms-borderColor-orangeLight', 'ms-borderColor-orangeLight--hover', 'ms-borderColor-orangeLighter', 'ms-borderColor-orangeLighter--hover',
+'ms-borderColor-red', 'ms-borderColor-red--hover', 'ms-borderColor-redDark', 'ms-borderColor-redDark--hover',
+'ms-borderColor-magentaDark', 'ms-borderColor-magentaDark--hover', 'ms-borderColor-magenta', 'ms-borderColor-magenta--hover',
+'ms-borderColor-magentaLight', 'ms-borderColor-magentaLight--hover', 'ms-borderColor-purpleDark', 'ms-borderColor-purpleDark--hover',
+'ms-borderColor-purple', 'ms-borderColor-purple--hover', 'ms-borderColor-purpleLight', 'ms-borderColor-purpleLight--hover',
+'ms-borderColor-blueDark', 'ms-borderColor-blueDark--hover', 'ms-borderColor-blueMid', 'ms-borderColor-blueMid--hover',
+'ms-borderColor-blue', 'ms-borderColor-blue--hover', 'ms-borderColor-blueLight', 'ms-borderColor-blueLight--hover',
+'ms-borderColor-tealDark', 'ms-borderColor-tealDark--hover', 'ms-borderColor-teal', 'ms-borderColor-teal--hover',
+'ms-borderColor-tealLight', 'ms-borderColor-tealLight--hover', 'ms-borderColor-greenDark', 'ms-borderColor-greenDark--hover',
+'ms-borderColor-green', 'ms-borderColor-green--hover', 'ms-borderColor-greenLight', 'ms-borderColor-greenLight--hover',
+'ms-borderColor-contrastBlackDisabled', 'ms-borderColor-contrastBlackDisabled--hover', 'ms-borderColor-contrastWhiteDisabled', 'ms-borderColor-contrastWhiteDisabled--hover',
+'ms-borderColor-contrastBlackSelected', 'ms-borderColor-contrastBlackSelected--hover', 'ms-borderColor-contrastWhiteSelected', 'ms-borderColor-contrastWhiteSelected--hover',
+'ms-borderColor-communicationShade30', 'ms-borderColor-communicationShade30--hover', 'ms-borderColor-communicationShade20', 'ms-borderColor-communicationShade20--hover',
+'ms-borderColor-communicationShade10', 'ms-borderColor-communicationShade10--hover', 'ms-borderColor-communicationPrimary', 'ms-borderColor-communicationPrimary--hover',
+'ms-borderColor-communicationTint10', 'ms-borderColor-communicationTint10--hover', 'ms-borderColor-communicationTint20', 'ms-borderColor-communicationTint20--hover',
+'ms-borderColor-communicationTint30', 'ms-borderColor-communicationTint30--hover', 'ms-borderColor-communicationTint40', 'ms-borderColor-communicationTint40--hover',
+'ms-borderColor-gray220', 'ms-borderColor-gray220--hover', 'ms-borderColor-gray210', 'ms-borderColor-gray210--hover',
+'ms-borderColor-gray200', 'ms-borderColor-gray200--hover', 'ms-borderColor-gray190', 'ms-borderColor-gray190--hover',
+'ms-borderColor-gray180', 'ms-borderColor-gray180--hover', 'ms-borderColor-gray170', 'ms-borderColor-gray170--hover',
+'ms-borderColor-gray160', 'ms-borderColor-gray160--hover', 'ms-borderColor-gray150', 'ms-borderColor-gray150--hover',
+'ms-borderColor-gray140', 'ms-borderColor-gray140--hover', 'ms-borderColor-gray130', 'ms-borderColor-gray130--hover',
+'ms-borderColor-gray120', 'ms-borderColor-gray120--hover', 'ms-borderColor-gray110', 'ms-borderColor-gray110--hover',
+'ms-borderColor-gray100', 'ms-borderColor-gray100--hover', 'ms-borderColor-gray90', 'ms-borderColor-gray90--hover',
+'ms-borderColor-gray80', 'ms-borderColor-gray80--hover', 'ms-borderColor-gray70', 'ms-borderColor-gray70--hover',
+'ms-borderColor-gray60', 'ms-borderColor-gray60--hover', 'ms-borderColor-gray50', 'ms-borderColor-gray50--hover',
+'ms-borderColor-gray40', 'ms-borderColor-gray40--hover', 'ms-borderColor-gray30', 'ms-borderColor-gray30--hover',
+'ms-borderColor-gray20', 'ms-borderColor-gray20--hover', 'ms-borderColor-gray10', 'ms-borderColor-gray10--hover',
+'ms-borderColor-sharedPinkRed10', 'ms-borderColor-sharedPinkRed10--hover', 'ms-borderColor-sharedRed20', 'ms-borderColor-sharedRed20--hover',
+'ms-borderColor-sharedRed10', 'ms-borderColor-sharedRed10--hover', 'ms-borderColor-sharedRedOrange20', 'ms-borderColor-sharedRedOrange20--hover',
+'ms-borderColor-sharedRedOrange10', 'ms-borderColor-sharedRedOrange10--hover', 'ms-borderColor-sharedOrange30', 'ms-borderColor-sharedOrange30--hover',
+'ms-borderColor-sharedOrange20', 'ms-borderColor-sharedOrange20--hover', 'ms-borderColor-sharedOrange10', 'ms-borderColor-sharedOrange10--hover',
+'ms-borderColor-sharedYellow10', 'ms-borderColor-sharedYellow10--hover', 'ms-borderColor-sharedOrangeYellow20', 'ms-borderColor-sharedOrangeYellow20--hover',
+'ms-borderColor-sharedOrangeYellow10', 'ms-borderColor-sharedOrangeYellow10--hover', 'ms-borderColor-sharedYellowGreen10', 'ms-borderColor-sharedYellowGreen10--hover',
+'ms-borderColor-sharedGreen20', 'ms-borderColor-sharedGreen20--hover', 'ms-borderColor-sharedGreen10', 'ms-borderColor-sharedGreen10--hover',
+'ms-borderColor-sharedGreenCyan10', 'ms-borderColor-sharedGreenCyan10--hover', 'ms-borderColor-sharedCyan40', 'ms-borderColor-sharedCyan40--hover',
+'ms-borderColor-sharedCyan30', 'ms-borderColor-sharedCyan30--hover', 'ms-borderColor-sharedCyan20', 'ms-borderColor-sharedCyan20--hover',
+'ms-borderColor-sharedCyan10', 'ms-borderColor-sharedCyan10--hover', 'ms-borderColor-sharedCyanBlue20', 'ms-borderColor-sharedCyanBlue20--hover',
+'ms-borderColor-sharedCyanBlue10', 'ms-borderColor-sharedCyanBlue10--hover', 'ms-borderColor-sharedBlue10', 'ms-borderColor-sharedBlue10--hover',
+'ms-borderColor-sharedBlueMagenta40', 'ms-borderColor-sharedBlueMagenta40--hover', 'ms-borderColor-sharedBlueMagenta30', 'ms-borderColor-sharedBlueMagenta30--hover',
+'ms-borderColor-sharedBlueMagenta20', 'ms-borderColor-sharedBlueMagenta20--hover', 'ms-borderColor-sharedBlueMagenta10', 'ms-borderColor-sharedBlueMagenta10--hover',
+'ms-borderColor-sharedMagenta20', 'ms-borderColor-sharedMagenta20--hover', 'ms-borderColor-sharedMagenta10', 'ms-borderColor-sharedMagenta10--hover',
+'ms-borderColor-sharedMagentaPink20', 'ms-borderColor-sharedMagentaPink20--hover', 'ms-borderColor-sharedMagentaPink10', 'ms-borderColor-sharedMagentaPink10--hover',
+'ms-borderColor-sharedGray40', 'ms-borderColor-sharedGray40--hover', 'ms-borderColor-sharedGray30', 'ms-borderColor-sharedGray30--hover',
+'ms-borderColor-sharedGray20', 'ms-borderColor-sharedGray20--hover', 'ms-borderColor-sharedGray10', 'ms-borderColor-sharedGray10--hover'
+
+'ms-fontColor-themePrimary', 'ms-fontColor-themePrimary--hover', 'ms-fontColor-themeSecondary', 'ms-fontColor-themeSecondary--hover',
+'ms-fontColor-themeTertiary', 'ms-fontColor-themeTertiary--hover', 'ms-fontColor-themeLight', 'ms-fontColor-themeLight--hover',
+'ms-fontColor-themeLighter', 'ms-fontColor-themeLighter--hover', 'ms-fontColor-themeLighterAlt', 'ms-fontColor-themeLighterAlt--hover',
+'ms-fontColor-themeDark', 'ms-fontColor-themeDark--hover', 'ms-fontColor-themeDarker', 'ms-fontColor-themeDarker--hover',
+'ms-fontColor-themeDarkAlt', 'ms-fontColor-themeDarkAlt--hover', 'ms-fontColor-neutralDark', 'ms-fontColor-neutralDark--hover',
+'ms-fontColor-neutralPrimary', 'ms-fontColor-neutralPrimary--hover', 'ms-fontColor-neutralPrimaryAlt', 'ms-fontColor-neutralPrimaryAlt--hover',
+'ms-fontColor-neutralSecondary', 'ms-fontColor-neutralSecondary--hover', 'ms-fontColor-neutralSecondaryAlt', 'ms-fontColor-neutralSecondaryAlt--hover',
+'ms-fontColor-neutralTertiary', 'ms-fontColor-neutralTertiary--hover', 'ms-fontColor-neutralTertiaryAlt', 'ms-fontColor-neutralTertiaryAlt--hover',
+'ms-fontColor-neutralQuaternary', 'ms-fontColor-neutralQuaternary--hover', 'ms-fontColor-neutralQuaternaryAlt', 'ms-fontColor-neutralQuaternaryAlt--hover',
+'ms-fontColor-neutralLight', 'ms-fontColor-neutralLight--hover', 'ms-fontColor-neutralLighter', 'ms-fontColor-neutralLighter--hover',
+'ms-fontColor-neutralLighterAlt', 'ms-fontColor-neutralLighterAlt--hover', 'ms-fontColor-white', 'ms-fontColor-white--hover',
+'ms-fontColor-black', 'ms-fontColor-black--hover', 'ms-fontColor-yellow', 'ms-fontColor-yellow--hover',
+'ms-fontColor-yellowLight', 'ms-fontColor-yellowLight--hover', 'ms-fontColor-orange', 'ms-fontColor-orange--hover',
+'ms-fontColor-orangeLight', 'ms-fontColor-orangeLight--hover', 'ms-fontColor-orangeLighter', 'ms-fontColor-orangeLighter--hover',
+'ms-fontColor-red', 'ms-fontColor-red--hover', 'ms-fontColor-redDark', 'ms-fontColor-redDark--hover',
+'ms-fontColor-magentaDark', 'ms-fontColor-magentaDark--hover', 'ms-fontColor-magenta', 'ms-fontColor-magenta--hover',
+'ms-fontColor-magentaLight', 'ms-fontColor-magentaLight--hover', 'ms-fontColor-purpleDark', 'ms-fontColor-purpleDark--hover',
+'ms-fontColor-purple', 'ms-fontColor-purple--hover', 'ms-fontColor-purpleLight', 'ms-fontColor-purpleLight--hover',
+'ms-fontColor-blueDark', 'ms-fontColor-blueDark--hover', 'ms-fontColor-blueMid', 'ms-fontColor-blueMid--hover',
+'ms-fontColor-blue', 'ms-fontColor-blue--hover', 'ms-fontColor-blueLight', 'ms-fontColor-blueLight--hover',
+'ms-fontColor-tealDark', 'ms-fontColor-tealDark--hover', 'ms-fontColor-teal', 'ms-fontColor-teal--hover',
+'ms-fontColor-tealLight', 'ms-fontColor-tealLight--hover', 'ms-fontColor-greenDark', 'ms-fontColor-greenDark--hover',
+'ms-fontColor-green', 'ms-fontColor-green--hover', 'ms-fontColor-greenLight', 'ms-fontColor-greenLight--hover',
+'ms-fontColor-info', 'ms-fontColor-info--hover', 'ms-fontColor-success', 'ms-fontColor-success--hover',
+'ms-fontColor-alert', 'ms-fontColor-alert--hover', 'ms-fontColor-severeWarning', 'ms-fontColor-severeWarning--hover',
+'ms-fontColor-warning', 'ms-fontColor-warning--hover', 'ms-fontColor-error', 'ms-fontColor-error--hover',
+'ms-fontColor-contrastBlackDisabled', 'ms-fontColor-contrastBlackDisabled--hover', 'ms-fontColor-contrastWhiteDisabled', 'ms-fontColor-contrastWhiteDisabled--hover',
+'ms-fontColor-contrastBlackSelected', 'ms-fontColor-contrastBlackSelected--hover', 'ms-fontColor-contrastWhiteSelected', 'ms-fontColor-contrastWhiteSelected--hover',
+'ms-fontColor-communicationShade30', 'ms-fontColor-communicationShade30--hover', 'ms-fontColor-communicationShade20', 'ms-fontColor-communicationShade20--hover',
+'ms-fontColor-communicationShade10', 'ms-fontColor-communicationShade10--hover', 'ms-fontColor-communicationPrimary', 'ms-fontColor-communicationPrimary--hover',
+'ms-fontColor-communicationTint10', 'ms-fontColor-communicationTint10--hover', 'ms-fontColor-communicationTint20', 'ms-fontColor-communicationTint20--hover',
+'ms-fontColor-communicationTint30', 'ms-fontColor-communicationTint30--hover', 'ms-fontColor-communicationTint40', 'ms-fontColor-communicationTint40--hover',
+'ms-fontColor-gray220', 'ms-fontColor-gray220--hover', 'ms-fontColor-gray210', 'ms-fontColor-gray210--hover',
+'ms-fontColor-gray200', 'ms-fontColor-gray200--hover', 'ms-fontColor-gray190', 'ms-fontColor-gray190--hover',
+'ms-fontColor-gray180', 'ms-fontColor-gray180--hover', 'ms-fontColor-gray170', 'ms-fontColor-gray170--hover',
+'ms-fontColor-gray160', 'ms-fontColor-gray160--hover', 'ms-fontColor-gray150', 'ms-fontColor-gray150--hover',
+'ms-fontColor-gray140', 'ms-fontColor-gray140--hover', 'ms-fontColor-gray130', 'ms-fontColor-gray130--hover',
+'ms-fontColor-gray120', 'ms-fontColor-gray120--hover', 'ms-fontColor-gray110', 'ms-fontColor-gray110--hover',
+'ms-fontColor-gray100', 'ms-fontColor-gray100--hover', 'ms-fontColor-gray90', 'ms-fontColor-gray90--hover',
+'ms-fontColor-gray80', 'ms-fontColor-gray80--hover', 'ms-fontColor-gray70', 'ms-fontColor-gray70--hover',
+'ms-fontColor-gray60', 'ms-fontColor-gray60--hover', 'ms-fontColor-gray50', 'ms-fontColor-gray50--hover',
+'ms-fontColor-gray40', 'ms-fontColor-gray40--hover', 'ms-fontColor-gray30', 'ms-fontColor-gray30--hover',
+'ms-fontColor-gray20', 'ms-fontColor-gray20--hover', 'ms-fontColor-gray10', 'ms-fontColor-gray10--hover',
+'ms-fontColor-sharedPinkRed10', 'ms-fontColor-sharedPinkRed10--hover', 'ms-fontColor-sharedRed20', 'ms-fontColor-sharedRed20--hover',
+'ms-fontColor-sharedRed10', 'ms-fontColor-sharedRed10--hover', 'ms-fontColor-sharedRedOrange20', 'ms-fontColor-sharedRedOrange20--hover',
+'ms-fontColor-sharedRedOrange10', 'ms-fontColor-sharedRedOrange10--hover', 'ms-fontColor-sharedOrange30', 'ms-fontColor-sharedOrange30--hover',
+'ms-fontColor-sharedOrange20', 'ms-fontColor-sharedOrange20--hover', 'ms-fontColor-sharedOrange10', 'ms-fontColor-sharedOrange10--hover',
+'ms-fontColor-sharedYellow10', 'ms-fontColor-sharedYellow10--hover', 'ms-fontColor-sharedOrangeYellow20', 'ms-fontColor-sharedOrangeYellow20--hover',
+'ms-fontColor-sharedOrangeYellow10', 'ms-fontColor-sharedOrangeYellow10--hover', 'ms-fontColor-sharedYellowGreen10', 'ms-fontColor-sharedYellowGreen10--hover',
+'ms-fontColor-sharedGreen20', 'ms-fontColor-sharedGreen20--hover', 'ms-fontColor-sharedGreen10', 'ms-fontColor-sharedGreen10--hover',
+'ms-fontColor-sharedGreenCyan10', 'ms-fontColor-sharedGreenCyan10--hover', 'ms-fontColor-sharedCyan40', 'ms-fontColor-sharedCyan40--hover',
+'ms-fontColor-sharedCyan30', 'ms-fontColor-sharedCyan30--hover', 'ms-fontColor-sharedCyan20', 'ms-fontColor-sharedCyan20--hover',
+'ms-fontColor-sharedCyan10', 'ms-fontColor-sharedCyan10--hover', 'ms-fontColor-sharedCyanBlue20', 'ms-fontColor-sharedCyanBlue20--hover',
+'ms-fontColor-sharedCyanBlue10', 'ms-fontColor-sharedCyanBlue10--hover', 'ms-fontColor-sharedBlue10', 'ms-fontColor-sharedBlue10--hover',
+'ms-fontColor-sharedBlueMagenta40', 'ms-fontColor-sharedBlueMagenta40--hover', 'ms-fontColor-sharedBlueMagenta30', 'ms-fontColor-sharedBlueMagenta30--hover',
+'ms-fontColor-sharedBlueMagenta20', 'ms-fontColor-sharedBlueMagenta20--hover', 'ms-fontColor-sharedBlueMagenta10', 'ms-fontColor-sharedBlueMagenta10--hover',
+'ms-fontColor-sharedMagenta20', 'ms-fontColor-sharedMagenta20--hover', 'ms-fontColor-sharedMagenta10', 'ms-fontColor-sharedMagenta10--hover',
+'ms-fontColor-sharedMagentaPink20', 'ms-fontColor-sharedMagentaPink20--hover', 'ms-fontColor-sharedMagentaPink10', 'ms-fontColor-sharedMagentaPink10--hover',
+'ms-fontColor-sharedGray40', 'ms-fontColor-sharedGray40--hover', 'ms-fontColor-sharedGray30', 'ms-fontColor-sharedGray30--hover',
+'ms-fontColor-sharedGray20', 'ms-fontColor-sharedGray20--hover', 'ms-fontColor-sharedGray10', 'ms-fontColor-sharedGray10--hover'
+
+'ms-fontWeight-regular', 'ms-fontWeight-semibold', 'ms-fontWeight-bold', 'ms-fontWeight-semilight', 'ms-fontWeight-light'
+
+'ms-font-su', 'ms-font-xxl', 'ms-font-xl-plus', 'ms-font-xl', 'ms-font-l', 'ms-font-m-plus', 'ms-font-m', 'ms-font-s-plus', 'ms-font-s', 'ms-font-xs', 'ms-font-mi'
+
+'ms-fontSize-su', 'ms-fontSize-xxl', 'ms-fontSize-xlPlus', 'ms-fontSize-xl', 'ms-fontSize-l', 'ms-fontSize-mPlus',
+'ms-fontSize-m', 'ms-fontSize-sPlus', 'ms-fontSize-s', 'ms-fontSize-xs', 'ms-fontSize-mi', 'ms-fontSize-68',
+'ms-fontSize-42', 'ms-fontSize-32', 'ms-fontSize-28', 'ms-fontSize-24', 'ms-fontSize-20', 'ms-fontSize-18',
+'ms-fontSize-16', 'ms-fontSize-14', 'ms-fontSize-12', 'ms-fontSize-10'
+
+'sp-field-fontSize14', 'sp-field-fontSize15', 'sp-field-fontSize17', 'sp-field-fontSize21', 'sp-field-fontSize24',
+'sp-field-fontSize28', 'sp-field-fontSize32', 'sp-field-fontSize36', 'sp-field-fontSize42', 'sp-field-fontSizeSmall',
+'sp-field-fontSizeMedium', 'sp-field-fontSizeLarge', 'sp-field-fontSizeXLarge'
+
+'ms-motion-fadeIn', 'ms-motion-fadeOut', 'ms-motion-scaleDownIn', 'ms-motion-scaleDownOut', 'ms-motion-slideLeftOut',
+'ms-motion-slideRightOut', 'ms-motion-slideDownOut', 'ms-motion-slideUpOut', 'ms-motion-slideLeftIn', 'ms-motion-slideRightIn',
+'ms-motion-slideDownIn', 'ms-motion-slideUpIn'
+
+'ms-slideRightIn10', 'ms-slideRightIn20', 'ms-slideRightIn40', 'ms-slideRightIn400', 'ms-slideRightOut40',
+'ms-slideRightOut400', 'ms-slideLeftIn10', 'ms-slideLeftIn20', 'ms-slideLeftIn40', 'ms-slideLeftIn400',
+'ms-slideLeftOut40', 'ms-slideLeftOut400', 'ms-slideUpIn10', 'ms-slideUpIn20', 'ms-slideDownIn10',
+'ms-slideDownIn20', 'ms-slideUpOut10', 'ms-slideUpOut20', 'ms-slideDownOut10', 'ms-slideDownOut20',
+'ms-scaleUpIn100', 'ms-scaleUpOut103', 'ms-scaleDownIn100', 'ms-scaleDownOut98', 'ms-rotateN90deg',
+'ms-rotate90deg', 'ms-fadeIn100', 'ms-fadeIn200', 'ms-fadeIn400', 'ms-fadeIn500', 'ms-fadeOut100',
+'ms-fadeOut200', 'ms-fadeOut400', 'ms-fadeOut500', 'ms-expandCollapse100', 'ms-expandCollapse200', 'ms-expandCollapse400'
+
+'sp-List-color0', 'sp-List-color1', 'sp-List-color2', 'sp-List-color3', 'sp-List-color4', 'sp-List-color5',
+'sp-List-color6', 'sp-List-color7', 'sp-List-color8', 'sp-List-color9', 'sp-List-color10', 'sp-List-color11'
+
+'sp-css-backgroundColor-BgDarkRed', 'sp-css-backgroundColor-BgRed', 'sp-css-backgroundColor-BgOrange', 'sp-css-backgroundColor-BgBrown', 'sp-css-backgroundColor-BgGreen',
+'sp-css-backgroundColor-BgTeal', 'sp-css-backgroundColor-BgDarkGreen', 'sp-css-backgroundColor-BgBlue', 'sp-css-backgroundColor-BgLavender', 'sp-css-backgroundColor-BgDarkBlue',
+'sp-css-backgroundColor-BgDarkPurple', 'sp-css-backgroundColor-BgPurple', 'sp-css-backgroundColor-BgDarkPink', 'sp-css-backgroundColor-BgGray', 'sp-css-backgroundColor-BgCoral',
+'sp-css-backgroundColor-BgDustRose', 'sp-css-backgroundColor-BgPeak', 'sp-css-backgroundColor-BgGold', 'sp-css-backgroundColor-BgMintGreen', 'sp-css-backgroundColor-BgCyan',
+'sp-css-backgroundColor-BgSage', 'sp-css-backgroundColor-BgCornflowerBlue', 'sp-css-backgroundColor-BgLightPurple', 'sp-css-backgroundColor-BgLightBlue', 'sp-css-backgroundColor-BgViolet',
+'sp-css-backgroundColor-BgMauve', 'sp-css-backgroundColor-BgLilac', 'sp-css-backgroundColor-BgLightGray', 'sp-css-backgroundColor-BgCoral30', 'sp-css-backgroundColor-BgDustRose30',
+'sp-css-backgroundColor-BgPeach40', 'sp-css-backgroundColor-BgGold60', 'sp-css-backgroundColor-BgMintGreen30', 'sp-css-backgroundColor-BgCyan30', 'sp-css-backgroundColor-BgSage20',
+'sp-css-backgroundColor-BgCornflower40', 'sp-css-backgroundColor-BgLightPurple30', 'sp-css-backgroundColor-BgLightBlue20', 'sp-css-backgroundColor-BgViolet40', 'sp-css-backgroundColor-BgMauve50',
+'sp-css-backgroundColor-BgLilac30', 'sp-css-backgroundColor-BgLightGray30', 'sp-css-backgroundColor-DarkRedText', 'sp-css-backgroundColor-RedText', 'sp-css-backgroundColor-OrangeText',
+'sp-css-backgroundColor-BrownText', 'sp-css-backgroundColor-GreenText', 'sp-css-backgroundColor-TealText', 'sp-css-backgroundColor-DarkGreenText', 'sp-css-backgroundColor-BlueText',
+'sp-css-backgroundColor-LavenderText', 'sp-css-backgroundColor-DarkBlueText', 'sp-css-backgroundColor-DarkPurpleText', 'sp-css-backgroundColor-PurpleText', 'sp-css-backgroundColor-LightPurpleText',
+'sp-css-backgroundColor-GrayText', 'sp-css-backgroundColor-WhiteText', 'sp-css-backgroundColor-BlackText', 'sp-css-backgroundColor-CoralFont', 'sp-css-backgroundColor-DustRoseFont',
+'sp-css-backgroundColor-PeachFont', 'sp-css-backgroundColor-GoldFont', 'sp-css-backgroundColor-MintGreenFont', 'sp-css-backgroundColor-CyanFont', 'sp-css-backgroundColor-SageFont',
+'sp-css-backgroundColor-CornflowerBlueFont', 'sp-css-backgroundColor-LightPurpleFont', 'sp-css-backgroundColor-LightBlueFont', 'sp-css-backgroundColor-VioletFont', 'sp-css-backgroundColor-MauveFont',
+'sp-css-backgroundColor-LilacFont', 'sp-css-backgroundColor-LightGrayFont', 'sp-css-backgroundColor-WhiteFont', 'sp-css-backgroundColor-BlackFont', 'sp-css-backgroundColor-bodyBackground',
+'sp-css-backgroundColor-bodyText', 'sp-css-backgroundColor-bodySubtext', 'sp-css-backgroundColor-bodyDivider', 'sp-css-backgroundColor-disabledBackground', 'sp-css-backgroundColor-disabledText',
+'sp-css-backgroundColor-disabledSubtext', 'sp-css-backgroundColor-errorBackground', 'sp-css-backgroundColor-errorText', 'sp-css-backgroundColor-listBackground', 'sp-css-backgroundColor-listTextColor',
+'sp-css-backgroundColor-listItemBackgroundChecked', 'sp-css-backgroundColor-warningBackground', 'sp-css-backgroundColor-successBackground', 'sp-css-backgroundColor-blockingBackground', 'sp-css-backgroundColor-themePrimary',
+'sp-css-backgroundColor-themeSeconary', 'sp-css-backgroundColor-themeTertiary', 'sp-css-backgroundColor-themeLight', 'sp-css-backgroundColor-themeLighter', 'sp-css-backgroundColor-themeLighterAlt',
+'sp-css-backgroundColor-themeDark', 'sp-css-backgroundColor-themeDarker', 'sp-css-backgroundColor-themeDarkAlt', 'sp-css-backgroundColor-neutralDark', 'sp-css-backgroundColor-neutralPrimary',
+'sp-css-backgroundColor-neutralPrimaryAlt', 'sp-css-backgroundColor-neutralSecondary', 'sp-css-backgroundColor-neutralTertiary', 'sp-css-backgroundColor-neutralTertiaryAlt', 'sp-css-backgroundColor-neutralQuaternary',
+'sp-css-backgroundColor-neutralQuaternaryAlt', 'sp-css-backgroundColor-neutralLight', 'sp-css-backgroundColor-neutralLighter', 'sp-css-backgroundColor-neutralLighterAlt', 'sp-css-backgroundColor-white',
+'sp-css-backgroundColor-black', 'sp-css-backgroundColor-blue', 'sp-css-backgroundColor-yellow', 'sp-css-backgroundColor-yellowLight', 'sp-css-backgroundColor-red',
+'sp-css-backgroundColor-redDark', 'sp-css-backgroundColor-green', 'sp-css-backgroundColor-greenLight', 'sp-css-backgroundColor-blueLight', 'sp-css-backgroundColor-blueDark',
+'sp-css-backgroundColor-purple', 'sp-css-backgroundColor-neutralBackground30', 'sp-css-backgroundColor-neutralBackground20', 'sp-css-backgroundColor-neutralBackground10', 'sp-css-backgroundColor-neutralBackground',
+'sp-css-backgroundColor-blueBackground37', 'sp-css-backgroundColor-blueBackground27', 'sp-css-backgroundColor-blueBackground17', 'sp-css-backgroundColor-blueBackground07', 'sp-css-backgroundColor-successBackground50',
+'sp-css-backgroundColor-successBackground40', 'sp-css-backgroundColor-successBackground30', 'sp-css-backgroundColor-warningBackground50', 'sp-css-backgroundColor-warningBackground40', 'sp-css-backgroundColor-warningBackground30',
+'sp-css-backgroundColor-blockingBackground50', 'sp-css-backgroundColor-blockingBackground40', 'sp-css-backgroundColor-blockingBackground30', 'sp-css-backgroundColor-errorBackground50', 'sp-css-backgroundColor-errorBackground40',
+'sp-css-backgroundColor-errorBackground30', 'sp-css-backgroundColor-noFill'
+
+'sp-css-borderTop-neutralBorder', 'sp-css-borderTop-blueBorder', 'sp-css-borderTop-successBorder', 'sp-css-borderTop-warningBorder', 'sp-css-borderTop-blockingBorder', 'sp-css-borderTop-errorBorder'
+
+'sp-css-borderRight-neutralTertiaryDashed'
+
+'sp-css-color-DarkRedText', 'sp-css-color-RedText', 'sp-css-color-OrangeText', 'sp-css-color-BrownText', 'sp-css-color-GreenText', 'sp-css-color-TealText', 'sp-css-color-DarkGreenText', 'sp-css-color-BlueText',
+'sp-css-color-LavenderText', 'sp-css-color-DarkBlueText', 'sp-css-color-DarkPurpleText', 'sp-css-color-PurpleText', 'sp-css-color-LightPurpleText', 'sp-css-color-GrayText', 'sp-css-color-WhiteText', 'sp-css-color-BlackText',
+'sp-css-color-CoralFont', 'sp-css-color-DustRoseFont', 'sp-css-color-PeachFont', 'sp-css-color-GoldFont', 'sp-css-color-MintGreenFont', 'sp-css-color-CyanFont', 'sp-css-color-SageFont', 'sp-css-color-CornflowerBlueFont',
+'sp-css-color-LightPurpleFont', 'sp-css-color-LightBlueFont', 'sp-css-color-VioletFont', 'sp-css-color-MauveFont', 'sp-css-color-LilacFont', 'sp-css-color-LightGrayFont', 'sp-css-color-WhiteFont', 'sp-css-color-BlackFont',
+'sp-css-color-bodyBackground', 'sp-css-color-bodyText', 'sp-css-color-bodySubtext', 'sp-css-color-bodyDivider', 'sp-css-color-disabledBackground', 'sp-css-color-disabledText', 'sp-css-color-disabledSubtext', 'sp-css-color-errorBackground',
+'sp-css-color-errorText', 'sp-css-color-listBackground', 'sp-css-color-listTextColor', 'sp-css-color-listItemBackgroundChecked', 'sp-css-color-warningBackground', 'sp-css-color-successBackground', 'sp-css-color-blockingBackground',
+'sp-css-color-themeDarker', 'sp-css-color-themeDark', 'sp-css-color-themeDarkAlt', 'sp-css-color-themePrimary', 'sp-css-color-themeSecondary', 'sp-css-color-themeTertiary', 'sp-css-color-themeLight', 'sp-css-color-themeLighter',
+'sp-css-color-themeLighterAlt', 'sp-css-color-black', 'sp-css-color-neutralDark', 'sp-css-color-neutralPrimary', 'sp-css-color-neutralPrimaryAlt', 'sp-css-color-neutralSecondary', 'sp-css-color-neutralTertiary', 'sp-css-color-neutralTertiaryAlt',
+'sp-css-color-neutralQuaternary', 'sp-css-color-neutralQuaternaryAlt', 'sp-css-color-neutralLight', 'sp-css-color-neutralLighter', 'sp-css-color-neutralLighterAlt', 'sp-css-color-white', 'sp-css-color-blue', 'sp-css-color-redDark',
+'sp-css-color-red', 'sp-css-color-yellow', 'sp-css-color-yellowLight', 'sp-css-color-greenLight', 'sp-css-color-green', 'sp-css-color-blueLight', 'sp-css-color-blueDark', 'sp-css-color-purple'
+
+'sp-css-borderColor-DarkRedText', 'sp-css-borderColor-RedText', 'sp-css-borderColor-OrangeText', 'sp-css-borderColor-BrownText', 'sp-css-borderColor-GreenText', 'sp-css-borderColor-TealText', 'sp-css-borderColor-DarkGreenText', 'sp-css-borderColor-BlueText',
+'sp-css-borderColor-LavenderText', 'sp-css-borderColor-DarkBlueText', 'sp-css-borderColor-DarkPurpleText', 'sp-css-borderColor-PurpleText', 'sp-css-borderColor-LightPurpleText', 'sp-css-borderColor-GrayText', 'sp-css-borderColor-WhiteText', 'sp-css-borderColor-BlackText',
+'sp-css-borderColor-CoralFont', 'sp-css-borderColor-DustRoseFont', 'sp-css-borderColor-PeachFont', 'sp-css-borderColor-GoldFont', 'sp-css-borderColor-MintGreenFont', 'sp-css-borderColor-CyanFont', 'sp-css-borderColor-SageFont', 'sp-css-borderColor-CornflowerBlueFont',
+'sp-css-borderColor-LightPurpleFont', 'sp-css-borderColor-LightBlueFont', 'sp-css-borderColor-VioletFont', 'sp-css-borderColor-MauveFont', 'sp-css-borderColor-LilacFont', 'sp-css-borderColor-LightGrayFont', 'sp-css-borderColor-WhiteFont', 'sp-css-borderColor-BlackFont',
+'sp-css-borderColor-bodyBackground', 'sp-css-borderColor-bodyText', 'sp-css-borderColor-bodySubtext', 'sp-css-borderColor-bodyDivider', 'sp-css-borderColor-disabledBackground', 'sp-css-borderColor-disabledText', 'sp-css-borderColor-disabledSubtext', 'sp-css-borderColor-errorBackground',
+'sp-css-borderColor-errorText', 'sp-css-borderColor-listBackground', 'sp-css-borderColor-listTextColor', 'sp-css-borderColor-listItemBackgroundChecked', 'sp-css-borderColor-warningBackground', 'sp-css-borderColor-successBackground', 'sp-css-borderColor-blockingBackground',
+'sp-css-borderColor-themeDarker', 'sp-css-borderColor-themeDark', 'sp-css-borderColor-themeDarkAlt', 'sp-css-borderColor-themePrimary', 'sp-css-borderColor-themeSecondary', 'sp-css-borderColor-themeTertiary', 'sp-css-borderColor-themeLight', 'sp-css-borderColor-themeLighter',
+'sp-css-borderColor-themeLighterAlt', 'sp-css-borderColor-black', 'sp-css-borderColor-neutralDark', 'sp-css-borderColor-neutralPrimary', 'sp-css-borderColor-neutralPrimaryAlt', 'sp-css-borderColor-neutralSecondary', 'sp-css-borderColor-neutralTertiary', 'sp-css-borderColor-neutralTertiaryAlt',
+'sp-css-borderColor-neutralQuaternary', 'sp-css-borderColor-neutralQuaternaryAlt', 'sp-css-borderColor-neutralLight', 'sp-css-borderColor-neutralLighter', 'sp-css-borderColor-neutralLighterAlt', 'sp-css-borderColor-white', 'sp-css-borderColor-blue', 'sp-css-borderColor-redDark',
+'sp-css-borderColor-red', 'sp-css-borderColor-yellow', 'sp-css-borderColor-yellowLight', 'sp-css-borderColor-greenLight', 'sp-css-borderColor-green', 'sp-css-borderColor-blueLight', 'sp-css-borderColor-blueDark', 'sp-css-borderColor-purple'
+
+'sp-css-borderLeftColor-DarkRedText', 'sp-css-borderLeftColor-RedText', 'sp-css-borderLeftColor-OrangeText', 'sp-css-borderLeftColor-BrownText', 'sp-css-borderLeftColor-GreenText', 'sp-css-borderLeftColor-TealText', 'sp-css-borderLeftColor-DarkGreenText', 'sp-css-borderLeftColor-BlueText',
+'sp-css-borderLeftColor-LavenderText', 'sp-css-borderLeftColor-DarkBlueText', 'sp-css-borderLeftColor-DarkPurpleText', 'sp-css-borderLeftColor-PurpleText', 'sp-css-borderLeftColor-LightPurpleText', 'sp-css-borderLeftColor-GrayText', 'sp-css-borderLeftColor-WhiteText', 'sp-css-borderLeftColor-BlackText',
+'sp-css-borderLeftColor-CoralFont', 'sp-css-borderLeftColor-DustRoseFont', 'sp-css-borderLeftColor-PeachFont', 'sp-css-borderLeftColor-GoldFont', 'sp-css-borderLeftColor-MintGreenFont', 'sp-css-borderLeftColor-CyanFont', 'sp-css-borderLeftColor-SageFont', 'sp-css-borderLeftColor-CornflowerBlueFont',
+'sp-css-borderLeftColor-LightPurpleFont', 'sp-css-borderLeftColor-LightBlueFont', 'sp-css-borderLeftColor-VioletFont', 'sp-css-borderLeftColor-MauveFont', 'sp-css-borderLeftColor-LilacFont', 'sp-css-borderLeftColor-LightGrayFont', 'sp-css-borderLeftColor-WhiteFont', 'sp-css-borderLeftColor-BlackFont',
+'sp-css-borderLeftColor-bodyBackground', 'sp-css-borderLeftColor-bodyText', 'sp-css-borderLeftColor-bodySubtext', 'sp-css-borderLeftColor-bodyDivider', 'sp-css-borderLeftColor-disabledBackground', 'sp-css-borderLeftColor-disabledText', 'sp-css-borderLeftColor-disabledSubtext', 'sp-css-borderLeftColor-errorBackground',
+'sp-css-borderLeftColor-errorText', 'sp-css-borderLeftColor-listBackground', 'sp-css-borderLeftColor-listTextColor', 'sp-css-borderLeftColor-listItemBackgroundChecked', 'sp-css-borderLeftColor-warningBackground', 'sp-css-borderLeftColor-successBackground', 'sp-css-borderLeftColor-blockingBackground',
+'sp-css-borderLeftColor-themeDarker', 'sp-css-borderLeftColor-themeDark', 'sp-css-borderLeftColor-themeDarkAlt', 'sp-css-borderLeftColor-themePrimary', 'sp-css-borderLeftColor-themeSecondary', 'sp-css-borderLeftColor-themeTertiary', 'sp-css-borderLeftColor-themeLight', 'sp-css-borderLeftColor-themeLighter',
+'sp-css-borderLeftColor-themeLighterAlt', 'sp-css-borderLeftColor-black', 'sp-css-borderLeftColor-neutralDark', 'sp-css-borderLeftColor-neutralPrimary', 'sp-css-borderLeftColor-neutralPrimaryAlt', 'sp-css-borderLeftColor-neutralSecondary', 'sp-css-borderLeftColor-neutralTertiary', 'sp-css-borderLeftColor-neutralTertiaryAlt',
+'sp-css-borderLeftColor-neutralQuaternary', 'sp-css-borderLeftColor-neutralQuaternaryAlt', 'sp-css-borderLeftColor-neutralLight', 'sp-css-borderLeftColor-neutralLighter', 'sp-css-borderLeftColor-neutralLighterAlt', 'sp-css-borderLeftColor-white', 'sp-css-borderLeftColor-blue', 'sp-css-borderLeftColor-redDark',
+'sp-css-borderLeftColor-red', 'sp-css-borderLeftColor-yellow', 'sp-css-borderLeftColor-yellowLight', 'sp-css-borderLeftColor-greenLight', 'sp-css-borderLeftColor-green', 'sp-css-borderLeftColor-blueLight', 'sp-css-borderLeftColor-blueDark', 'sp-css-borderLeftColor-purple'
+
+'sp-css-borderRightColor-DarkRedText', 'sp-css-borderRightColor-RedText', 'sp-css-borderRightColor-OrangeText', 'sp-css-borderRightColor-BrownText', 'sp-css-borderRightColor-GreenText', 'sp-css-borderRightColor-TealText', 'sp-css-borderRightColor-DarkGreenText', 'sp-css-borderRightColor-BlueText',
+'sp-css-borderRightColor-LavenderText', 'sp-css-borderRightColor-DarkBlueText', 'sp-css-borderRightColor-DarkPurpleText', 'sp-css-borderRightColor-PurpleText', 'sp-css-borderRightColor-LightPurpleText', 'sp-css-borderRightColor-GrayText', 'sp-css-borderRightColor-WhiteText', 'sp-css-borderRightColor-BlackText',
+'sp-css-borderRightColor-CoralFont', 'sp-css-borderRightColor-DustRoseFont', 'sp-css-borderRightColor-PeachFont', 'sp-css-borderRightColor-GoldFont', 'sp-css-borderRightColor-MintGreenFont', 'sp-css-borderRightColor-CyanFont', 'sp-css-borderRightColor-SageFont', 'sp-css-borderRightColor-CornflowerBlueFont',
+'sp-css-borderRightColor-LightPurpleFont', 'sp-css-borderRightColor-LightBlueFont', 'sp-css-borderRightColor-VioletFont', 'sp-css-borderRightColor-MauveFont', 'sp-css-borderRightColor-LilacFont', 'sp-css-borderRightColor-LightGrayFont', 'sp-css-borderRightColor-WhiteFont', 'sp-css-borderRightColor-BlackFont',
+'sp-css-borderRightColor-bodyBackground', 'sp-css-borderRightColor-bodyText', 'sp-css-borderRightColor-bodySubtext', 'sp-css-borderRightColor-bodyDivider', 'sp-css-borderRightColor-disabledBackground', 'sp-css-borderRightColor-disabledText', 'sp-css-borderRightColor-disabledSubtext', 'sp-css-borderRightColor-errorBackground',
+'sp-css-borderRightColor-errorText', 'sp-css-borderRightColor-listBackground', 'sp-css-borderRightColor-listTextColor', 'sp-css-borderRightColor-listItemBackgroundChecked', 'sp-css-borderRightColor-warningBackground', 'sp-css-borderRightColor-successBackground', 'sp-css-borderRightColor-blockingBackground',
+'sp-css-borderRightColor-themeDarker', 'sp-css-borderRightColor-themeDark', 'sp-css-borderRightColor-themeDarkAlt', 'sp-css-borderRightColor-themePrimary', 'sp-css-borderRightColor-themeSecondary', 'sp-css-borderRightColor-themeTertiary', 'sp-css-borderRightColor-themeLight', 'sp-css-borderRightColor-themeLighter',
+'sp-css-borderRightColor-themeLighterAlt', 'sp-css-borderRightColor-black', 'sp-css-borderRightColor-neutralDark', 'sp-css-borderRightColor-neutralPrimary', 'sp-css-borderRightColor-neutralPrimaryAlt', 'sp-css-borderRightColor-neutralSecondary', 'sp-css-borderRightColor-neutralTertiary', 'sp-css-borderRightColor-neutralTertiaryAlt',
+'sp-css-borderRightColor-neutralQuaternary', 'sp-css-borderRightColor-neutralQuaternaryAlt', 'sp-css-borderRightColor-neutralLight', 'sp-css-borderRightColor-neutralLighter', 'sp-css-borderRightColor-neutralLighterAlt', 'sp-css-borderRightColor-white', 'sp-css-borderRightColor-blue', 'sp-css-borderRightColor-redDark',
+'sp-css-borderRightColor-red', 'sp-css-borderRightColor-yellow', 'sp-css-borderRightColor-yellowLight', 'sp-css-borderRightColor-greenLight', 'sp-css-borderRightColor-green', 'sp-css-borderRightColor-blueLight', 'sp-css-borderRightColor-blueDark', 'sp-css-borderRightColor-purple'
+
+'sp-css-borderTopColor-DarkRedText', 'sp-css-borderTopColor-RedText', 'sp-css-borderTopColor-OrangeText', 'sp-css-borderTopColor-BrownText', 'sp-css-borderTopColor-GreenText', 'sp-css-borderTopColor-TealText', 'sp-css-borderTopColor-DarkGreenText', 'sp-css-borderTopColor-BlueText',
+'sp-css-borderTopColor-LavenderText', 'sp-css-borderTopColor-DarkBlueText', 'sp-css-borderTopColor-DarkPurpleText', 'sp-css-borderTopColor-PurpleText', 'sp-css-borderTopColor-LightPurpleText', 'sp-css-borderTopColor-GrayText', 'sp-css-borderTopColor-WhiteText', 'sp-css-borderTopColor-BlackText',
+'sp-css-borderTopColor-CoralFont', 'sp-css-borderTopColor-DustRoseFont', 'sp-css-borderTopColor-PeachFont', 'sp-css-borderTopColor-GoldFont', 'sp-css-borderTopColor-MintGreenFont', 'sp-css-borderTopColor-CyanFont', 'sp-css-borderTopColor-SageFont', 'sp-css-borderTopColor-CornflowerBlueFont',
+'sp-css-borderTopColor-LightPurpleFont', 'sp-css-borderTopColor-LightBlueFont', 'sp-css-borderTopColor-VioletFont', 'sp-css-borderTopColor-MauveFont', 'sp-css-borderTopColor-LilacFont', 'sp-css-borderTopColor-LightGrayFont', 'sp-css-borderTopColor-WhiteFont', 'sp-css-borderTopColor-BlackFont',
+'sp-css-borderTopColor-bodyBackground', 'sp-css-borderTopColor-bodyText', 'sp-css-borderTopColor-bodySubtext', 'sp-css-borderTopColor-bodyDivider', 'sp-css-borderTopColor-disabledBackground', 'sp-css-borderTopColor-disabledText', 'sp-css-borderTopColor-disabledSubtext', 'sp-css-borderTopColor-errorBackground',
+'sp-css-borderTopColor-errorText', 'sp-css-borderTopColor-listBackground', 'sp-css-borderTopColor-listTextColor', 'sp-css-borderTopColor-listItemBackgroundChecked', 'sp-css-borderTopColor-warningBackground', 'sp-css-borderTopColor-successBackground', 'sp-css-borderTopColor-blockingBackground',
+'sp-css-borderTopColor-themeDarker', 'sp-css-borderTopColor-themeDark', 'sp-css-borderTopColor-themeDarkAlt', 'sp-css-borderTopColor-themePrimary', 'sp-css-borderTopColor-themeSecondary', 'sp-css-borderTopColor-themeTertiary', 'sp-css-borderTopColor-themeLight', 'sp-css-borderTopColor-themeLighter',
+'sp-css-borderTopColor-themeLighterAlt', 'sp-css-borderTopColor-black', 'sp-css-borderTopColor-neutralDark', 'sp-css-borderTopColor-neutralPrimary', 'sp-css-borderTopColor-neutralPrimaryAlt', 'sp-css-borderTopColor-neutralSecondary', 'sp-css-borderTopColor-neutralTertiary', 'sp-css-borderTopColor-neutralTertiaryAlt',
+'sp-css-borderTopColor-neutralQuaternary', 'sp-css-borderTopColor-neutralQuaternaryAlt', 'sp-css-borderTopColor-neutralLight', 'sp-css-borderTopColor-neutralLighter', 'sp-css-borderTopColor-neutralLighterAlt', 'sp-css-borderTopColor-white', 'sp-css-borderTopColor-blue', 'sp-css-borderTopColor-redDark',
+'sp-css-borderTopColor-red', 'sp-css-borderTopColor-yellow', 'sp-css-borderTopColor-yellowLight', 'sp-css-borderTopColor-greenLight', 'sp-css-borderTopColor-green', 'sp-css-borderTopColor-blueLight', 'sp-css-borderTopColor-blueDark', 'sp-css-borderTopColor-purple'
+
+'sp-css-borderBottomColor-DarkRedText', 'sp-css-borderBottomColor-RedText', 'sp-css-borderBottomColor-OrangeText', 'sp-css-borderBottomColor-BrownText', 'sp-css-borderBottomColor-GreenText', 'sp-css-borderBottomColor-TealText', 'sp-css-borderBottomColor-DarkGreenText', 'sp-css-borderBottomColor-BlueText',
+'sp-css-borderBottomColor-LavenderText', 'sp-css-borderBottomColor-DarkBlueText', 'sp-css-borderBottomColor-DarkPurpleText', 'sp-css-borderBottomColor-PurpleText', 'sp-css-borderBottomColor-LightPurpleText', 'sp-css-borderBottomColor-GrayText', 'sp-css-borderBottomColor-WhiteText', 'sp-css-borderBottomColor-BlackText',
+'sp-css-borderBottomColor-CoralFont', 'sp-css-borderBottomColor-DustRoseFont', 'sp-css-borderBottomColor-PeachFont', 'sp-css-borderBottomColor-GoldFont', 'sp-css-borderBottomColor-MintGreenFont', 'sp-css-borderBottomColor-CyanFont', 'sp-css-borderBottomColor-SageFont', 'sp-css-borderBottomColor-CornflowerBlueFont',
+'sp-css-borderBottomColor-LightPurpleFont', 'sp-css-borderBottomColor-LightBlueFont', 'sp-css-borderBottomColor-VioletFont', 'sp-css-borderBottomColor-MauveFont', 'sp-css-borderBottomColor-LilacFont', 'sp-css-borderBottomColor-LightGrayFont', 'sp-css-borderBottomColor-WhiteFont', 'sp-css-borderBottomColor-BlackFont',
+'sp-css-borderBottomColor-bodyBackground', 'sp-css-borderBottomColor-bodyText', 'sp-css-borderBottomColor-bodySubtext', 'sp-css-borderBottomColor-bodyDivider', 'sp-css-borderBottomColor-disabledBackground', 'sp-css-borderBottomColor-disabledText', 'sp-css-borderBottomColor-disabledSubtext', 'sp-css-borderBottomColor-errorBackground',
+'sp-css-borderBottomColor-errorText', 'sp-css-borderBottomColor-listBackground', 'sp-css-borderBottomColor-listTextColor', 'sp-css-borderBottomColor-listItemBackgroundChecked', 'sp-css-borderBottomColor-warningBackground', 'sp-css-borderBottomColor-successBackground', 'sp-css-borderBottomColor-blockingBackground',
+'sp-css-borderBottomColor-themeDarker', 'sp-css-borderBottomColor-themeDark', 'sp-css-borderBottomColor-themeDarkAlt', 'sp-css-borderBottomColor-themePrimary', 'sp-css-borderBottomColor-themeSecondary', 'sp-css-borderBottomColor-themeTertiary', 'sp-css-borderBottomColor-themeLight', 'sp-css-borderBottomColor-themeLighter',
+'sp-css-borderBottomColor-themeLighterAlt', 'sp-css-borderBottomColor-black', 'sp-css-borderBottomColor-neutralDark', 'sp-css-borderBottomColor-neutralPrimary', 'sp-css-borderBottomColor-neutralPrimaryAlt', 'sp-css-borderBottomColor-neutralSecondary', 'sp-css-borderBottomColor-neutralTertiary', 'sp-css-borderBottomColor-neutralTertiaryAlt',
+'sp-css-borderBottomColor-neutralQuaternary', 'sp-css-borderBottomColor-neutralQuaternaryAlt', 'sp-css-borderBottomColor-neutralLight', 'sp-css-borderBottomColor-neutralLighter', 'sp-css-borderBottomColor-neutralLighterAlt', 'sp-css-borderBottomColor-white', 'sp-css-borderBottomColor-blue', 'sp-css-borderBottomColor-redDark',
+'sp-css-borderBottomColor-red', 'sp-css-borderBottomColor-yellow', 'sp-css-borderBottomColor-yellowLight', 'sp-css-borderBottomColor-greenLight', 'sp-css-borderBottomColor-green', 'sp-css-borderBottomColor-blueLight', 'sp-css-borderBottomColor-blueDark', 'sp-css-borderBottomColor-purple'
+
+'sp-card-borderHighlight', 'sp-card-personCallout', 'sp-card-container', 'sp-card-keyboard-focusable', 'sp-card-defaultClickButton', 'sp-card-subContainer', 'sp-card-displayColumnContainer', 'sp-card-previewColumnContainer', 'sp-card-lastTextColumnContainer',
+'sp-card-label', 'sp-card-content', 'sp-card-userContent', 'sp-card-boldText', 'sp-card-highlightedContent', 'sp-card-urlContent', 'sp-card-formatterRef', 'sp-card-imagePreviewBackground', 'sp-card-imagePreviewBackground-shortened', 'sp-card-userEmptyText',
+'sp-card-userContainer', 'sp-card-userThumbnail', 'sp-card-userOthers', 'sp-card-userTitle', 'sp-card-userCustomCard', 'sp-card-lookupInlineValues', 'sp-card-defaultImage', 'sp-card-defaultImageOverlay', 'sp-card-starRating', 'sp-card-emptyFillStar',
+'sp-card-halfFillStar', 'sp-card-ratingCount', 'sp-card-bottomCommandBar', 'sp-card-likes', 'sp-card-heartIcon', 'sp-card-multiline', 'sp-card-container-noPadding', 'sp-card-showOnHoverParent', 'sp-card-showOnHoverChild', 'sp-card-showOnHover',
+'sp-card-imagePreview', 'sp-card-imagePreview-stretched', 'sp-card-subContainer-borderRadius', 'sp-card-imageContainer', 'sp-card-imageContainer-shortened'
+
+'sp-row-card', 'sp-row-listPadding', 'sp-row-title', 'sp-row-button'
+
+'sp-field-blue', 'sp-field-blue17', 'sp-field-blue27', 'sp-field-blue37', 'sp-field-bold', 'sp-field-customFormatBackground-margin',
+'sp-field-customFormatter', 'sp-field-dashedBorderRight', 'sp-field-dataBars', 'sp-field-editorBorder', 'sp-field-iconLeftAligned',
+'sp-field-iconPadding', 'sp-field-iconRightAligned', 'sp-field-italic', 'sp-field-neutral', 'sp-field-neutral20', 'sp-field-neutral30',
+'sp-field-quickAction', 'sp-field-severity--blocked', 'sp-field-severity--blocked30', 'sp-field-severity--blocked40',
+'sp-field-severity--blocked50', 'sp-field-severity--good', 'sp-field-severity--good30', 'sp-field-severity--good40',
+'sp-field-severity--good50', 'sp-field-severity--low', 'sp-field-severity--severeWarning', 'sp-field-severity--severeWarning30',
+'sp-field-severity--severeWarning40', 'sp-field-severity--severeWarning50', 'sp-field-severity--warning', 'sp-field-severity--warning30',
+'sp-field-severity--warning40', 'sp-field-severity--warning50', 'sp-field-strikeThrough', 'sp-field-trending--down',
+'sp-field-trending--up', 'sp-field-underline', 'sp-field-underlineStrikeThrough'
+
+'sp-field-borderAllRegular', 'sp-field-borderAllSemibold', 'sp-field-borderAllBold', 'sp-field-borderAllDashed', 'sp-field-borderAllDotted', 'sp-field-borderAllSolid',
+'sp-field-borderBottomRegular', 'sp-field-borderBottomSemibold', 'sp-field-borderBottomBold', 'sp-field-borderBottomDashed', 'sp-field-borderBottomDotted', 'sp-field-borderBottomSolid',
+'sp-field-borderLeftRegular', 'sp-field-borderLeftSemibold', 'sp-field-borderLeftBold', 'sp-field-borderLeftDashed', 'sp-field-borderLeftDotted', 'sp-field-borderLeftSolid',
+'sp-field-borderLeftRightRegular', 'sp-field-borderLeftRightSemibold', 'sp-field-borderLeftRightBold', 'sp-field-borderLeftRightDashed', 'sp-field-borderLeftRightDotted', 'sp-field-borderLeftRightSolid',
+'sp-field-borderRightRegular', 'sp-field-borderRightSemibold', 'sp-field-borderRightBold', 'sp-field-borderRightDashed', 'sp-field-borderRightDotted', 'sp-field-borderRightSolid',
+'sp-field-borderTopRegular', 'sp-field-borderTopSemibold', 'sp-field-borderTopBold', 'sp-field-borderTopDashed', 'sp-field-borderTopDotted', 'sp-field-borderTopSolid',
+'sp-field-borderTopBottomRegular', 'sp-field-borderTopBottomSemibold', 'sp-field-borderTopBottomBold', 'sp-field-borderTopBottomDashed', 'sp-field-borderTopBottomDotted', 'sp-field-borderTopBottomSolid'
+
+'itemHovered', 'sp-customformatter-thumbnail', 'ms-Tile-background'
+
+'aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal', 'white', 'yellow',
+'aliceblue', 'antiquewhite', 'aquamarine', 'azure', 'beige', 'bisque', 'blanchedalmond', 'blueviolet', 'brown', 'burlywood', 'cadetblue',
+'chartreuse', 'chocolate', 'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan', 'darkgoldenrod', 'darkgray',
+'darkgreen', 'darkgrey', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred', 'darksalmon', 'darkseagreen',
+'darkslateblue', 'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dimgrey', 'dodgerblue',
+'firebrick', 'floralwhite', 'forestgreen', 'gainsboro', 'ghostwhite', 'gold', 'goldenrod', 'greenyellow', 'grey', 'honeydew', 'hotpink',
+'indianred', 'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan',
+'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightgrey', 'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray',
+'lightslategrey', 'lightsteelblue', 'lightyellow', 'limegreen', 'linen', 'magenta', 'mediumaquamarine', 'mediumblue', 'mediumorchid',
+'mediumpurple', 'mediumseagreen', 'mediumslateblue', 'mediumspringgreen', 'mediumturquoise', 'mediumvioletred', 'midnightblue', 'mintcream',
+'mistyrose', 'moccasin', 'navajowhite', 'oldlace', 'olivedrab', 'orange', 'orangered', 'orchid', 'palegoldenrod', 'palegreen', 'paleturquoise',
+'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink', 'plum', 'powderblue', 'rebeccapurple', 'rosybrown', 'royalblue', 'saddlebrown',
+'salmon', 'sandybrown', 'seagreen', 'seashell', 'sienna', 'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen', 'steelblue',
+'tan', 'thistle', 'tomato', 'turquoise', 'violet', 'wheat', 'whitesmoke', 'yellowgreen'
+
+This stuff be bad on purpose (mostly)
+@thumbnail,@window,@currentField.Coordinates,@currentField.Address,@currentField.thumbnailRenderer,@group

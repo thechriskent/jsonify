@@ -1,28 +1,47 @@
 # jsonify
 
-jsonify lets you instantly convert SVG and HTML files to [**Microsoft SharePoint List Formats**](https://aka.ms/spdocs-column-formatting). Right click on an SVG or HTML file and choose `Convert to SP List Format` and a new editor will open with a column format that draws your image. As you make changes to your original file, the format will continue to update. Wowee!
+jsonify lets you instantly convert HTML and SVG files to [**Microsoft SharePoint List Formats**](https://aka.ms/spdocs-column-formatting). Right click on an SVG or HTML file and choose `Convert to SP List Format` and a new editor will open with a column format that draws your image. As you make changes to your original file, the format will continue to update. Wowee!
+
+jsonify also extends the definition of JSON to inject support for HorseScript syntax highlighting (list formatting expressions). This means your expressions get true syntax highlighting even when written as JSON properties. Additional Wowee!
 
 ## Features
 
+### Syntax Highlighting
+
+![jsonify syntax highlighting](./assets/jsonify%20Syntax%20Highlighting.gif)
+
+#### HTML to Format
+
+![jsonify HTML to Format](./assets/jsonify%20HTML%20to%20Format.gif)
+
+
+#### SVG to Format
+
+![jsonify in action](./assets/jsonify%20SVG%20to%20Format.gif)
+
+#### Details
+
+- Syntax highlighting of expressions
 - Maps all supported attributes and styles
-- Automatically converts common shapes _(`rect`, `circle`, `ellipse`, `line`, `polyline`, and `polygon`)_ to paths
-- Collapses element groups and other non-visual containers (ie `g`)
+- Automatically converts common SVG shape elements _(`rect`, `circle`, `ellipse`, `line`, `polyline`, and `polygon`)_ to paths
+- Collapses SVG element groups and other non-visual containers (ie `g`)
 - Generated formats are kept in sync with your original file _(until you save or close them)_
 - Classes defined in style elements are applied and removed
 - Classes only used in selectors or applied directly to elements are maintained
-- SPFx style theme token support (instead of `color: white;` use `color: "[theme:white]";` or even `color: "[theme: themePrimary, default: #565748]"`)
+- SPFx style theme token support (instead of `color: white;` use `color: "[theme:white]";`)
 - Use formatting expressions as CSS properties and other attribute values
+- Warrior Horse Theme (Dark)
 
 Just open an SVG or HTML file, right click and choose `Convert to SP List Format` to have a new window open with a column format that will render your original file as close as possible.
 
-![jsonify in action](./assets/jsonify.gif)
+Changes to your original will continue to show up in the generated format! Saving the format file will disconnect the live updates.
 
 
 ## Requirements
 
 **None** - However, works great with the [SP Formatter extension](https://marketplace.visualstudio.com/items?itemName=s-kainet.sp-formatter) to enable live previews of your SharePoint List Formats!
 
-HTML files can be fully formed HTML (with a `body` and all that stuff) or just one or more elements sitting around waiting to get formatted.
+HTML files can be fully formed HTML (with a `body` and all that stuff) or just one or more elements sitting around waiting to get formatted. Inline styles and style tags are fully supported (linked stylesheets are not).
 
 ## Extension Settings
 
@@ -43,9 +62,8 @@ Toggle the setting on or off as desired.
 
 ## Known Issues
 
-This is in very early preview, so please report any issues that come up. But here's a few off the top of my head:
-
 - Linked style sheets are not evaluated
+- Horsescript definition provides syntax highlighting only, not autocomplete or error checking
 
 ## Release Notes
 

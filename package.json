@@ -112,7 +112,10 @@
       {
         "scopeName": "meta.embedded.source.json.horsescript",
         "path": "./syntaxes/horsescript-json.tmLanguage.json",
-        "injectTo": ["source.json"]
+        "injectTo": ["source.json"],
+        "embeddedLanguages": {
+          "meta.embedded.source.json.horsescript": "horsescript"
+        }
       }
     ],
     "themes": [

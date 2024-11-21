@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import HTMLToSPFormat from './helpers/toFormat';
 import ITransformResult, { transformResultMessageToString } from './models/ITransformResult';
-import { getCompletions, isAddressSubPropCompletion, isCoordinatesSubPropCompletion, isMetatdataPropCompletion, isSubPropCompletion } from './helpers/Completions';
+import { findFunctionName, findParameterIndex, getCompletions, getSignatureInformation, isAddressSubPropCompletion, isCoordinatesSubPropCompletion, isMetatdataPropCompletion, isSubPropCompletion } from './helpers/Completions';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('wowee! updated');
@@ -207,6 +207,44 @@ export function activate(context: vscode.ExtensionContext) {
 		'.' // Trigger on '.' only
 	);
 
+	
+	/**
+	 * Signature Help Provider (for function parameter hints)
+	 */
+	const signatureHelpProvider = vscode.languages.registerSignatureHelpProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+            { language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext) {
+				const linePrefix = document.lineAt(position).text.substring(0, position.character);
+
+				const func = findFunctionName(linePrefix);
+				const paramIndex = findParameterIndex(linePrefix);
+				console.log('Function Name: ' + func);
+				console.log('Parameter Index: ' + paramIndex);
+				
+				if (func.length > 0) {
+					const signatureInfo = getSignatureInformation(func);
+				
+					if (typeof signatureInfo !== 'undefined') {
+						const signatureHelp = new vscode.SignatureHelp();
+						signatureHelp.signatures = [signatureInfo];
+						signatureHelp.activeSignature = 0;
+						signatureHelp.activeParameter = paramIndex;
+						return signatureHelp;
+					}
+				}
+				
+			}
+		},
+		'(', // Trigger
+		',', // Trigger
+	);
+
+
 
 	//Register the commands for proper disposal
 	context.subscriptions.push(comReg_toFormat_Explorer);
@@ -218,6 +256,8 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(comReg_TriggerCompletion);
 	context.subscriptions.push(completionItemDefaultProvider);
 	context.subscriptions.push(completionItemTriggerProvider);
+
+	context.subscriptions.push(signatureHelpProvider);
 }
 
 export function deactivate() {}

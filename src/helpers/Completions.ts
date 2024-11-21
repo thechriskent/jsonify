@@ -1,10 +1,15 @@
 import * as vscode from 'vscode';
 
+declare interface IParameterDetail {
+    label: string;
+    documentation?: string;
+}
 
 declare interface ICompletionDetail {
     value: string;
     detail?: string;
     documentation?: string;
+    parameters?: IParameterDetail[]
 }
 
 const magicStrings: ICompletionDetail[] = [
@@ -46,26 +51,68 @@ const functions: ICompletionDetail[] = [
     { value: 'loopIndex', detail: 'Current index of a loop', documentation: 'Returns the current index of the given loop. Indexes start at 0.\n\n=loopIndex(\'choiceIterator\') could result in 0' },
 
     // Binary operators
-    { value: 'indexOf', detail: 'Find index of', documentation: 'Returns the index value of the first occurrence of the search term within the string (or array). Indexes start at 0. If the search term isn\'t found within the text (or array), -1 is returned. This operator is case-sensitive.\n\n=indexOf(\'DogFood\', \'Dog\') results in 0\n=indexOf(\'DogFood\', \'F\') results in 3\n=indexOf(\'DogFood\', \'Cat\') results in -1\n=indexOf(\'DogFood\', \'f\') results in -1' },
-    { value: 'join', detail: 'Join array', documentation: 'Returns a string concatenation of the array values separated by the separating string.\n\n=join(@currentField, \', \') might result in "Apple, Orange, Cherry" (depending on the selected values)\n=join(@currentField.title, \'|\') might result in "Megan Bowen|Alex Wilber" (depending on the selected persons)' },
-    { value: 'pow', detail: 'Raise to power', documentation: 'Returns the base to the exponent power.\n\n=pow(2,3) results in 8' },
-    { value: 'lastIndexOf', detail: 'Find last index of', documentation: 'Returns the position of the last occurrence of a specified value in a string (or array)\n\n=lastIndexOf(\'DogFood DogFood\', \'Dog\') results in 8\n=lastIndexOf(\'DogFood DogFood\', \'F\') results in 11\n=lastIndexOf(\'DogFood DogFood\', \'Cat\') results in -1\n=lastIndexOf(\'DogFood DogFood\', \'f\') results in -1' },
-    { value: 'startsWith', detail: 'Starts with', documentation: 'Determines whether a string begins with the characters of a specified string\n\n=startsWith(\'DogFood\', \'Dog\') results in true\n=startsWith(\'DogFood\', \'Food\') results in false' },
-    { value: 'endsWith', detail: 'Ends with', documentation: 'Determines whether a string ends with the characters of a specified string\n\n=endsWith(\'DogFood\', \'Dog\') results in false\n=endsWith(\'DogFood\', \'Food\') results in true' },
-    { value: 'getUserImage', detail: 'Get user image', documentation: 'Returns a URL pointing to a user\'s profile image for a given email and preferred size\n\n=getUserImage(\'kaylat@contoso.com\', \'small\') returns a URL pointing to user\'s profile picture in small resolution\n==getUserImage(\'kaylat@contoso.com\', \'s\') returns a URL pointing to user\'s profile picture in small resolution\n=getUserImage(\'kaylat@contoso.com\', \'medium\') returns a URL pointing to user\'s profile picture in medium resolution\n=getUserImage(\'kaylat@contoso.com\', \'m\') returns a URL pointing to user\'s profile picture in medium resolution\n=getUserImage(\'kaylat@contoso.com\', \'large\') returns a URL pointing to user\'s profile picture in large resolution\n=getUserImage(\'kaylat@contoso.com\', \'l\') returns a URL pointing to user\'s profile picture in large resolution' },
-    { value: 'appendTo', detail: 'Append to array', documentation: 'Returns an array with the given entry appended to the given array.\n\n=appendTo(@currentField, \'Choice 4\') returns an array with "Choice 4" added to the @currentField array\n=appendTo(@currentField, \'kaylat@contoso.com\') returns an array with "kaylat@contoso.com" added to the @currentField array' },
-    { value: 'removeFrom', detail: 'Remove from array', documentation: 'Returns an array with the given entry removed from the given array, if present.\n\n=removeFrom(@currentField, \'Choice 4\') returns an array with "Choice 4" removed from the @currentField array\n=removeFrom(@currentField, \'kaylat@contoso.com\') returns an array with "kaylat@contoso.com" removed from the @currentField array' },
-    { value: 'split', detail: 'Split string', documentation: 'Divides the given string into an ordered list of substrings by searching for the given pattern, and returns an array of these substrings.\n\n=split(\'Hello World\', \' \') returns an array with two strings - "Hello" and "World"' },
-    { value: 'addDays', detail: 'Add days to date', documentation: 'Returns a datetime object with days added (or deducted) from the given datetime value.\n\n=addDays(Date(\'11/14/2021\'), 3) returns 11/17/2021, 12:00:00 AM\n=addDays(Date(\'11/14/2021\'), -1) returns a 11/13/2021, 12:00:00 AM' },
+    { value: 'indexOf', detail: 'Find index of', documentation: 'Returns the index value of the first occurrence of the search term within the string (or array). Indexes start at 0. If the search term isn\'t found within the text (or array), -1 is returned. This operator is case-sensitive.\n\n=indexOf(\'DogFood\', \'Dog\') results in 0\n=indexOf(\'DogFood\', \'F\') results in 3\n=indexOf(\'DogFood\', \'Cat\') results in -1\n=indexOf(\'DogFood\', \'f\') results in -1',
+        parameters: [{ label: 'Target', documentation: 'The text (or array) to search within' },
+                     { label: 'Search term', documentation: 'The text to search for' }] },
+    { value: 'join', detail: 'Join array', documentation: 'Returns a string concatenation of the array values separated by the separating string.\n\n=join(@currentField, \', \') might result in "Apple, Orange, Cherry" (depending on the selected values)\n=join(@currentField.title, \'|\') might result in "Megan Bowen|Alex Wilber" (depending on the selected persons)',
+        parameters: [{ label: 'Array', documentation: 'The array to join (ie multi-select person or choice field)' },
+                     { label: 'Separator', documentation: 'The string to separate each value' }] },
+    { value: 'pow', detail: 'Raise to power', documentation: 'Returns the base to the exponent power.\n\n=pow(2,3) results in 8',
+        parameters: [{ label: 'Base', documentation: 'The base number' },
+                     { label: 'Exponent', documentation: 'The exponent number' }] },
+    { value: 'lastIndexOf', detail: 'Find last index of', documentation: 'Returns the position of the last occurrence of a specified value in a string (or array)\n\n=lastIndexOf(\'DogFood DogFood\', \'Dog\') results in 8\n=lastIndexOf(\'DogFood DogFood\', \'F\') results in 11\n=lastIndexOf(\'DogFood DogFood\', \'Cat\') results in -1\n=lastIndexOf(\'DogFood DogFood\', \'f\') results in -1',
+        parameters: [{ label: 'Target', documentation: 'The text (or array) to search within' },
+                     { label: 'Search term', documentation: 'The text to search for' }] },
+    { value: 'startsWith', detail: 'Starts with', documentation: 'Determines whether a string begins with the characters of a specified string\n\n=startsWith(\'DogFood\', \'Dog\') results in true\n=startsWith(\'DogFood\', \'Food\') results in false',
+        parameters: [{ label: 'Target', documentation: 'The text to search' },
+                     { label: 'Search term', documentation: 'The text to search for' }] },
+    { value: 'endsWith', detail: 'Ends with', documentation: 'Determines whether a string ends with the characters of a specified string\n\n=endsWith(\'DogFood\', \'Dog\') results in false\n=endsWith(\'DogFood\', \'Food\') results in true',
+        parameters: [{ label: 'Target', documentation: 'The text to search' },
+                     { label: 'Search term', documentation: 'The text to search for' }] },
+    { value: 'getUserImage', detail: 'Get user image', documentation: 'Returns a URL pointing to a user\'s profile image for a given email and preferred size\n\n=getUserImage(\'kaylat@contoso.com\', \'small\') returns a URL pointing to user\'s profile picture in small resolution\n==getUserImage(\'kaylat@contoso.com\', \'s\') returns a URL pointing to user\'s profile picture in small resolution\n=getUserImage(\'kaylat@contoso.com\', \'medium\') returns a URL pointing to user\'s profile picture in medium resolution\n=getUserImage(\'kaylat@contoso.com\', \'m\') returns a URL pointing to user\'s profile picture in medium resolution\n=getUserImage(\'kaylat@contoso.com\', \'large\') returns a URL pointing to user\'s profile picture in large resolution\n=getUserImage(\'kaylat@contoso.com\', \'l\') returns a URL pointing to user\'s profile picture in large resolution',
+        parameters: [{ label: 'Email', documentation: 'The email address of the user' },
+                     { label: 'Size', documentation: 'The preferred size of the image (\'small\', \'s\' \'medium\', \'m\' \'large\', or \'l\')' }] },
+    { value: 'appendTo', detail: 'Append to array', documentation: 'Returns an array with the given entry appended to the given array.\n\n=appendTo(@currentField, \'Choice 4\') returns an array with "Choice 4" added to the @currentField array\n=appendTo(@currentField, \'kaylat@contoso.com\') returns an array with "kaylat@contoso.com" added to the @currentField array',
+        parameters: [{ label: 'Array', documentation: 'The array to append to' },
+                     { label: 'Value', documentation: 'The value to append' }] },
+    { value: 'removeFrom', detail: 'Remove from array', documentation: 'Returns an array with the given entry removed from the given array, if present.\n\n=removeFrom(@currentField, \'Choice 4\') returns an array with "Choice 4" removed from the @currentField array\n=removeFrom(@currentField, \'kaylat@contoso.com\') returns an array with "kaylat@contoso.com" removed from the @currentField array',
+        parameters: [{ label: 'Array', documentation: 'The array to remove from' },
+                     { label: 'Value', documentation: 'The value to remove' }] },
+    { value: 'split', detail: 'Split string', documentation: 'Divides the given string into an ordered list of substrings by searching for the given pattern, and returns an array of these substrings.\n\n=split(\'Hello World\', \' \') returns an array with two strings - "Hello" and "World"',
+        parameters: [{ label: 'String', documentation: 'The string to split' },
+                     { label: 'Pattern', documentation: 'The pattern to split by' }] },
+    { value: 'addDays', detail: 'Add days to date', documentation: 'Returns a datetime object with days added (or deducted) from the given datetime value.\n\n=addDays(Date(\'11/14/2021\'), 3) returns 11/17/2021, 12:00:00 AM\n=addDays(Date(\'11/14/2021\'), -1) returns a 11/13/2021, 12:00:00 AM',
+        parameters: [{ label: 'Date', documentation: 'The date to add to' },
+                     { label: 'Days', documentation: 'The number of days to add (use a negative number to subtract)' }] },
+    { value: 'addMinutes', detail: 'Add minutes to date', documentation: 'Returns a datetime object with minutes added (or deducted) from the given datetime value.\n\n=addMinutes(Date(\'11/14/2021\'), 3) returns 11/14/2021, 12:03:00 AM\n=addMinutes(Date(\'11/14/2021\'), -1) returns a 11/13/2021, 11:59:00 AM',
+        parameters: [{ label: 'Date', documentation: 'The date to add to' },
+                     { label: 'Minutes', documentation: 'The number of minutes to add (use a negative number to subtract)' }] },
 
     //Ternary operators
-    { value: 'addMinutes', detail: 'Add minutes to date', documentation: 'Returns a datetime object with minutes added (or deducted) from the given datetime value.\n\n=addMinutes(Date(\'11/14/2021\'), 3) returns 11/14/2021, 12:03:00 AM\n=addMinutes(Date(\'11/14/2021\'), -1) returns a 11/13/2021, 11:59:00 AM' },
-    { value: 'substring', detail: 'Substring of a string', documentation: 'Returns the part of the string between the start and end indices. Only available in SharePoint Online.\n\n=substring(\'DogFood\', 3, 4) results in F\n=substring(\'DogFood\', 4, 3) results in F\n=substring(\'DogFood\', 3, 6) results in Foo\n=substring(\'DogFood\', 6, 3) results in Foo\n\nThe substring() method returns the part of the string between the start and end indexes or to the end of the string.' },
-    { value: 'replace', detail: 'Replace string value', documentation: 'Searches a string (or array) for a specified value and returns a new string (or array) where the specified value is replaced. For strings, only the first instance of the value will be replaced.\n\n=replace(\'Hello world\', \'world\', \'everyone\') results in Hello everyone\n=replace([$MultiChoiceField], \'Choice 1\', \'Choice 2\') returns an array replacing "Choice 1" with "Choice 2"\n=replace([$MultiUserField], @me, \'kaylat@contoso.com\') returns an array replacing @me with "kaylat@contoso.com"' },
-    { value: 'replaceAll', detail: 'Replace all', documentation: 'Searches a string for a specified value and returns a new string (or array) where the specified value is replaced. For strings, all instances of the value will be replaced.\n\n=replaceAll(\'H-e-l-l-o W-o-r-l-d\', \'-\', \'\') results in "Hello World"' },
-    { value: 'padStart', detail: 'Pad the start of a string', documentation: 'Pads the current string with another string until the resulting string reaches the given length. The padding is applied from the start of the current string.\n\n=padStart(\'DogFood\', 10, \'A\') results in "AAADogFood"\n=padStart(\'DogFood\', 10, \'AB\') results in "ABADogFood"\n=padStart(\'DogFood\', 5, \'A\') results in "DogFood"' },
-    { value: 'padEnd', detail: 'Pad string from end', documentation: 'Pads the current string with a given string until the resulting string reaches the given length. The padding is applied from the end of the current string.\n\n=padEnd(\'DogFood\', 10, \'A\') results in "DogFoodAAA"\n=padEnd(\'DogFood\', 10, \'AB\') results in "DogFoodABA"\n=padEnd(\'DogFood\', 5, \'A\') results in "DogFood"' },
-    { value: 'getThumbnailImage', detail: 'Get thumbnail image URL', documentation: 'Returns a URL pointing to an image for a given image field and preferred size.\n\n=getThumbnailImage([$ImageField], 400, 200) results in a URL pointing to an image for a given image field with 400 width and 200 height' },
+    { value: 'substring', detail: 'Substring of a string', documentation: 'Returns the part of the string between the start and end indices. Only available in SharePoint Online.\n\n=substring(\'DogFood\', 3, 4) results in F\n=substring(\'DogFood\', 4, 3) results in F\n=substring(\'DogFood\', 3, 6) results in Foo\n=substring(\'DogFood\', 6, 3) results in Foo\n\nThe substring() method returns the part of the string between the start and end indexes or to the end of the string.',
+        parameters: [{ label: 'String', documentation: 'The string to extract from' },
+                     { label: 'Start index', documentation: 'The character position to start the extraction (0-based)' },
+                     { label: 'End index', documentation: 'The character position to end the extraction (0-based)' }] },
+    { value: 'replace', detail: 'Replace string value', documentation: 'Searches a string (or array) for a specified value and returns a new string (or array) where the specified value is replaced. For strings, only the first instance of the value will be replaced.\n\n=replace(\'Hello world\', \'world\', \'everyone\') results in Hello everyone\n=replace([$MultiChoiceField], \'Choice 1\', \'Choice 2\') returns an array replacing "Choice 1" with "Choice 2"\n=replace([$MultiUserField], @me, \'kaylat@contoso.com\') returns an array replacing @me with "kaylat@contoso.com"',
+        parameters: [{ label: 'String', documentation: 'The string to search' },
+                     { label: 'Search term', documentation: 'The text to search for' },
+                     { label: 'Replacement', documentation: 'The text to replace the search term with' }] },
+    { value: 'replaceAll', detail: 'Replace all', documentation: 'Searches a string for a specified value and returns a new string (or array) where the specified value is replaced. For strings, all instances of the value will be replaced.\n\n=replaceAll(\'H-e-l-l-o W-o-r-l-d\', \'-\', \'\') results in "Hello World"',
+        parameters: [{ label: 'String', documentation: 'The string to search' },
+                     { label: 'Search term', documentation: 'The text to search for' },
+                     { label: 'Replacement', documentation: 'The text to replace all occurrences of the search term with' }] },
+    { value: 'padStart', detail: 'Pad the start of a string', documentation: 'Pads the current string with another string until the resulting string reaches the given length. The padding is applied from the start of the current string.\n\n=padStart(\'DogFood\', 10, \'A\') results in "AAADogFood"\n=padStart(\'DogFood\', 10, \'AB\') results in "ABADogFood"\n=padStart(\'DogFood\', 5, \'A\') results in "DogFood"',
+        parameters: [{ label: 'String', documentation: 'The string to pad' },
+                     { label: 'Length', documentation: 'The length of the resulting string' },
+                     { label: 'Padding', documentation: 'The string to pad with' }] },
+    { value: 'padEnd', detail: 'Pad string from end', documentation: 'Pads the current string with a given string until the resulting string reaches the given length. The padding is applied from the end of the current string.\n\n=padEnd(\'DogFood\', 10, \'A\') results in "DogFoodAAA"\n=padEnd(\'DogFood\', 10, \'AB\') results in "DogFoodABA"\n=padEnd(\'DogFood\', 5, \'A\') results in "DogFood"',
+        parameters: [{ label: 'String', documentation: 'The string to pad' },
+                     { label: 'Length', documentation: 'The length of the resulting string' },
+                     { label: 'Padding', documentation: 'The string to pad with' }] },
+    { value: 'getThumbnailImage', detail: 'Get thumbnail image URL', documentation: 'Returns a URL pointing to an image for a given image field and preferred size.\n\n=getThumbnailImage([$ImageField], 400, 200) results in a URL pointing to an image for a given image field with 400 width and 200 height',
+        parameters: [{ label: 'Image field', documentation: 'The image field to get the image from' },
+                     { label: 'Width', documentation: 'The preferred width of the image' },
+                     { label: 'Height', documentation: 'The preferred height of the image' }] },
 ];
 
 const subProps: ICompletionDetail[] = [
@@ -118,6 +165,7 @@ const getCompletionFunctions = (): vscode.CompletionItem[] => {
     functions.forEach((func) => {
         const item = new vscode.CompletionItem(func.value, vscode.CompletionItemKind.Function);
         item.insertText = new vscode.SnippetString(`${func.value}($1)`);
+        item.command = { command: 'editor.action.triggerParameterHints', title: 'Trigger Parameter Hints', };
         item.detail = func.detail;
         item.documentation = func.documentation;
         items.push(item);
@@ -253,4 +301,53 @@ export const getCompletions = (document: vscode.TextDocument, position: vscode.P
     }
 
     return items;
+};
+
+
+export const findFunctionName = (linePrefix: string): string => {
+    const latestOpenParen = linePrefix.lastIndexOf('(');
+    const latestCloseParen = linePrefix.lastIndexOf(')');
+    if (latestOpenParen > latestCloseParen) {
+        // There is an open paren that hasn't been closed
+        const functionNameMatch = linePrefix.substring(0, latestOpenParen+1).match(/([a-zA-Z]+)\($/);
+        if (functionNameMatch) {
+            return functionNameMatch[1];
+        } else {
+            return '';
+        }
+    } else {
+        return findFunctionName(linePrefix.substring(0, latestOpenParen-1));
+    }
+};
+
+export const findParameterIndex = (linePrefix: string): number => {
+    const latestOpenParen = linePrefix.lastIndexOf('(');
+    const latestCloseParen = linePrefix.lastIndexOf(')');
+    const latestComma = linePrefix.lastIndexOf(',');
+    if (latestOpenParen < latestCloseParen) {
+        // Wipe out that nested function call
+        return findParameterIndex(linePrefix.substring(0, latestOpenParen) + 'FUNC' + linePrefix.slice(latestCloseParen+1));
+    } else {
+        return linePrefix.match(/,/)?.length ?? 0;
+    }
+};
+
+export const getSignatureInformation = (functionName: string): vscode.SignatureInformation | undefined => {
+    const func = functions.find((f) => f.value === functionName);
+    if (func) {
+        const paramNames: string[] = [];
+        const paramInfo: vscode.ParameterInformation[] = [];
+
+        if (func.parameters) {
+            func.parameters.forEach((param) => {
+                paramNames.push(param.label);
+                paramInfo.push(new vscode.ParameterInformation(param.label, new vscode.MarkdownString(param.documentation)));
+            });
+        }
+
+        const signature = new vscode.SignatureInformation(`${func.value}(${paramNames.join(', ')})`);
+        signature.documentation = new vscode.MarkdownString(func.documentation);
+        signature.parameters = paramInfo;
+        return signature;
+    }
 };

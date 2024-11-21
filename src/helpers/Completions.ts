@@ -1,11 +1,6 @@
 import * as vscode from 'vscode';
 
 
-const metadataProps = ['DisplayName'];
-const middleProps = ['Address', 'Coordinates'];
-const addressSubProps = ['City', 'CountryOrRegion', 'State', 'Street'];
-const coordinateSubProps = ['Latitude', 'Longitude'];
-
 declare interface ICompletionDetail {
     value: string;
     detail?: string;
@@ -95,6 +90,29 @@ const subProps: ICompletionDetail[] = [
     { value: 'displayValue', detail: 'Display value', documentation: 'The display value of the item.' },
 ];
 
+const middleProps: ICompletionDetail[] = [
+    { value: 'Address', detail: 'Location address', documentation: 'The address of the location. Cannot be used on its own, you must reference one of the sub properties (City, CountryOrRegion, State, Street).' },
+    { value: 'Coordinates', detail: 'Location coordinates', documentation: 'The coordinates of the location. Cannot be used on its own, you must reference one of the sub properties (Latitude, Longitude).' },
+];
+
+const addressSubProps: ICompletionDetail[] = [
+    { value: 'City', detail: 'Location city', documentation: 'The city of the location.' },
+    { value: 'CountryOrRegion', detail: 'Location country or region', documentation: 'The country or region of the location.' },
+    { value: 'State', detail: 'Location state', documentation: 'The state of the location.' },
+    { value: 'Street', detail: 'Location street', documentation: 'The street of the location.' },
+];
+
+const coordinateSubProps: ICompletionDetail[] = [
+    { value: 'Latitude', detail: 'Location latitude', documentation: 'The latitude of the location.' },
+    { value: 'Longitude', detail: 'Location longitude', documentation: 'The longitude of the location.' },
+];
+
+const metadataProps: ICompletionDetail[] = [
+    { value: 'DisplayName', detail: 'Field display name', documentation: 'The display name of the field.' },
+];
+
+
+
 const getCompletionFunctions = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     functions.forEach((func) => {
@@ -130,12 +148,25 @@ const getCompletionSubProps = (): vscode.CompletionItem[] => {
     return items;
 };
 
+const getCompletionMetadataProps = (): vscode.CompletionItem[] => {
+    const items: vscode.CompletionItem[] = [];
+    metadataProps.forEach((prop) => {
+        const item = new vscode.CompletionItem(prop.value, vscode.CompletionItemKind.Variable);
+        item.detail = prop.detail;
+        item.documentation = prop.documentation;
+        items.push(item);
+    });
+    return items;
+};
+
 const getCompletionMiddleProps = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     middleProps.forEach((prop) => {
-        const item = new vscode.CompletionItem(prop, vscode.CompletionItemKind.Variable);
-        item.insertText = new vscode.SnippetString(`${prop}.`);
+        const item = new vscode.CompletionItem(prop.value, vscode.CompletionItemKind.Variable);
+        item.insertText = new vscode.SnippetString(`${prop.value}.`);
         item.command = { command: 'jsonify.triggerCompletion', title: 'Re-trigger completions', };
+        item.detail = prop.detail;
+        item.documentation = prop.documentation;
         items.push(item);
     });
     return items;
@@ -144,7 +175,10 @@ const getCompletionMiddleProps = (): vscode.CompletionItem[] => {
 const getCompletionAddressSubProps = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     addressSubProps.forEach((prop) => {
-        items.push(new vscode.CompletionItem(prop, vscode.CompletionItemKind.Variable));
+        const item = new vscode.CompletionItem(prop.value, vscode.CompletionItemKind.Variable);
+        item.detail = prop.detail;
+        item.documentation = prop.documentation;
+        items.push(item);
     });
     return items;
 };
@@ -152,7 +186,10 @@ const getCompletionAddressSubProps = (): vscode.CompletionItem[] => {
 const getCompletionCoordinateSubProps = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     coordinateSubProps.forEach((prop) => {
-        items.push(new vscode.CompletionItem(prop, vscode.CompletionItemKind.Variable));
+        const item = new vscode.CompletionItem(prop.value, vscode.CompletionItemKind.Variable);
+        item.detail = prop.detail;
+        item.documentation = prop.documentation;
+        items.push(item);
     });
     return items;
 };
@@ -161,6 +198,12 @@ export const isSubPropCompletion = (linePrefix: string): boolean => {
     // Right after a . for a subProp for @currentField or a Field Name
     // Matches either @currentField. or [$FieldName.
     return /(@currentField\.$)|(\[\$[^~#%&*{}\:<>?/+|\",.\]]+\.$)/.test(linePrefix);
+};
+
+export const isMetatdataPropCompletion = (linePrefix: string): boolean => {
+    // Right after a . for a metadata prop for a Field Name
+    // Matches [!FieldName.
+    return /\[![^~#%&*{}\:<>?/+|\",.\]]+\.$/.test(linePrefix);
 };
 
 export const isAddressSubPropCompletion = (linePrefix: string): boolean => {
@@ -195,7 +238,9 @@ export const getCompletions = (document: vscode.TextDocument, position: vscode.P
 
     const items: vscode.CompletionItem[] = [];
 
-    if (isSubPropCompletion(linePrefix)) {
+    if (isMetatdataPropCompletion(linePrefix)) {
+        items.push(...getCompletionMetadataProps());
+    } else if (isSubPropCompletion(linePrefix)) {
         items.push(...getCompletionSubProps());
         items.push(...getCompletionMiddleProps());
     } else if (isAddressSubPropCompletion(linePrefix)) {

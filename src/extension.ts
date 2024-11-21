@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import HTMLToSPFormat from './helpers/toFormat';
 import ITransformResult, { transformResultMessageToString } from './models/ITransformResult';
-import { getCompletions, isAddressSubPropCompletion, isCoordinatesSubPropCompletion, isSubPropCompletion } from './helpers/Completions';
+import { getCompletions, isAddressSubPropCompletion, isCoordinatesSubPropCompletion, isMetatdataPropCompletion, isSubPropCompletion } from './helpers/Completions';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('wowee! updated');
@@ -196,6 +196,7 @@ export function activate(context: vscode.ExtensionContext) {
 				const linePrefix = document.lineAt(position).text.substring(0, position.character);
 				if (linePrefix.endsWith('.') && 
 					(isSubPropCompletion(linePrefix)
+						|| (isMetatdataPropCompletion(linePrefix) && !commandTriggeredCompletion)
 						|| (isAddressSubPropCompletion(linePrefix) && !commandTriggeredCompletion)
 						|| (isCoordinatesSubPropCompletion(linePrefix) && !commandTriggeredCompletion))) {
 					// Triggered by a '.' character and not by a command

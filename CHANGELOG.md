@@ -9,6 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Things & Stuff
 
+## [0.5.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.5.0/vspackage) - 2024-11-21
+
+### ➕ Added
+- Code completion!
+  - functions, magic strings, props, etc. all get suggested as you work along with inline documentation
+- Signature Help Provider!
+  - When working with operators (functions) you'll be shown details about the function and parameters
+  - Supports nested operators
+- Hover Provider!
+  - Hovering over keywords, variables, constants, etc. will provide inline documentation along with example usage of all functions and guidance on properties and magic strings
+
+### 🔧 Changed
+
+- Removed support for extended Image Field subproperties (now just `fileName` as of 7/24)
+  - These will now show as an error as they can no longer be used
+
+### 🔨 Fixed
+
+- Horsescript configuration was being ignored in embedded scenarios
+  - fixes issue with inline expression bracket matching
+- `toDateString` wasn't properly highlighting. Now it is.
+
+
 ## [0.4.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.4.0/vspackage) - 2024-04-30
 
 ### ➕ Added

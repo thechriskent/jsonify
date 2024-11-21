@@ -1,8 +1,39 @@
 import * as vscode from 'vscode';
 import HTMLToSPFormat from './helpers/toFormat';
 import ITransformResult, { transformResultMessageToString } from './models/ITransformResult';
+import { findFunctionName, findParameterIndex, getCompletions, getSignatureInformation, getHoverCardForScope, isAddressSubPropCompletion, isCoordinatesSubPropCompletion, isMetatdataPropCompletion, isSubPropCompletion } from './helpers/Completions';
+import * as vsctm from 'vscode-textmate';
+import path from 'path';
+import * as fs from 'fs';
+import * as oniguruma from 'vscode-oniguruma';
 
-export function activate(context: vscode.ExtensionContext) {
+let grammar: vsctm.IGrammar | null = null;
+
+export async function activate(context: vscode.ExtensionContext) {
+	console.log('wowee! updated');
+
+	// Load the Oniguruma WASM module
+	const onigWasmPath = path.join(context.extensionPath, 'node_modules', 'vscode-oniguruma', 'release', 'onig.wasm');
+	const wasmBin = fs.readFileSync(onigWasmPath);
+	await oniguruma.loadWASM(wasmBin);
+
+	const vscodeOnigurumaLib = oniguruma.loadWASM(wasmBin).then(() => {
+		return {
+			createOnigScanner(patterns: string[]): oniguruma.OnigScanner { return new oniguruma.OnigScanner(patterns); },
+			createOnigString(s: string): oniguruma.OnigString { return new oniguruma.OnigString(s); }
+		};
+	});
+
+	const grammarPath = path.join(context.extensionPath, 'syntaxes', 'horsescript.tmLanguage.json');
+	const grammarContent = fs.readFileSync(grammarPath, 'utf8');
+	const registry = new vsctm.Registry({
+		onigLib: vscodeOnigurumaLib,
+		loadGrammar: () => Promise.resolve(vsctm.parseRawGrammar(grammarContent, grammarPath))
+	});
+
+	registry.loadGrammar('source.horsescript').then((loadedGrammar) => {
+		grammar = loadedGrammar;
+	});
 
 	const outputChannel = vscode.window.createOutputChannel('JSONify');
 
@@ -29,12 +60,12 @@ export function activate(context: vscode.ExtensionContext) {
 		try {
 			result = await HTMLToSPFormat(content);
 		} catch (error) {
-			if(typeof textEditor === 'undefined'){
+			if (typeof textEditor === 'undefined') {
 				vscode.window.showErrorMessage('Unable to covert to SP format 😢: ' + error);
 			}// else swallow the error and keep the current editor content
 		}
 		try {
-			if(typeof result !== "undefined" && typeof result.format !== "undefined" && result.format.length > 0) {
+			if (typeof result !== "undefined" && typeof result.format !== "undefined" && result.format.length > 0) {
 				outputChannel.clear();
 				result?.messages.forEach((message) => {
 					outputChannel.appendLine(transformResultMessageToString(message));
@@ -59,7 +90,7 @@ export function activate(context: vscode.ExtensionContext) {
 					return editor;
 				}
 			} else {
-				if(!errorShown){
+				if (!errorShown) {
 					vscode.window.showErrorMessage('Unable to format the content 😢');
 				}
 			}
@@ -80,11 +111,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// TEXT EDITOR CONTEXT MENU
 	// Resues editor windows with the formatted content when possible (1 per file)
-	const editorMap: { [key: string]: {editor: vscode.TextEditor, live: boolean }} = {};
+	const editorMap: { [key: string]: { editor: vscode.TextEditor, live: boolean } } = {};
 	const closeListener = vscode.workspace.onDidCloseTextDocument((doc) => {
 		const closedEditorId = doc.uri.toString();
 		//console.log('Closed editor: ' + closedEditorId);
-		if(closedEditorId in editorMap){
+		if (closedEditorId in editorMap) {
 			//This was a source editor, so remove it from the list
 			delete editorMap[closedEditorId];
 		} else {
@@ -92,21 +123,21 @@ export function activate(context: vscode.ExtensionContext) {
 			const sourceEditorIds: string[] = [];
 			Object.keys(editorMap).forEach((key) => {
 				const targetEditorid = editorMap[key].editor.document.uri.toString();
-				if(closedEditorId === targetEditorid){
+				if (closedEditorId === targetEditorid) {
 					sourceEditorIds.push(key);
 				}
 			});
 			sourceEditorIds.forEach((key) => {
 				delete editorMap[key];
 			});
-		
+
 		}
 	});
 
 	const changeListener: vscode.Disposable = vscode.workspace.onDidChangeTextDocument((event) => {
 		const sourceEditorId = event.document.uri.toString();
-		if(sourceEditorId in editorMap){
-			if(editorMap[sourceEditorId].live){
+		if (sourceEditorId in editorMap) {
+			if (editorMap[sourceEditorId].live) {
 				mapFormatEditorWindow(sourceEditorId, event.document.getText());
 			}
 		}
@@ -123,7 +154,7 @@ export function activate(context: vscode.ExtensionContext) {
 				const newEditor = await toFormatFull(content, targetEditor);
 				if (typeof newEditor !== 'undefined') {
 					// save the potentially updated reference
-					editorMap[sourceEditorId] = {editor: newEditor, live: targetEditorEntry.live};
+					editorMap[sourceEditorId] = { editor: newEditor, live: targetEditorEntry.live };
 				}
 			}
 		}
@@ -141,7 +172,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const comReg_toFormat_Editor = vscode.commands.registerTextEditorCommand('jsonify.toFormat_Editor', async (textEditor: vscode.TextEditor) => {
 		if (textEditor.document.languageId === 'svg' || textEditor.document.languageId === 'html'
-			|| textEditor.document.fileName.match(/\.(svg|htm|html)$/i)){
+			|| textEditor.document.fileName.match(/\.(svg|htm|html)$/i)) {
 			mapFormatEditorWindow(textEditor.document.uri.toString(), textEditor.document.getText());
 		} else {
 			vscode.window.showErrorMessage('This command only works with SVG and HTML files');
@@ -152,6 +183,139 @@ export function activate(context: vscode.ExtensionContext) {
 	// const virtualDocumentContents = new Map<string, string>();
 	// vscode.workspace.regis
 
+	// We can trigger suggestions (same as CTRL+Space)
+	// But we can't specify the trigger character, so we track when we call it
+	// This lets us respond to '.' triggers as well as auto triggering middle prop completions
+	// ie we can have @currentField. and when we pick Address, it will auto trigger the next level
+	//   but we can also have @currentField.Address and when we type '.' it will trigger the next level
+	let commandTriggeredCompletion = false;
+	const comReg_TriggerCompletion = vscode.commands.registerCommand('jsonify.triggerCompletion', async () => {
+		commandTriggeredCompletion = true;
+		vscode.commands.executeCommand('editor.action.triggerSuggest');
+	});
+
+	/**
+	 * Routes trigger completions (CTRL+Space) to the proper completion provider
+	 */
+	const completionItemDefaultProvider = vscode.languages.registerCompletionItemProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+			{ language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+				commandTriggeredCompletion = false;
+				return getCompletions(document, position, token, context);
+			}
+		}
+	);
+
+	/**
+	 * Routes '.' triggers to the proper completion provider
+	 */
+	const completionItemTriggerProvider = vscode.languages.registerCompletionItemProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+			{ language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+				const linePrefix = document.lineAt(position).text.substring(0, position.character);
+				if (linePrefix.endsWith('.') &&
+					(isSubPropCompletion(linePrefix)
+						|| (isMetatdataPropCompletion(linePrefix) && !commandTriggeredCompletion)
+						|| (isAddressSubPropCompletion(linePrefix) && !commandTriggeredCompletion)
+						|| (isCoordinatesSubPropCompletion(linePrefix) && !commandTriggeredCompletion))) {
+					// Triggered by a '.' character and not by a command
+					return getCompletions(document, position, token, context);
+				}
+			}
+		},
+		'.' // Trigger on '.' only
+	);
+
+
+	/**
+	 * Signature Help Provider (for function parameter hints)
+	 */
+	const signatureHelpProvider = vscode.languages.registerSignatureHelpProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+			{ language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext) {
+				const linePrefix = document.lineAt(position).text.substring(0, position.character);
+
+				const func = findFunctionName(linePrefix);
+				const paramIndex = findParameterIndex(linePrefix);
+				console.log('Function Name: ' + func);
+				console.log('Parameter Index: ' + paramIndex);
+
+				if (func.length > 0) {
+					const signatureInfo = getSignatureInformation(func);
+
+					if (typeof signatureInfo !== 'undefined') {
+						const signatureHelp = new vscode.SignatureHelp();
+						signatureHelp.signatures = [signatureInfo];
+						signatureHelp.activeSignature = 0;
+						signatureHelp.activeParameter = paramIndex;
+						return signatureHelp;
+					}
+				}
+
+			}
+		},
+		'(', // Trigger
+		',', // Trigger
+	);
+
+	const hoverProvider = vscode.languages.registerHoverProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+			{ language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideHover(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken) {
+				// const range = document.getWordRangeAtPosition(position, /@?\w+\b/);
+				// const word = document.getText(range);
+
+				// document.
+
+				// console.log('Hovering over: ' + word);
+				// const hover = new vscode.Hover('This is a hover for: ' + word);
+				// hover.range = range;
+				// return hover;
+				if (!grammar) {
+					return null;
+				}
+
+				const line = document.lineAt(position.line).text;
+				const lineTokens = grammar.tokenizeLine(line, null).tokens;
+
+				for (const token of lineTokens) {
+					if (token.startIndex <= position.character && token.endIndex >= position.character) {
+						for( const scope of token.scopes) {
+							const hoverCard = getHoverCardForScope(scope);
+							console.log(token, hoverCard);
+							if (hoverCard) {
+								const hover = new vscode.Hover(hoverCard);
+								hover.range = new vscode.Range(position.line, token.startIndex, position.line, token.endIndex);
+								return hover;
+							}
+						}
+					}
+				}
+
+				return null;
+			}
+		}
+	);
+
 
 	//Register the commands for proper disposal
 	context.subscriptions.push(comReg_toFormat_Explorer);
@@ -159,6 +323,13 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(closeListener);
 	context.subscriptions.push(changeListener);
 	context.subscriptions.push(outputChannel);
+
+	context.subscriptions.push(comReg_TriggerCompletion);
+	context.subscriptions.push(completionItemDefaultProvider);
+	context.subscriptions.push(completionItemTriggerProvider);
+
+	context.subscriptions.push(signatureHelpProvider);
+	//context.subscriptions.push(hoverProvider);
 }
 
-export function deactivate() {}
+export function deactivate() { }

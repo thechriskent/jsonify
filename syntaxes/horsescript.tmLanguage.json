@@ -67,6 +67,10 @@
           "name": "entity.name.function.sin.horsescript"
         },
         {
+          "match": "\\btoDateString(?=\\()\\b",
+          "name": "entity.name.function.todatestring.horsescript"
+        },
+        {
           "match": "\\btoLocaleString(?=\\()\\b",
           "name": "entity.name.function.tolocalestring.horsescript"
         },
@@ -319,6 +323,11 @@
           "name": "support.constant.person.title.horsescript"
         },
         {
+          "comment": "@currentField.id (person)",
+          "match": "(?<=@currentField\\.)id(?=\\W|$)",
+          "name": "support.constant.person.id.horsescript"
+        },
+        {
           "comment": "@currentField.email (person)",
           "match": "(?<=@currentField\\.)email(?=\\W|$)",
           "name": "support.constant.person.email.horsescript"
@@ -409,36 +418,6 @@
           "name": "support.constant.image.filename.horsescript"
         },
         {
-          "comment": "@currentField.serverRelativeUrl (image)",
-          "match": "(?<=@currentField\\.)serverRelativeUrl(?=\\W|$)",
-          "name": "support.constant.image.serverrelativeurl.horsescript"
-        },
-        {
-          "comment": "@currentField.serverUrl (image)",
-          "match": "(?<=@currentField\\.)serverUrl(?=\\W|$)",
-          "name": "support.constant.image.serverurl.horsescript"
-        },
-        {
-          "comment": "@currentField.thumbnailRenderer (image, only when paired with subprop)",
-          "match": "(?<=@currentField\\.)thumbnailRenderer(?=\\.)",
-          "name": "variable.language.image.thumbnailrenderer.horsescript"
-        },
-        {
-          "comment": "@currentField.thumbnailRenderer.spItemUrl (image)",
-          "match": "(?<=@currentField\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
-          "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
-        },
-        {
-          "comment": "@currentField.thumbnailRenderer.fileVersion (image)",
-          "match": "(?<=@currentField\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
-          "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
-        },
-        {
-          "comment": "@currentField.thumbnailRenderer.sponsorToken (image)",
-          "match": "(?<=@currentField\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
-          "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
-        },
-        {
           "comment": "@currentField.desc (hyperlink/picture)",
           "match": "(?<=@currentField\\.)desc(?=\\W|$)",
           "name": "support.constant.hyperlink.desc.horsescript"
@@ -452,11 +431,6 @@
           "comment": "@currentField.displayValue",
           "match": "(?<=@currentField\\.)displayValue(?=\\W|$)",
           "name": "support.constant.field.displayvalue.horsescript"
-        },
-        {
-          "comment": "@currentField.id (image, person)",
-          "match": "(?<=@currentField\\.)id(?=\\W|$)",
-          "name": "support.constant.field.id.horsescript"
         }
       ]
     },
@@ -657,6 +631,11 @@
           "name": "support.constant.person.title.horsescript"
         },
         {
+          "comment": "[$InternalFieldName.id] (person)",
+          "match": "id(?=\\W|$)",
+          "name": "support.constant.person.id.horsescript"
+        },
+        {
           "comment": "[$InternalFieldName.email] (person)",
           "match": "email(?=\\W|$)",
           "name": "support.constant.person.email.horsescript"
@@ -747,36 +726,6 @@
           "name": "support.constant.image.filename.horsescript"
         },
         {
-          "comment": "[$InternalFieldName.serverRelativeUrl] (image)",
-          "match": "serverRelativeUrl(?=\\W|$)",
-          "name": "support.constant.image.serverrelativeurl.horsescript"
-        },
-        {
-          "comment": "[$InternalFieldName.serverUrl] (image)",
-          "match": "serverUrl(?=\\W|$)",
-          "name": "support.constant.image.serverurl.horsescript"
-        },
-        {
-          "comment": "[$InternalFieldName.thumbnailRenderer.] (image, only when paired with subprop)",
-          "match": "thumbnailRenderer(?=\\.)",
-          "name": "variable.language.image.thumbnailrenderer.horsescript"
-        },
-        {
-          "comment": "[$InternalFieldName.thumbnailRenderer.spItemUrl] (image)",
-          "match": "(?<=\\.thumbnailRenderer\\.)spItemUrl(?=\\W|$)",
-          "name": "support.constant.image.thumbnailrenderer.spitemurl.horsescript"
-        },
-        {
-          "comment": "[$InternalFieldName.thumbnailRenderer.fileVersion] (image)",
-          "match": "(?<=\\.thumbnailRenderer\\.)fileVersion(?=\\W|$)",
-          "name": "support.constant.image.thumbnailrenderer.fileversion.horsescript"
-        },
-        {
-          "comment": "[$InternalFieldName.thumbnailRenderer.sponsorToken] (image)",
-          "match": "(?<=\\.thumbnailRenderer\\.)sponsorToken(?=\\W|$)",
-          "name": "support.constant.image.thumbnailrenderer.sponsortoken.horsescript"
-        },
-        {
           "comment": "[$InternalFieldName.desc] (hyperlink/picture)",
           "match": "desc(?=\\W|$)",
           "name": "support.constant.hyperlink.desc.horsescript"
@@ -790,11 +739,6 @@
           "comment": "[$InternalFieldName.displayValue]",
           "match": "displayValue(?=\\W|$)",
           "name": "support.constant.field.displayvalue.horsescript"
-        },
-        {
-          "comment": "[$InternalFieldName.id] (image, person)",
-          "match": "id(?=\\W|$)",
-          "name": "support.constant.field.id.horsescript"
         }
       ]
     },

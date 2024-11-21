@@ -2,7 +2,7 @@
   "name": "jsonify",
   "displayName": "jsonify",
   "description": "Converts SVG and HTML files to SharePoint List Formatting JSON",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -35,7 +35,9 @@
   "pricing": "Free",
   "license": "MIT",
   "publisher": "thechriskent",
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:json"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -112,7 +114,12 @@
       {
         "scopeName": "meta.embedded.source.json.horsescript",
         "path": "./syntaxes/horsescript-json.tmLanguage.json",
-        "injectTo": ["source.json"]
+        "injectTo": [
+          "source.json"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.source.json.horsescript": "horsescript"
+        }
       }
     ],
     "themes": [
@@ -154,6 +161,8 @@
   },
   "dependencies": {
     "css-tree": "2.3.1",
-    "node-html-parser": "^6.1.12"
+    "node-html-parser": "^6.1.12",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.1.0"
   }
 }

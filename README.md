@@ -2,7 +2,7 @@
 
 jsonify lets you instantly convert HTML and SVG files to [**Microsoft SharePoint List Formats**](https://aka.ms/spdocs-column-formatting). Right click on an SVG or HTML file and choose `Convert to SP List Format` and a new editor will open with a column format that draws your image. As you make changes to your original file, the format will continue to update. Wowee!
 
-jsonify also extends the definition of JSON to inject support for HorseScript syntax highlighting (list formatting expressions). This means your expressions get true syntax highlighting even when written as JSON properties. Additional Wowee!
+jsonify also extends the definition of JSON to inject support for HorseScript syntax highlighting (list formatting expressions). This means your expressions get true syntax highlighting even when written as JSON properties - and not just highlighting Jsonify adds completions, signature helpers, and hover cards all for inline expressions. Additional Wowee!
 
 ## Features
 
@@ -22,6 +22,9 @@ jsonify also extends the definition of JSON to inject support for HorseScript sy
 #### Details
 
 - Syntax highlighting of expressions
+- Hover provider (documentation and guidance)
+- Completion provider (intellisense)
+- Signature Helper (function guidance and parameter mapping)
 - Maps all supported attributes and styles
 - Automatically converts common SVG shape elements _(`rect`, `circle`, `ellipse`, `line`, `polyline`, and `polygon`)_ to paths
 - Collapses SVG element groups and other non-visual containers (ie `g`)
@@ -63,7 +66,7 @@ Toggle the setting on or off as desired.
 ## Known Issues
 
 - Linked style sheets are not evaluated
-- Horsescript definition provides syntax highlighting only, not autocomplete or error checking
+- Horsescript definition provides many advanced language features but does not yet provide error checking
 
 ## Release Notes
 

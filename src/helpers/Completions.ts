@@ -1,14 +1,10 @@
 import * as vscode from 'vscode';
 
-const subProps = ['title', 'email', 'sip', 'picture', 'department', 'jobTitle',
-    'LocationUri', 'lookupId', 'lookupValue',
-    'fileName', 'serverRelativeUrl', 'serverUrl', 'fileType',
-    'desc', 'numeric', 'displayValue', 'id'];
+
 const metadataProps = ['DisplayName'];
-const middleProps = ['Address', 'Coordinates', 'thumbnailRenderer'];
+const middleProps = ['Address', 'Coordinates'];
 const addressSubProps = ['City', 'CountryOrRegion', 'State', 'Street'];
 const coordinateSubProps = ['Latitude', 'Longitude'];
-const thumbnailRendererSubProps = ['spItemUrl', 'fileVersion', 'sponsorToken'];
 
 declare interface ICompletionDetail {
     value: string;
@@ -77,6 +73,28 @@ const functions: ICompletionDetail[] = [
     { value: 'getThumbnailImage', detail: 'Get thumbnail image URL', documentation: 'Returns a URL pointing to an image for a given image field and preferred size.\n\n=getThumbnailImage([$ImageField], 400, 200) results in a URL pointing to an image for a given image field with 400 width and 200 height' },
 ];
 
+const subProps: ICompletionDetail[] = [
+    { value: 'title', detail: 'Person\'s name', documentation: 'Person\'s name by default. However, if the person field\'s Show Field has been adjusted, it may change the value of the title property. For example, a person field with the Show Field configured as Department will have the person\'s department for the title property.' },
+    { value: 'id', detail: 'Person\'s ID', documentation: 'The ID of the person.' },
+    { value: 'email', detail: 'Person\'s email address', documentation: 'The email address of the person.' },
+    { value: 'sip', detail: 'Person\'s SIP', documentation: 'The SIP address of the person.' },
+    { value: 'picture', detail: 'Person\'s picture URL', documentation: 'The URL of the person\'s profile picture.' },
+    { value: 'department', detail: 'Person\'s department', documentation: 'The department of the person.' },
+    { value: 'jobTitle', detail: 'Person\'s job title', documentation: 'The job title of the person.' },
+
+    { value: 'LocationUri', detail: 'Location URI', documentation: 'The location URI.' },
+    { value: 'DisplayName', detail: 'Location display name', documentation: 'The display name of the location.' },
+
+    { value: 'lookupId', detail: 'Lookup ID', documentation: 'The ID of the referenced item.' },
+    { value: 'lookupValue', detail: 'Lookup value', documentation: 'The value of the referenced item.' },
+
+    { value: 'fileName', detail: 'Image file name', documentation: 'The name of the image file.' },
+
+    { value: 'desc', detail: 'Hyperlink description', documentation: 'The display value of a hyperlink field' },
+    { value: 'numeric', detail: 'Numeric approval value', documentation: 'The numeric value of a moderation status field.\n\n0: Approved\n1: Denied\n2: Pending\n3: Draft\n4: Scheduled' },
+    { value: 'displayValue', detail: 'Display value', documentation: 'The display value of the item.' },
+];
+
 const getCompletionFunctions = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     functions.forEach((func) => {
@@ -104,7 +122,10 @@ const getCompletionMagicStrings = (linePrefix: string): vscode.CompletionItem[] 
 const getCompletionSubProps = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     subProps.forEach((prop) => {
-        items.push(new vscode.CompletionItem(prop, vscode.CompletionItemKind.Variable));
+        const item = new vscode.CompletionItem(prop.value, vscode.CompletionItemKind.Variable);
+        item.detail = prop.detail;
+        item.documentation = prop.documentation;
+        items.push(item);
     });
     return items;
 };
@@ -136,36 +157,22 @@ const getCompletionCoordinateSubProps = (): vscode.CompletionItem[] => {
     return items;
 };
 
-const getCompletionThumbnailRendererSubProps = (): vscode.CompletionItem[] => {
-    const items: vscode.CompletionItem[] = [];
-    thumbnailRendererSubProps.forEach((prop) => {
-        items.push(new vscode.CompletionItem(prop, vscode.CompletionItemKind.Variable));
-    });
-    return items;
-};
-
-const isSubPropCompletion = (linePrefix: string): boolean => {
+export const isSubPropCompletion = (linePrefix: string): boolean => {
     // Right after a . for a subProp for @currentField or a Field Name
     // Matches either @currentField. or [$FieldName.
     return /(@currentField\.$)|(\[\$[^~#%&*{}\:<>?/+|\",.\]]+\.$)/.test(linePrefix);
 };
 
-const isAddressSubPropCompletion = (linePrefix: string): boolean => {
+export const isAddressSubPropCompletion = (linePrefix: string): boolean => {
     // Right after the middle prop Address
     // Matches either @currentField.Address. or [$FieldName.Address.
     return /(@currentField\.Address\.$)|(\[\$[^~#%&*{}\:<>?/+|\",.\]]+\.Address\.$)/.test(linePrefix);
 };
 
-const isCoordinatesSubPropCompletion = (linePrefix: string): boolean => {
+export const isCoordinatesSubPropCompletion = (linePrefix: string): boolean => {
     // Right after the middle prop Coordinates
     // Matches either @currentField.Coordinates. or [$FieldName.Coordinates.
     return /(@currentField\.Coordinates\.$)|(\[\$[^~#%&*{}\:<>?/+|\",.\]]+\.Coordinates\.$)/.test(linePrefix);
-};
-
-const isThumbnailRendererSubPropCompletion = (linePrefix: string): boolean => {
-    // Right after the middle prop thumbnailRenderer
-    // Matches either @currentField.thumbnailRenderer. or [$FieldName.thumbnailRenderer.
-    return /(@currentField\.thumbnailRenderer\.$)|(\[\$[^~#%&*{}\:<>?/+|\",.\]]+\.thumbnailRenderer\.$)/.test(linePrefix);
 };
 
 export const getCompletions = (document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] | undefined => {
@@ -195,8 +202,6 @@ export const getCompletions = (document: vscode.TextDocument, position: vscode.P
         items.push(...getCompletionAddressSubProps());
     } else if (isCoordinatesSubPropCompletion(linePrefix)) {
         items.push(...getCompletionCoordinateSubProps());
-    } else if (isThumbnailRendererSubPropCompletion(linePrefix)) {
-        items.push(...getCompletionThumbnailRendererSubProps());
     } else {
         items.push(...getCompletionMagicStrings(linePrefix));
         items.push(...getCompletionFunctions());

@@ -114,7 +114,9 @@
       {
         "scopeName": "meta.embedded.source.json.horsescript",
         "path": "./syntaxes/horsescript-json.tmLanguage.json",
-        "injectTo": ["source.json"],
+        "injectTo": [
+          "source.json"
+        ],
         "embeddedLanguages": {
           "meta.embedded.source.json.horsescript": "horsescript"
         }
@@ -159,6 +161,8 @@
   },
   "dependencies": {
     "css-tree": "2.3.1",
-    "node-html-parser": "^6.1.12"
+    "node-html-parser": "^6.1.12",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.1.0"
   }
 }

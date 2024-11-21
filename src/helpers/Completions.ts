@@ -1,21 +1,89 @@
 import * as vscode from 'vscode';
 
-const functions = ['toString', 'Number', 'Date'];
-const magicStrings = ['@currentField', '@currentWeb', '@me'];
 const subProps = ['title', 'email', 'sip', 'picture', 'department', 'jobTitle',
-    'DisplayName', 'LocationUri', 'lookupId', 'lookupValue',
+    'LocationUri', 'lookupId', 'lookupValue',
     'fileName', 'serverRelativeUrl', 'serverUrl', 'fileType',
     'desc', 'numeric', 'displayValue', 'id'];
+const metadataProps = ['DisplayName'];
 const middleProps = ['Address', 'Coordinates', 'thumbnailRenderer'];
 const addressSubProps = ['City', 'CountryOrRegion', 'State', 'Street'];
 const coordinateSubProps = ['Latitude', 'Longitude'];
 const thumbnailRendererSubProps = ['spItemUrl', 'fileVersion', 'sponsorToken'];
 
+declare interface ICompletionDetail {
+    value: string;
+    detail?: string;
+    documentation?: string;
+}
+
+const magicStrings: ICompletionDetail[] = [
+    { value: '@currentField', detail: 'Current field value', documentation: "This will be replaced with the value of the current field.\n\nSome field types are represented as objects. To output a value from an object, refer to a particular property inside that object. For example, if the current field is a person/group field, specify @currentField.title to retrieve the person's name, which is normally displayed in list views." },
+    { value: '@currentWeb', detail: 'URL for site', documentation: 'This will be replaced with the absolute URL for the site. This is equivalent to the webAbsoluteUrl value within the page context. This value is only available in SharePoint Online.' },
+    { value: '@me', detail: "Current user's email", documentation: 'This will be replaced with the email address of the currently logged-in user.' },
+    { value: '@now', detail: 'Date/time at render', documentation: 'This will be replaced with the current date and time (at render).' },
+    { value: '@rowIndex', detail: 'Rendered row number', documentation: 'This will be replaced with the rendered index of a row within a view. This value is based on render position and will remain consistent based on position even as views are sorted and filtered. Indexes start at 0. This value is only available in SharePoint Online.' },
+    { value: '@window.innerHeight', detail: 'Height of the window', documentation: 'This will be replaced with the height of the browser window in pixels (at render).' },
+    { value: '@window.innerWidth', detail: 'Width of the window', documentation: 'This will be replaced with the width of the browser window in pixels (at render).' },
+    { value: '@thumbnail.small', detail: 'Small thumbnail URL', documentation: 'This will be replaced with a URL to a small thumbnail image. You can also specify a bounding size like @thumbnail.100 or @thumbnail.100x200. No value on non-file items including folders.' },
+    { value: '@thumbnail.medium', detail: 'Medium thumbnail URL', documentation: 'This will be replaced with a URL to a medium thumbnail image. You can also specify a bounding size like @thumbnail.100 or @thumbnail.100x200. No value on non-file items including folders.' },
+    { value: '@thumbnail.large', detail: 'Large thumbnail URL', documentation: 'This will be replaced with a URL to a large thumbnail image. You can also specify a bounding size like @thumbnail.100 or @thumbnail.100x200. No value on non-file items including folders.' },
+    { value: '@isSelected', detail: 'Is selected', documentation: 'This will be replaced with true for the selected item(s) in a view and false if not.' },
+    { value: '@lcid', detail: 'LCID of the current culture', documentation: 'This will be replaced with the LCID of the current culture. This can be used to format the date, time, and numbers.' },
+    { value: '@UIlcid', detail: 'LCID of the current UI culture', documentation: 'This will be replaced with the LCID of the current UI culture. This can be used to show localized display strings.' },
+];
+
+const functions: ICompletionDetail[] = [
+    // Unary operators
+    { value: 'toString', detail: 'Convert to string', documentation: 'Returns a string representing the object.\n\n=toString(45) results in "45"' },
+    { value: 'Number', detail: 'Convert to number', documentation: 'Returns the numeric value, if the operand is not a number, NaN is returned.\n\n=Number(\'365\') results in 365\n=Number(\'Wowee\') results in NaN\n=Number(Date(\'12/26/1981\')) results in 378190800000' },
+    { value: 'Date', detail: 'Convert to date/time', documentation: 'Returns a datetime object (converts strings or numbers to dates, sensitive to locale)\n\n=Date(\'12/26/1981\') results in 12/26/1981, 12:00:00 AM' },
+    { value: 'cos', detail: 'Cosine', documentation: 'Returns the cosine of the specified angle that should be specified in radians\n\n=cos(5) results in 0.28366218546322625' },
+    { value: 'sin', detail: 'Sine', documentation: 'Returns the sine of a number\n\n=sin(90) results in 0.8939966636005579' },
+    { value: 'toDateString', detail: 'Date to string', documentation: 'Returns a date in a short-friendly format\n\n=toDateString(@now) result doesn\'t vary based on the user\'s locale and it will look like "Wed Aug 03 2022"' },
+    { value: 'toLocaleString', detail: 'Date to string (localized)', documentation: 'Returns a language-sensitive representation of a date\n\n=toLocaleString(@now) results vary based on the user\'s locale, but en-us looks like "2/5/2019, 1:22:24 PM"' },
+    { value: 'toLocaleDateString', detail: 'Date to string (date only)', documentation: 'Returns a language-sensitive representation of just the date portion of a date\n\n=toLocaleDateString(@now) results vary based on the user\'s locale, but en-us looks like "2/5/2019"' },
+    { value: 'toLocaleTimeString', detail: 'Date to string (time only)', documentation: 'Returns a language-sensitive representation of just the time portion of a date\n\n=toLocaleTimeString(@now) results vary based on the user\'s locale, but en-us looks like "1:22:24 PM"' },
+    { value: 'toLowerCase', detail: 'Convert to lower case', documentation: 'Returns the value converted to lower case (only works on strings)\n\n=toLowerCase(\'DogFood\') results in "dogfood"' },
+    { value: 'abs', detail: 'Absolute value', documentation: 'Returns the absolute value for a given number\n\n=abs(-45) results in 45' },
+    { value: 'length', detail: 'Length of an array', documentation: 'Returns the number of items in an array (multi-select person or choice field), for all other value types it returns 1 when true and 0 when false. It does NOT provide the length of a string value.\n\n=length(@currentField) might result in 2 if there are two selected values\n=length(\'Some Text\') results in 1\n=length(\'\') results in 0\n=length(45) results in 1\n=length(0) results in 0' },
+    { value: 'floor', detail: 'Round down', documentation: 'Returns the largest integer less than or equal to a given number\n\n=floor(45.5) results in 45' },
+    { value: 'ceiling', detail: 'Round up', documentation: 'Rounds the given number up to the next largest whole number or integer\n\n=ceiling(45.5) results in 46' },
+    { value: 'getDate', detail: 'Get day of month', documentation: 'Returns the day of the month of the given date\n\n=getDate(Date(\'12/26/1981\')) results in 26' },
+    { value: 'getMonth', detail: 'Get month', documentation: 'Returns the month in the specified date according to local time, as a zero-based value (where zero indicates the first month of the year)\n\n=getMonth(Date(\'12/26/1981\')) results in 11' },
+    { value: 'getYear', detail: 'Get year', documentation: 'Returns the year of the given date\n\n=getYear(Date(\'12/26/1981\')) results in 1981' },
+    { value: 'toUpperCase', detail: 'Convert to upper case', documentation: 'Returns the value converted to upper case (only works on strings)\n\n=toUpperCase(\'DogFood\') results in "DOGFOOD"' },
+    { value: 'loopIndex', detail: 'Current index of a loop', documentation: 'Returns the current index of the given loop. Indexes start at 0.\n\n=loopIndex(\'choiceIterator\') could result in 0' },
+
+    // Binary operators
+    { value: 'indexOf', detail: 'Find index of', documentation: 'Returns the index value of the first occurrence of the search term within the string (or array). Indexes start at 0. If the search term isn\'t found within the text (or array), -1 is returned. This operator is case-sensitive.\n\n=indexOf(\'DogFood\', \'Dog\') results in 0\n=indexOf(\'DogFood\', \'F\') results in 3\n=indexOf(\'DogFood\', \'Cat\') results in -1\n=indexOf(\'DogFood\', \'f\') results in -1' },
+    { value: 'join', detail: 'Join array', documentation: 'Returns a string concatenation of the array values separated by the separating string.\n\n=join(@currentField, \', \') might result in "Apple, Orange, Cherry" (depending on the selected values)\n=join(@currentField.title, \'|\') might result in "Megan Bowen|Alex Wilber" (depending on the selected persons)' },
+    { value: 'pow', detail: 'Raise to power', documentation: 'Returns the base to the exponent power.\n\n=pow(2,3) results in 8' },
+    { value: 'lastIndexOf', detail: 'Find last index of', documentation: 'Returns the position of the last occurrence of a specified value in a string (or array)\n\n=lastIndexOf(\'DogFood DogFood\', \'Dog\') results in 8\n=lastIndexOf(\'DogFood DogFood\', \'F\') results in 11\n=lastIndexOf(\'DogFood DogFood\', \'Cat\') results in -1\n=lastIndexOf(\'DogFood DogFood\', \'f\') results in -1' },
+    { value: 'startsWith', detail: 'Starts with', documentation: 'Determines whether a string begins with the characters of a specified string\n\n=startsWith(\'DogFood\', \'Dog\') results in true\n=startsWith(\'DogFood\', \'Food\') results in false' },
+    { value: 'endsWith', detail: 'Ends with', documentation: 'Determines whether a string ends with the characters of a specified string\n\n=endsWith(\'DogFood\', \'Dog\') results in false\n=endsWith(\'DogFood\', \'Food\') results in true' },
+    { value: 'getUserImage', detail: 'Get user image', documentation: 'Returns a URL pointing to a user\'s profile image for a given email and preferred size\n\n=getUserImage(\'kaylat@contoso.com\', \'small\') returns a URL pointing to user\'s profile picture in small resolution\n==getUserImage(\'kaylat@contoso.com\', \'s\') returns a URL pointing to user\'s profile picture in small resolution\n=getUserImage(\'kaylat@contoso.com\', \'medium\') returns a URL pointing to user\'s profile picture in medium resolution\n=getUserImage(\'kaylat@contoso.com\', \'m\') returns a URL pointing to user\'s profile picture in medium resolution\n=getUserImage(\'kaylat@contoso.com\', \'large\') returns a URL pointing to user\'s profile picture in large resolution\n=getUserImage(\'kaylat@contoso.com\', \'l\') returns a URL pointing to user\'s profile picture in large resolution' },
+    { value: 'appendTo', detail: 'Append to array', documentation: 'Returns an array with the given entry appended to the given array.\n\n=appendTo(@currentField, \'Choice 4\') returns an array with "Choice 4" added to the @currentField array\n=appendTo(@currentField, \'kaylat@contoso.com\') returns an array with "kaylat@contoso.com" added to the @currentField array' },
+    { value: 'removeFrom', detail: 'Remove from array', documentation: 'Returns an array with the given entry removed from the given array, if present.\n\n=removeFrom(@currentField, \'Choice 4\') returns an array with "Choice 4" removed from the @currentField array\n=removeFrom(@currentField, \'kaylat@contoso.com\') returns an array with "kaylat@contoso.com" removed from the @currentField array' },
+    { value: 'split', detail: 'Split string', documentation: 'Divides the given string into an ordered list of substrings by searching for the given pattern, and returns an array of these substrings.\n\n=split(\'Hello World\', \' \') returns an array with two strings - "Hello" and "World"' },
+    { value: 'addDays', detail: 'Add days to date', documentation: 'Returns a datetime object with days added (or deducted) from the given datetime value.\n\n=addDays(Date(\'11/14/2021\'), 3) returns 11/17/2021, 12:00:00 AM\n=addDays(Date(\'11/14/2021\'), -1) returns a 11/13/2021, 12:00:00 AM' },
+
+    //Ternary operators
+    { value: 'addMinutes', detail: 'Add minutes to date', documentation: 'Returns a datetime object with minutes added (or deducted) from the given datetime value.\n\n=addMinutes(Date(\'11/14/2021\'), 3) returns 11/14/2021, 12:03:00 AM\n=addMinutes(Date(\'11/14/2021\'), -1) returns a 11/13/2021, 11:59:00 AM' },
+    { value: 'substring', detail: 'Substring of a string', documentation: 'Returns the part of the string between the start and end indices. Only available in SharePoint Online.\n\n=substring(\'DogFood\', 3, 4) results in F\n=substring(\'DogFood\', 4, 3) results in F\n=substring(\'DogFood\', 3, 6) results in Foo\n=substring(\'DogFood\', 6, 3) results in Foo\n\nThe substring() method returns the part of the string between the start and end indexes or to the end of the string.' },
+    { value: 'replace', detail: 'Replace string value', documentation: 'Searches a string (or array) for a specified value and returns a new string (or array) where the specified value is replaced. For strings, only the first instance of the value will be replaced.\n\n=replace(\'Hello world\', \'world\', \'everyone\') results in Hello everyone\n=replace([$MultiChoiceField], \'Choice 1\', \'Choice 2\') returns an array replacing "Choice 1" with "Choice 2"\n=replace([$MultiUserField], @me, \'kaylat@contoso.com\') returns an array replacing @me with "kaylat@contoso.com"' },
+    { value: 'replaceAll', detail: 'Replace all', documentation: 'Searches a string for a specified value and returns a new string (or array) where the specified value is replaced. For strings, all instances of the value will be replaced.\n\n=replaceAll(\'H-e-l-l-o W-o-r-l-d\', \'-\', \'\') results in "Hello World"' },
+    { value: 'padStart', detail: 'Pad the start of a string', documentation: 'Pads the current string with another string until the resulting string reaches the given length. The padding is applied from the start of the current string.\n\n=padStart(\'DogFood\', 10, \'A\') results in "AAADogFood"\n=padStart(\'DogFood\', 10, \'AB\') results in "ABADogFood"\n=padStart(\'DogFood\', 5, \'A\') results in "DogFood"' },
+    { value: 'padEnd', detail: 'Pad string from end', documentation: 'Pads the current string with a given string until the resulting string reaches the given length. The padding is applied from the end of the current string.\n\n=padEnd(\'DogFood\', 10, \'A\') results in "DogFoodAAA"\n=padEnd(\'DogFood\', 10, \'AB\') results in "DogFoodABA"\n=padEnd(\'DogFood\', 5, \'A\') results in "DogFood"' },
+    { value: 'getThumbnailImage', detail: 'Get thumbnail image URL', documentation: 'Returns a URL pointing to an image for a given image field and preferred size.\n\n=getThumbnailImage([$ImageField], 400, 200) results in a URL pointing to an image for a given image field with 400 width and 200 height' },
+];
+
 const getCompletionFunctions = (): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     functions.forEach((func) => {
-        const item = new vscode.CompletionItem(func, vscode.CompletionItemKind.Function);
-        item.insertText = new vscode.SnippetString(`${func}($1)`);
+        const item = new vscode.CompletionItem(func.value, vscode.CompletionItemKind.Function);
+        item.insertText = new vscode.SnippetString(`${func.value}($1)`);
+        item.detail = func.detail;
+        item.documentation = func.documentation;
         items.push(item);
     });
     return items;
@@ -24,8 +92,10 @@ const getCompletionFunctions = (): vscode.CompletionItem[] => {
 const getCompletionMagicStrings = (linePrefix: string): vscode.CompletionItem[] => {
     const items: vscode.CompletionItem[] = [];
     magicStrings.forEach((magic) => {
-        const item = new vscode.CompletionItem(magic, vscode.CompletionItemKind.Keyword);
-        item.insertText = linePrefix.endsWith('@') ? magic.slice(1) : magic;
+        const item = new vscode.CompletionItem(magic.value, vscode.CompletionItemKind.Keyword);
+        item.insertText = linePrefix.endsWith('@') ? magic.value.slice(1) : magic.value;
+        item.detail = magic.detail;
+        item.documentation = magic.documentation;
         items.push(item);
     });
     return items;
@@ -111,7 +181,7 @@ export const getCompletions = (document: vscode.TextDocument, position: vscode.P
     // console.log('isEmbeddedHorseScriptInJson: ' + isEmbeddedHorseScriptInJson);
     // console.log('isStandaloneHorseScript: ' + isStandaloneHorseScript);
     // console.log('-----------------');
-    
+
     if (!isEmbeddedHorseScriptInJson && !isStandaloneHorseScript) {
         return;
     }
@@ -131,6 +201,6 @@ export const getCompletions = (document: vscode.TextDocument, position: vscode.P
         items.push(...getCompletionMagicStrings(linePrefix));
         items.push(...getCompletionFunctions());
     }
-    
+
     return items;
 };

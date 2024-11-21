@@ -1,0 +1,3 @@
+{
+    "donkey": "=@currentField + padEnd(@currentField, 5, )"
+}

@@ -33,7 +33,7 @@ padStart(@currentField,10,'A'), padStart('Wonkers', 100, '!')
 padEnd(@currentField,10,'A'), padEnd('Wonkers', 100, '!')
 getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,100) 'Yes' 'No' 'Uh, I guess Yes?', 'Nope'
 
-@currentField.title, @currentField.email, @currentField.sip
+@currentField.title, @currentField.email, @currentField.sip, @currentField.id
 @currentField.picture, @currentField.department, @currentField.jobTitle
 
 @currentField.DisplayName, @currentField.LocationUri
@@ -42,10 +42,9 @@ getThumbnailImage([$ImageField], 400, 200), getThumbnailImage(@currentField,100,
 
 @currentField.lookupId, @currentField.lookupValue
 
-@currentField.fileName, @currentField.serverRelativeUrl, @currentField.serverUrl
-@currentField.thumbnailRenderer.spItemUrl, @currentField.thumbnailRenderer.fileVersion, @currentField.thumbnailRenderer.sponsorToken
+@currentField.fileName
 
-@currentField.id, @currentField.displayValue
+@currentField.displayValue
 @currentField.desc, @currentField.numeric
 
 @currentWeb, @me, @now, @rowIndex,

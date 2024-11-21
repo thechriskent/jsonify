@@ -1,8 +1,10 @@
 import * as vscode from 'vscode';
 import HTMLToSPFormat from './helpers/toFormat';
 import ITransformResult, { transformResultMessageToString } from './models/ITransformResult';
+import { getCompletions } from './helpers/Completions';
 
 export function activate(context: vscode.ExtensionContext) {
+	console.log('wowee! updated');
 
 	const outputChannel = vscode.window.createOutputChannel('JSONify');
 
@@ -152,6 +154,55 @@ export function activate(context: vscode.ExtensionContext) {
 	// const virtualDocumentContents = new Map<string, string>();
 	// vscode.workspace.regis
 
+	// We can trigger suggestions (same as CTRL+Space)
+	// But we can't specify the trigger character, so we track when we call it
+	// This lets us respond to '.' triggers as well as auto triggering middle prop completions
+	// ie we can have @currentField. and when we pick Address, it will auto trigger the next level
+	//   but we can also have @currentField.Address and when we type '.' it will trigger the next level
+	let commandTriggeredCompletion = false;
+	const comReg_TriggerCompletion = vscode.commands.registerCommand('jsonify.triggerCompletion', async () => {
+		commandTriggeredCompletion = true;
+		vscode.commands.executeCommand('editor.action.triggerSuggest');
+	});
+
+	/**
+	 * Routes trigger completions (CTRL+Space) to the proper completion provider
+	 */
+	const completionItemDefaultProvider = vscode.languages.registerCompletionItemProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+            { language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+				commandTriggeredCompletion = false;
+				return getCompletions(document, position, token, context);
+			}
+		}
+	);
+
+	/**
+	 * Routes '.' triggers to the proper completion provider
+	 */
+	const completionItemTriggerProvider = vscode.languages.registerCompletionItemProvider(
+		[
+			{ language: 'horsescript' },
+			{ language: 'json', scheme: 'file' }, // Ensure it works within JSON files
+            { language: 'json', scheme: 'untitled' } // Ensure it works within untitled JSON files
+		],
+		{
+			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+				const linePrefix = document.lineAt(position).text.substring(0, position.character);
+				if (linePrefix.endsWith('.') && !commandTriggeredCompletion) {
+					// Triggered by a '.' character and not by a command
+					return getCompletions(document, position, token, context);
+				}
+			}
+		},
+		'.' // Trigger on '.' only
+	);
+
 
 	//Register the commands for proper disposal
 	context.subscriptions.push(comReg_toFormat_Explorer);
@@ -159,6 +210,10 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(closeListener);
 	context.subscriptions.push(changeListener);
 	context.subscriptions.push(outputChannel);
+
+	context.subscriptions.push(comReg_TriggerCompletion);
+	context.subscriptions.push(completionItemDefaultProvider);
+	context.subscriptions.push(completionItemTriggerProvider);
 }
 
 export function deactivate() {}

@@ -35,7 +35,9 @@
   "pricing": "Free",
   "license": "MIT",
   "publisher": "thechriskent",
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:json"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [

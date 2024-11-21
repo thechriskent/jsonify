@@ -67,6 +67,10 @@
           "name": "entity.name.function.sin.horsescript"
         },
         {
+          "match": "\\btoDateString(?=\\()\\b",
+          "name": "entity.name.function.todatestring.horsescript"
+        },
+        {
           "match": "\\btoLocaleString(?=\\()\\b",
           "name": "entity.name.function.tolocalestring.horsescript"
         },

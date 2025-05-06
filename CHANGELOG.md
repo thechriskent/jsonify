@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Things & Stuff
 
+## [1.0.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/1.0.0/vspackage) - 2025-05-06
+
+
+### 🔨 Fixed
+
+- Invalid onig.wasm loading preventing extension from registering commands properly at times
+- Issue preventing hover cards from showing sometimes
+
+
 ## [0.5.0](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/theChrisKent/vsextensions/jsonify/0.5.0/vspackage) - 2024-11-21
 
 ### ➕ Added

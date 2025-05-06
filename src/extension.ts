@@ -10,10 +10,12 @@ import * as oniguruma from 'vscode-oniguruma';
 let grammar: vsctm.IGrammar | null = null;
 
 export async function activate(context: vscode.ExtensionContext) {
-	console.log('wowee! updated');
+	console.log('wowee!');
 
 	// Load the Oniguruma WASM module
-	const onigWasmPath = path.join(context.extensionPath, 'node_modules', 'vscode-oniguruma', 'release', 'onig.wasm');
+	//const onigWasmPath = path.join(context.extensionPath, 'node_modules', 'vscode-oniguruma', 'release', 'onig.wasm');
+	const onigWasmPath = path.join(context.extensionPath, 'dist', 'onig.wasm');
+	console.log('Loading Oniguruma WASM from: ' + onigWasmPath);
 	const wasmBin = fs.readFileSync(onigWasmPath);
 	await oniguruma.loadWASM(wasmBin);
 
@@ -31,9 +33,14 @@ export async function activate(context: vscode.ExtensionContext) {
 		loadGrammar: () => Promise.resolve(vsctm.parseRawGrammar(grammarContent, grammarPath))
 	});
 
-	registry.loadGrammar('source.horsescript').then((loadedGrammar) => {
-		grammar = loadedGrammar;
-	});
+	registry.loadGrammar('source.horsescript')
+		.then((loadedGrammar) => {
+			grammar = loadedGrammar;
+		})
+		.catch((error) => {
+			vscode.window.showErrorMessage('Failed to load grammar: ' + error);
+			console.error('Failed to load grammar:', error);
+		});
 
 	const outputChannel = vscode.window.createOutputChannel('JSONify');
 
@@ -281,12 +288,12 @@ export async function activate(context: vscode.ExtensionContext) {
 		],
 		{
 			provideHover(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken) {
-				// const range = document.getWordRangeAtPosition(position, /@?\w+\b/);
-				// const word = document.getText(range);
+				//const range = document.getWordRangeAtPosition(position, /@?\w+\b/);
+				//const word = document.getText(range);
 
 				// document.
 
-				// console.log('Hovering over: ' + word);
+				//console.log('Hovering over: ' + word);
 				// const hover = new vscode.Hover('This is a hover for: ' + word);
 				// hover.range = range;
 				// return hover;
@@ -301,7 +308,7 @@ export async function activate(context: vscode.ExtensionContext) {
 					if (token.startIndex <= position.character && token.endIndex >= position.character) {
 						for( const scope of token.scopes) {
 							const hoverCard = getHoverCardForScope(scope);
-							console.log(token, hoverCard);
+							//console.log(token, hoverCard);
 							if (hoverCard) {
 								const hover = new vscode.Hover(hoverCard);
 								hover.range = new vscode.Range(position.line, token.startIndex, position.line, token.endIndex);
@@ -329,7 +336,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(completionItemTriggerProvider);
 
 	context.subscriptions.push(signatureHelpProvider);
-	//context.subscriptions.push(hoverProvider);
+	context.subscriptions.push(hoverProvider);
 }
 
 export function deactivate() { }

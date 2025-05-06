@@ -2,7 +2,7 @@
   "name": "jsonify",
   "displayName": "jsonify",
   "description": "Converts SVG and HTML files to SharePoint List Formatting JSON",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "engines": {
     "vscode": "^1.85.0"
   },

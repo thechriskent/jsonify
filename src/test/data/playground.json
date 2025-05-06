@@ -1,3 +1,7 @@
 {
-    "txtContent": "=@currentField"
+    "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+    "txtContent": "=@currentField",
+    "attributes": {
+        "iconName": "=if(@currentField == 'Yes', 'CheckMark', if(@currentField == 'No', 'Cancel', if(@currentField == 'Maybe', 'Help', 'Unknown'))) + split('dog', 'cat')",
+    }
 }

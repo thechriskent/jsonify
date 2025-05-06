@@ -10,10 +10,12 @@ import * as oniguruma from 'vscode-oniguruma';
 let grammar: vsctm.IGrammar | null = null;
 
 export async function activate(context: vscode.ExtensionContext) {
-	console.log('wowee! updated');
+	console.log('wowee!');
 
 	// Load the Oniguruma WASM module
-	const onigWasmPath = path.join(context.extensionPath, 'node_modules', 'vscode-oniguruma', 'release', 'onig.wasm');
+	//const onigWasmPath = path.join(context.extensionPath, 'node_modules', 'vscode-oniguruma', 'release', 'onig.wasm');
+	const onigWasmPath = path.join(context.extensionPath, 'dist', 'onig.wasm');
+	console.log('Loading Oniguruma WASM from: ' + onigWasmPath);
 	const wasmBin = fs.readFileSync(onigWasmPath);
 	await oniguruma.loadWASM(wasmBin);
 

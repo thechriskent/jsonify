@@ -2,11 +2,11 @@
   "name": "jsonify",
   "displayName": "jsonify",
   "description": "Converts SVG and HTML files to SharePoint List Formatting JSON",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.85.0"
   },
-  "preview": true,
+  "preview": false,
   "categories": [
     "Formatters"
   ],
@@ -152,6 +152,7 @@
     "@typescript-eslint/parser": "^6.19.1",
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.9",
+    "copy-webpack-plugin": "^13.0.0",
     "eslint": "^8.56.0",
     "shx": "^0.3.4",
     "ts-loader": "^9.5.1",

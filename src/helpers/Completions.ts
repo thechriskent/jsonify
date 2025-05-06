@@ -60,7 +60,7 @@ const functions: ICompletionDetail[] = [
     { value: 'sin', detail: 'Sine', documentation: "Returns the sine of a number\n\n```horsescript\n=sin(90) 'results in 0.8939966636005579'\n```",
         parameters: [{ label: 'Value', documentation: 'The angle in radians' }],
         scope: 'entity.name.function.sin.horsescript' },
-    { value: 'toDateString', detail: 'Date to string', documentation: "Returns a date in a short-friendly format\n\n```horsescript\n=toDateString(@now) 'result doesn't vary based on the user locale and it will look like \"Wed Aug 03 2022\"'\n```",
+    { value: 'toDateString', detail: 'Date to string', documentation: "Returns a date in a short-friendly format\n\n```horsescript\n=toDateString(@now) 'result does not vary based on the user locale and it will look like \"Wed Aug 03 2022\"'\n```",
         parameters: [{ label: 'Value', documentation: 'The date to convert to a string' }],
         scope: 'entity.name.function.todatetostring.horsescript' },
     { value: 'toLocaleString', detail: 'Date to string (localized)', documentation: "Returns a language-sensitive representation of a date\n\n```horsescript\n=toLocaleString(@now) 'results vary based on the user locale, but en-us looks like \"2/5/2019, 1:22:24 PM\"'\n```",
